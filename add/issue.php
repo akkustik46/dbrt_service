@@ -13,11 +13,30 @@ mysql_query("SET NAMES 'utf8'");
 <form action="issue-proc.php" method="post">
 Новая извесная проблема<br>
 <table border=0>
-<tr><td>Марка</td><td><input type="text" name="mnf" size="30" value=""></td></tr>
-<tr><td>Модель</td><td><input type="text" name="model" size="10" value=""></td></tr>
-<tr><td>Объем двигателя</td><td><input type="text" name="eng" size="10" value=""></td></tr>
-<tr><td colspan="2">Коментарий:</td></tr>
-<tr><td colspan="2"><textarea name="comment" cols="50" rows="5"></textarea></td></tr>
+<tr><td>Марка</td><td>
+<select name=make size=1>
+<?php 
+$mnf_query=mysql_query("SELECT * FROM mnf ORDER BY mnf_name asc");
+    while ($mnf=mysql_fetch_array($mnf_query, MYSQL_ASSOC)) {
+		echo "<option value=".$mnf['id'].">".$mnf['mnf_name']."</option>";
+	}
+?>
+</select>
+</td></tr>
+<tr><td>Модель</td><td>
+<select name=model size=1>
+<?php
+$model_query=mysql_query("SELECT id, model, capacity, year_begin, year_end FROM models ORDER BY model asc");
+    while ($model=mysql_fetch_array($model_query, MYSQL_ASSOC)) {
+		echo "<option value=".$model['id'].">".$model['model']." ".$model['capacity']." ".$model['year_begin']."-".$model['year_end']."</option>";
+	}
+?>
+</select>
+
+<tr><td colspan="2">Симптомы:</td></tr>
+<tr><td colspan="2"><textarea name="symptoms" cols="50" rows="5"></textarea></td></tr>
+<tr><td colspan="2">Проблема и решение:</td></tr>
+<tr><td colspan="2"><textarea name="issue" cols="50" rows="5"></textarea></td></tr>
 <tr><td colspan="2"><center><input type="submit" value="Добавить"></center></td></tr>
 </table>
 </form>

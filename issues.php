@@ -48,10 +48,10 @@ if ($_SESSION['login']=='admin') {
     <td align=center bgcolor=#acacff>
     <?php echo ('Годы выпуска'); ?>
     </td>
-    <td align=center bgcolor=#acacff>
+    <td align=center bgcolor=#acacff width=350px>
     <?php echo ('Симптомы'); ?>
     </td>
-    <td align=center bgcolor=#acacff>
+    <td align=center bgcolor=#acacff width=350px>
     <?php echo ('Проблема'); ?>
     </td>
 </tr>
@@ -61,7 +61,7 @@ $issues_lst_query=mysqli_query($db, "SELECT * from known_issues");
 $x=1;
 while ($issues_lst = mysqli_fetch_array($issues_lst_query)) {
       $issues_lst_array[] = array('id' => $issues_lst['id'],
-				'model_id' => $issues_lst['model'],
+				'model_id' => $issues_lst['model_id'],
 				'symptoms' => $issues_lst['symptoms'],
 				'issue' => $issues_lst['issue']);
 
@@ -78,33 +78,25 @@ $x++;
     <td bgcolor=<?php echo $bg; ?>>
     <?php echo ($issues_lst['id']); ?>
     </td>
-<?php $bike=mysqli_query($db,"SELECT mnf.mnf_name, models.model, models.year_begin,models.year_end from mnf,models where mnf.id=(select mnf_id from models where id='".$issues_lst['model']."') and models.id='".$issues_lst['model']."'");
+<?php $bike=mysqli_query($db,"SELECT mnf.mnf_name, models.model, models.capacity, models.year_begin,models.year_end from mnf,models where mnf.id=(select mnf_id from models where id='".$issues_lst['model_id']."') and models.id='".$issues_lst['model_id']."'");
+	$bike=mysqli_fetch_array($bike, MYSQL_ASSOC);
 ?>
     <td bgcolor=<?php echo $bg; ?>>
-    <?php $mnf=mysqli_query($db,"SELECT mnf_name from mnf where mnf.id='".$models_lst['mnf_id']."'");
-	    $mnf=mysqli_fetch_array($mnf);
-	    echo ($mnf['mnf_name']); ?>
+    <?php //$mnf=mysqli_query($db,"SELECT mnf_name from mnf where mnf.id='".$models_lst['mnf_id']."'");
+	    //$mnf=mysqli_fetch_array($mnf);
+	    echo ($bike['mnf_name']); ?>
     </td>
     <td align=center bgcolor=<?php echo $bg; ?>>
-    <?php echo ($models_lst['model'].' '.$models_lst['capacity']); ?>
+    <?php echo ($bike['model'].' '.$bike['capacity']); ?>
     </td>
-    <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php echo ($models_lst['year_begin'].'-'.$models_lst['year_end']); ?>
+    <td align=center bgcolor=<?php echo $bg; ?>>
+    <?php echo ($bike['year_begin'].'-'.$bike['year_end']); ?>
     </td>
-    <td bgcolor=<?php echo $bg; ?>>
-    <?php echo ('IN:'.$models_lst['valve_in'].' EX:'.$models_lst['valve_ex']); ?>
+    <td bgcolor=<?php echo $bg; ?> width=350px>
+    <?php echo ($issues_lst['symptoms']); ?>
     </td>
-    <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php echo ($models_lst['fork_oil_cap']); ?>
-    </td>
-    <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php echo ($models_lst['fork_oil_level']); ?>
-    </td>
-    <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php echo ($models_lst['cylinders']); ?>
-    </td>
-    <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php echo ($models_lst['valves_per_cyl']); ?>
+    <td bgcolor=<?php echo $bg; ?> width=350px>
+    <?php echo ($issues_lst['issue']); ?>
     </td>
 
 </tr>
