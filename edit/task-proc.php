@@ -32,14 +32,15 @@ if (isset($_POST['work'])) {
 				mysql_query("INSERT INTO works (type_id,task_id,price,status) VALUES ('".$value."','".$_POST['task_id']."','0','0')");
 			}
 	}
+//foreach ($_POST['valve'] as $key=>$value) {
+//	mysql_query("INSERT INTO valve_clearances (task_id,valvenum,clearance) VALUES ('".$_POST['task_id']."', '".$key."', '".$value."')");
+//    }
 echo "UPDATE works SET ";
 echo "Изменено!";
 mysql_close();
 include('../footer.php');
 ?>
-<?php /*
 <script>
 var tm=1000
 window.setTimeout("opener.window.location.reload(); window.close();",tm)
 </script>
-*/?>
