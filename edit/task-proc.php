@@ -32,9 +32,18 @@ if (isset($_POST['work'])) {
 				mysql_query("INSERT INTO works (type_id,task_id,price,status) VALUES ('".$value."','".$_POST['task_id']."','0','0')");
 			}
 	}
-//foreach ($_POST['valve'] as $key=>$value) {
-//	mysql_query("INSERT INTO valve_clearances (task_id,valvenum,clearance) VALUES ('".$_POST['task_id']."', '".$key."', '".$value."')");
-//    }
+
+$exist=mysql_query("SELECT COUNT(valvenum) as valvecount FROM valve_clearances where task_id='".$_POST['task_id']."' GROUP BY task_id");
+$exist=mysql_fetch_array($exist);
+if (!isset($exist['valvecount'])) {
+				foreach ($_POST['valve'] as $key=>$value) {
+				mysql_query("INSERT INTO valve_clearances (task_id,valvenum,clearance) VALUES ('".$_POST['task_id']."', '".$key."', '".$value."')");
+				}
+	} else {
+				foreach ($_POST['valve'] as $key=>$value) {
+				mysql_query("UPDATE valve_clearances SET clearance='".$value."' WHERE task_id='".$_POST['task_id']."' AND valvenum='".$key."'");
+				}
+    }
 echo "UPDATE works SET ";
 echo "Изменено!";
 mysql_close();
