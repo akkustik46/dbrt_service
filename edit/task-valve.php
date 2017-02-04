@@ -58,7 +58,7 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
 <td bgcolor=white></td>
 <?php
     for ($i=1;$i<=$spec['cylinders'];$i++) {
-	echo "<td colspan='".$in_valves."' bgcolor=white>".$i."</td>";
+	echo "<td colspan='".$in_valves."' bgcolor=white align=center>".$i."</td>";
     }
 ?>
 </tr>
@@ -94,7 +94,7 @@ $valve_num=1;
 <td bgcolor=white></td>
 <?php
     for ($i=1;$i<=$spec['cylinders'];$i++) {
-	echo "<td colspan='".$in_valves."' bgcolor=white>".$i."</td>";
+	echo "<td colspan='".$in_valves."' bgcolor=white align=center>".$i."</td>";
     }
 ?>
 </tr>
