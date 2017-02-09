@@ -37,11 +37,11 @@ $exist=mysql_query("SELECT COUNT(valvenum) as valvecount FROM valve_clearances w
 $exist=mysql_fetch_array($exist);
 if (!isset($exist['valvecount'])) {
 				foreach ($_POST['valve'] as $key=>$value) {
-				mysql_query("INSERT INTO valve_clearances (task_id,valvenum,clearance) VALUES ('".$_POST['task_id']."', '".$key."', '".$value."')");
+				mysql_query("INSERT INTO valve_clearances (task_id,valvenum,clearance,shim_before,shim_need,shim_installed) VALUES ('".$_POST['task_id']."', '".$key."', '".$value."','".$_POST['shim_before'][$key]."','".$_POST['shim_need'][$key]."','".$_POST['shim_installed'][$key]."')");
 				}
 	} else {
 				foreach ($_POST['valve'] as $key=>$value) {
-				mysql_query("UPDATE valve_clearances SET clearance='".$value."' WHERE task_id='".$_POST['task_id']."' AND valvenum='".$key."'");
+				mysql_query("UPDATE valve_clearances SET clearance='".$value."', shim_before='".$_POST['shim_before'][$key]."', shim_need='".$_POST['shim_need'][$key]."', shim_installed='".$_POST['shim_installed'][$key]."' WHERE task_id='".$_POST['task_id']."' AND valvenum='".$key."'");
 				}
     }
 echo "UPDATE works SET ";
