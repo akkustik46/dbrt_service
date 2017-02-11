@@ -40,6 +40,7 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
 </tr>
 <?php
 $task_wrk_query=mysql_query("SELECT * from works WHERE task_id='".$_GET['id']."'"); 
+$wrk_sum=0;
 while($task_wrk_lst=mysql_fetch_array($task_wrk_query,MYSQL_ASSOC)) {
 		$task_wrk=array('id'=>$task_wrk_lst['id'],
 				'type_id'=>$task_wrk_lst['type_id'],
@@ -51,8 +52,10 @@ $wrk=mysql_fetch_array($wrk,MYSQL_ASSOC);
 //$status=mysql_fetch_array($status,MYSQL_ASSOC);
     if ($task_wrk['status']==1) {$wrk_chk='checked';} else {$wrk_chk='';}
 	echo "<tr><td bgcolor='white'>".$wrk['wrk_name']."</td><td bgcolor='white'>".$wrk['wgr_name']."</td><td bgcolor='white'><input type=text size=4 name=price[".$task_wrk['id']."] value=".$task_wrk['price']."></input></td><td bgcolor='white' align=center><input type='checkbox' ".$wrk_chk." name='wrk[".$task_wrk['id']."]'></input></td>";
+$wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 }
  ?>
+<tr><td bgcolor='white'>Сумма по работам</td><td bgcolor='white'></td><td bgcolor='white'><?php echo $wrk_sum; ?></td><td bgcolor='white'></td></tr>
 </table>
 <div ID="items">
 <select name="wrk_gr[1]" onchange="loadCity(this)">
