@@ -55,7 +55,7 @@ $wrk=mysql_fetch_array($wrk,MYSQL_ASSOC);
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 }
  ?>
-<tr><td bgcolor='white'>Сумма по работам</td><td bgcolor='white'></td><td bgcolor='white'><?php echo $wrk_sum; ?></td><td bgcolor='white'></td></tr>
+<tr><td bgcolor='white'><b>Сумма по работам</b></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $wrk_sum; ?></b></td><td bgcolor='white'></td></tr>
 </table>
 <div ID="items">
 <select name="wrk_gr[1]" onchange="loadCity(this)">
