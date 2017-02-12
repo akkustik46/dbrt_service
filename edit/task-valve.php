@@ -2,7 +2,7 @@
 $wrkgr_lst_query=mysql_query("SELECT * FROM works_groups");
 $wrk_lst_query=mysql_query("SELECT * FROM works_types");
 
-$bike_lst_query=mysql_query("SELECT cylinders, valves_per_cyl FROM models WHERE id=(SELECT model from bike WHERE id=(SELECT bike FROM tasks WHERE id='".$_GET['id']."'))");
+$bike_lst_query=mysql_query("SELECT cylinders, valves_per_cyl, eng_type FROM models WHERE id=(SELECT model from bike WHERE id=(SELECT bike FROM tasks WHERE id='".$_GET['id']."'))");
 $spec=mysql_fetch_array($bike_lst_query, MYSQL_ASSOC);
 $clear_query=mysql_query("SELECT valve_in,valve_ex FROM tech_data WHERE model_id=(SELECT model from bike WHERE id=(SELECT bike FROM tasks WHERE id='".$_GET['id']."'))");
 $clear=mysql_fetch_array($clear_query,MYSQL_ASSOC);
@@ -19,7 +19,7 @@ echo "Valves in database for this task:".$exist['valvecount']."<br>";
 echo "Valve clearances from service manual: IN:".$clear['valve_in']." EX:".$clear['valve_ex']."<br>";
 $ex_valves=(integer)($spec['valves_per_cyl']/2);
 $in_valves=$spec['valves_per_cyl']-$ex_valves;
-
+echo $spec['eng_type']."<br>";
 //$wrkgr_lst=mysql_fetch_array($wrkgr_lst_query,MYSQL_ASSOC);
 //print_r($wrkgr_lst);
 /*
@@ -51,6 +51,10 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
 "}\n".
 "</script>\n";
 */
+?>
+<?php 
+    switch($spec['eng_type']) {
+    case 'I':
 ?>
 <b>Измеренные зазоры</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
@@ -195,3 +199,78 @@ $valve_num=1;
 
 </tr>
 </table>
+<?php break;
+    case 'V':
+?>
+<b>Измеренные зазоры</b>
+<table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
+<tr>
+<td bgcolor=white></td>
+<?php
+    for ($i=1;$i<=($spec['cylinders']);($i=$i+2)) {
+	echo "<td colspan='".$in_valves."' bgcolor=white align=center>".$i."</td>";
+    }
+?>
+</tr>
+<tr>
+<td bgcolor=white>EX</td>
+    <?php
+$valve_num=1;
+	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
+		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
+		$valve_num++;
+	}
+    ?>
+</tr>
+<tr>
+<td bgcolor=white>IN</td>
+    <?php
+	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
+		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
+	$valve_num++;
+	}
+    ?>
+
+</tr>
+<tr>
+<td bgcolor=white></td>
+<?php
+    for ($i=2;$i<=($spec['cylinders']);($i=$i+2)) {
+	echo "<td colspan='".$in_valves."' bgcolor=white align=center>".$i."</td>";
+    }
+?>
+</tr>
+<tr>
+<td bgcolor=white>IN</td>
+    <?php
+	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
+		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
+	$valve_num++;
+	}
+    ?>
+
+</tr>
+<td bgcolor=white>EX</td>
+    <?php
+	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
+		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
+		$valve_num++;
+	}
+    ?>
+</tr>
+
+</table>
+
+<?php
+    break;
+
+}
+?>
