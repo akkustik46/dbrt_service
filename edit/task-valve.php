@@ -201,7 +201,9 @@ $valve_num=1;
 </table>
 <?php break;
     case 'V':
+	if ($spec['cylinders']<=2) {echo "<table><tr><td>";}
 ?>
+
 <b>Измеренные зазоры</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
@@ -268,6 +270,7 @@ $valve_num=1;
 </tr>
 
 </table>
+<?php if ($spec['cylinders']<=2) {echo "</td><td align=center>";}?>
 <b>Установленные шайбы до регулировки</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
@@ -334,6 +337,7 @@ $valve_num=1;
 </tr>
 
 </table>
+<?php if ($spec['cylinders']<=2) {echo "</td></tr><tr><td>";} ?>
 <b>Нужны шайбы</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
@@ -400,6 +404,7 @@ $valve_num=1;
 </tr>
 
 </table>
+<?php if ($spec['cylinders']<=2) {echo "</td><td align=center>";} ?>
 <b>Шайбы после регулировки</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
@@ -468,6 +473,7 @@ $valve_num=1;
 </table>
 
 <?php
+    if ($spec['cylinders']<=2) {echo "</td></tr></table>";}
     break;
 
 }
