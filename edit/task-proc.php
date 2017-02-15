@@ -49,7 +49,10 @@ echo "Изменено!";
 mysql_close();
 include('../footer.php');
 ?>
+<?php /*
 <script>
 var tm=1000
 window.setTimeout("opener.window.location.reload(); window.close();",tm)
 </script>
+*/ 
+?>
