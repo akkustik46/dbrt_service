@@ -45,7 +45,7 @@ $bg='#ccccee';
 $x++;
 
 ?>
-<tr onClick="popupWin = window.open('edit/task.php<?php echo ("?id=".$tasks_lst['id']);?>', 'Добавить задачу', 'location,width=800,height=550,top=0'); popupWin.focus(); return false;" style="padding-left:90px;">
+<tr onClick="popupWin = window.open('edit/task.php<?php echo ("?id=".$tasks_lst['id']);?>', 'Добавить задачу', 'location,width=800,height=680,top=0'); popupWin.focus(); return false;" style="padding-left:90px;">
 <td><?php echo ($tasks_lst['id']); ?></td>
 <td><?php $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."')");
 $model=mysqli_fetch_array($model_name);
