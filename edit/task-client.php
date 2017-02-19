@@ -19,21 +19,38 @@ $cl_lst=mysql_fetch_array($cl_lst_query);
 //        }
 $model_name=mysql_query("select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."')");
 $model=mysql_fetch_array($model_name);
+$payment=mysql_query("select payment from tasks where id='".$_GET['id']."'");
+$payment=mysql_fetch_array($payment,MYSQL_ASSOC);
+$payed=mysql_query("select * from payments where task='".$_GET['id']."'");
+$payed_sum=0;
 
-
+while ($payed_lst=mysql_fetch_array($payed,MYSQL_ASSOC)) {
+			$payed_sum=$payed_sum+$payed_lst['sum'];
+	}
  echo ($model['make']." ".$model['model']." ".$model['capacity']); 
 ?>
 
 </td>
+<td><b>К оплате:</b></td><td><?php echo $payment['payment']; ?> грн.</td>
 </tr>
 
-<tr><td>Пробег</td><td colspan="4">
+<tr><td>Пробег</td><td colspan="3">
 <?php $bike_data_query=mysql_query("SELECT * FROM bike WHERE id='".$task_lst['bike']."'");
 $bike_data=mysql_fetch_array($bike_data_query);
 if ($bike_data['mi_km']==0) {$units='km';} else {$units='miles';} 
 echo $bike_data['mileage_last']." ".$units ;
 ?>
-</td></tr>
+</td>
+<td><b>Оплачено:</b></td><td>
+<?php 
+while ($payed_lst=mysql_fetch_array($payed,MYSQL_ASSOC)) {
+			$payed_sum=$payed_sum+$payed_lst['sum'];
+			echo $payed_lst['sum']. 'грн.'. $payed_lst['date_payment'].'<br>';
+		}
+
+?>
+<?php echo $payed_sum;?> грн.</td>
+</tr>
 <tr><td>Статус</td><td colspan="4">
 
 <select name="status">
@@ -55,7 +72,9 @@ while ($status_lst = mysql_fetch_array($status_lst_query)) {
 
 </td></tr>
 <tr><td colspan="5">Коментарий:</td></tr>
-<tr><td colspan="5"><textarea name="comment" cols="50" rows="5"><?php echo $stat_cur['comment']; ?></textarea></td></tr>
+<tr><td colspan="5"><textarea name="comment" cols="50" rows="5"><?php echo $stat_cur['comment']; ?></textarea></td>
+<td><a href=/add/payment.php?id=<?php echo $_GET['id']; ?> target="_blank" onClick="popupWin = window.open(this.href, 'Добавить платеж', 'location,width=200,height=200,top=200,left=450'); popupWin.focus(); return false;" style="padding-left:10px;"><b>Добавить платеж</b></a></td>
+</tr>
 </table>
 
 <?php 

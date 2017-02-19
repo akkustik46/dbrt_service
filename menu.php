@@ -104,9 +104,9 @@ window.onload=startList;
 //mysql_select_db('asvt-helpdesk', $db);
 //mysql_query("SET NAMES 'utf8'");
 */
-$oper_query=mysqli_query($db,"SELECT users.name FROM users WHERE users.name='" . $_SESSION['login'] . "'");
-$oper=mysqli_fetch_array($oper_query);
-echo $oper['name']; 
+////$oper_query=mysqli_query($db,"SELECT users.name FROM users WHERE users.name='" . $_SESSION['login'] . "'");
+////$oper=mysqli_fetch_array($oper_query);
+////echo $oper['name']; 
 //echo($_SERVER['HTTP_USER_AGENT']);
 ?>
 

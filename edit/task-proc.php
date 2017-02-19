@@ -19,6 +19,9 @@ print_r ($_POST);
 
 //рабочее
 mysql_query("UPDATE tasks SET tasks.status='".$_POST['status']."', tasks.date_change=now(), comment='".$_POST['comment']."' WHERE tasks.id='".$_POST['task_id']."'");
+if ($_POST['status']=='3') {
+		mysql_query("UPDATE tasks SET tasks.date_end=now() WHERE tasks.id='".$_POST['task_id']."'");
+	}
 foreach ($_POST['price'] as $key=>$value) {
     if (isset($_POST['wrk'][$key])) {
 			if ($_POST['wrk'][$key]=='on') {$wrk_stat=1;} else {$wrk_stat=0;}
@@ -44,6 +47,8 @@ if (!isset($exist['valvecount'])) {
 				mysql_query("UPDATE valve_clearances SET clearance='".$value."', shim_before='".$_POST['shim_before'][$key]."', shim_need='".$_POST['shim_need'][$key]."', shim_installed='".$_POST['shim_installed'][$key]."' WHERE task_id='".$_POST['task_id']."' AND valvenum='".$key."'");
 				}
     }
+mysql_query("UPDATE tasks SET payment='".$_POST['wrk_sum']."' where id='".$_POST['task_id']."'");
+
 echo "UPDATE works SET ";
 echo "Изменено!";
 mysql_close();

@@ -56,6 +56,7 @@ $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 }
  ?>
 <tr><td bgcolor='white'><b>Сумма по работам</b></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $wrk_sum; ?></b></td><td bgcolor='white'></td></tr>
+<input type=hidden name='wrk_sum' value=<?php echo $wrk_sum; ?>>
 </table>
 <div ID="items">
 <select name="wrk_gr[1]" onchange="loadCity(this)">
