@@ -10,20 +10,22 @@ $ai=mysql_fetch_array($ai);
 $mnf=mysql_query("SELECT id FROM mnf WHERE mnf_name='".$_POST['mnf']."'");
 $mnf=mysql_fetch_array($mnf);
 if (!isset($mnf['id'])) {$mnf['id']=$ai['AUTO_INCREMENT'];
-			$result=mysql_query("INSERT INTO models (models.model, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment,
-			models.valve_in, models.valve_ex, models.fork_oil_cap, models.fork_oil_level, models.cylinders, 
-			models.valves_per_cyl) 
+			$result=mysql_query("INSERT INTO models (models.model, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders, 
+			models.valves_per_cyl, models.eng_type) 
 			VALUES ('".$_POST['model']."', '".$_POST['eng']."', '".$ai['AUTO_INCREMENT']."','".$_POST['year_begin']."',
-			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['valve_in']."', '".$_POST['valve_ex']."',
-			'".$_POST['fork_cap']."', '".$_POST['fork_lev']."', '".$_POST['cyl']."', '".$_POST['valve']."')");
+			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['cyl']."', '".$_POST['valve']."', '".$_POST['eng_type']."')");
+			mysql_query("INSERT INTO tech_data (tech_data.model_id, tech_data.valve_in, tech_data.valve_ex, tech_data.fork_oil_cap, tech_data.fork_oil_level, tech_data.fork_oil_type) 
+			VALUES (
+			'".$_POST['valve_in']."', '".$_POST['valve_ex']."', '".$_POST['fork_cap']."', '".$_POST['fork_lev']."', '".$_POST['fork_oil_type']."')");
 			mysql_query("INSERT INTO mnf (mnf.mnf_name) VALUES ('".$_POST['mnf']."')");
 			    } else {
-			$result=mysql_query("INSERT INTO models (models.model, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment,
-			models.valve_in, models.valve_ex, models.fork_oil_cap, models.fork_oil_level, models.cylinders,.
-			models.valves_per_cyl)
+			$result=mysql_query("INSERT INTO models (models.model, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders,.
+			models.valves_per_cyl, models.eng_type)
 			VALUES ('".$_POST['model']."', '".$_POST['eng']."', '".$mnf['id']."','".$_POST['year_begin']."',
-			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['valve_in']."', '".$_POST['valve_ex']."',
-			'".$_POST['fork_cap']."', '".$_POST['fork_lev']."', '".$_POST['cyl']."', '".$_POST['valve']."')") || die(mysql_error());
+			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['cyl']."', '".$_POST['valve']."', '".$_POST['eng_type']."')") || die(mysql_error());
+			mysql_query("INSERT INTO tech_data (tech_data.model_id, tech_data.valve_in, tech_data.valve_ex, tech_data.fork_oil_cap, tech_data.fork_oil_level, tech_data.fork_oil_type)
+			VALUES (
+			'".$_POST['valve_in']."', '".$_POST['valve_ex']."', '".$_POST['fork_cap']."', '".$_POST['fork_lev']."', '".$_POST['fork_oil_type']."')");
 			}
 /////echo($ai['AUTO_INCREMENT'].' '. $mnf['id']);
 //mysql_query("INSERT INTO users (users.first_name, users.last_name, users.father_name, users.login, users.passwd, users.departament_id, users.building_id, users.tel, users.email) VALUES ('". $_POST['first_name'] ."', '". $_POST['last_name'] ."', '". $_POST['father_name'] ."', '". $_POST['login'] ."', '". $pwd ."', '". $_POST['depart'] ."', '". $_POST['building'] ."', '". $_POST['tel'] ."', '".$_POST['email'] ."')");
@@ -35,13 +37,17 @@ if (!isset($mnf['id'])) {$mnf['id']=$ai['AUTO_INCREMENT'];
 //		'".$_POST['work_disc']."', '".$_POST['shop_disc']."')");
 
 
-//echo(mysql_error($result));
+echo(mysql_error($result));
 echo "Добавлен!";
 mysql_close();
 include('../footer.php');
 
 ?>
+<?php
+/*
 <script>
 var tm=1000
 window.setTimeout("opener.window.location.reload(); window.close();",tm)
 </script>
+*/
+?>
