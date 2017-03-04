@@ -58,6 +58,9 @@ if ($_SESSION['login']=='admin') {
     <?php echo ('Уровень масла в вилке'); ?>
     </td>
     <td align=center bgcolor=#acacff>
+    <?php echo ('Тип масла в вилке'); ?>
+    </td>
+    <td align=center bgcolor=#acacff>
     <?php echo ('Цилиндров'); ?>
     </td>
     <td align=center bgcolor=#acacff>
@@ -76,10 +79,10 @@ while ($models_lst = mysqli_fetch_array($models_lst_query)) {
 				'year_begin' => $models_lst['year_begin'],
 				'year_end' => $models_lst['year_end'],
 				'comment' => $models_lst['comment'],
-				'valve_in' => $models_lst['valve_in'],
-				'valve_ex' => $models_lst['valve_ex'],
-				'fork_oil_cap' => $models_lst['fork_oil_cap'],
-				'fork_oil_level' => $models_lst['fork_oil_level'],
+//				'valve_in' => $models_lst['valve_in'],
+//				'valve_ex' => $models_lst['valve_ex'],
+//				'fork_oil_cap' => $models_lst['fork_oil_cap'],
+//				'fork_oil_level' => $models_lst['fork_oil_level'],
 				'cylinders' => $models_lst['cylinders'],
 				'valves_per_cyl' => $models_lst['valves_per_cyl']);
 
@@ -90,6 +93,8 @@ $bg='#ddddee';
 $bg='#ccccee';
 }
 $x++;
+$tech_data=mysqli_query($db,"SELECT * FROM tech_data where model_id='".$models_lst['id']."'");
+$tech_data=mysqli_fetch_array($tech_data,MYSQL_ASSOC);
 ?>
 
 <tr>
@@ -108,13 +113,16 @@ $x++;
     <?php echo ($models_lst['year_begin'].'-'.$models_lst['year_end']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?>>
-    <?php echo ('IN:'.$models_lst['valve_in'].' EX:'.$models_lst['valve_ex']); ?>
+    <?php echo ('IN:'.$tech_data['valve_in'].' EX:'.$tech_data['valve_ex']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php echo ($models_lst['fork_oil_cap']); ?>
+    <?php echo ($tech_data['fork_oil_cap']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php echo ($models_lst['fork_oil_level']); ?>
+    <?php echo ($tech_data['fork_oil_level']); ?>
+    </td>
+    <td bgcolor=<?php echo $bg; ?> align=right>
+    <?php echo ($tech_data['fork_oil_type']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
     <?php echo ($models_lst['cylinders']); ?>

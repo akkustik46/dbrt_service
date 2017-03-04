@@ -23,7 +23,7 @@ $task_lst=mysql_fetch_array($task_lst_query);
 
 <h2 class="tabset_label">Изменить задачу</h2>
 <ul class="tabset_tabs">
-	<li class="firstchild"><a href="#bike" class="preActive active">Мотоцикл</a></li><li><a class="preActive postActive" href="#works">Работы</a></li><li><a class="preActive" href="#valvetable">Таблица клапанов</a></li><li><a class="" href="#notes">Notes</a></li>
+	<li class="firstchild"><a href="#bike" class="preActive active">Мотоцикл</a></li><li><a class="preActive postActive" href="#works">Работы</a></li><li><a class="preActive" href="#products">Товары</a></li><li><a class="preActive" href="#valvetable">Таблица клапанов</a></li><li><a class="" href="#notes">Notes</a></li>
 </ul>
 
 <form action="task-proc.php" method="post">
@@ -40,6 +40,12 @@ $task_lst=mysql_fetch_array($task_lst_query);
 	    ?></p>
 </div>
 	
+<div id="products" class="tabset_content">
+	<h2 class="tabset_label">Товары</h2>
+	<p><?php include('task-prod.php');
+	    ?></p>
+</div>
+
 <div id="valvetable" class="tabset_content">
 	<h2 class="tabset_label">Таблица клапанов</h2>
 	<p><?php include('task-valve.php');

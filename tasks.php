@@ -23,8 +23,17 @@ include('menu.php');
 <?php
 //$pos_query=mysqli_query($db,"SELECT positions.name FROM positions where positions.id=(SELECT users.position FROM users WHERE users.name='".$_SESSION['login']."')");
 //$pos=mysqli_fetch_array($pos_query);
-
-$tasks_query=mysqli_query($db,"SELECT * FROM tasks");
+switch ($_GET['action']) {
+    case 'archive':
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status=4");
+    break;
+    case 'all':
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
+    break;
+    default:
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
+    break;
+	}
 $x=1;
 while ($tasks_lst = mysqli_fetch_array($tasks_query)) {
       $tasks_array[] = array('id' => $tasks_lst['id'],

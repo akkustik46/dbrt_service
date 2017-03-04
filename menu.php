@@ -15,11 +15,9 @@ include('db_conn.php');
 
 ?>
 <li>
-<a href="tasks.php" class="button1">Заказы</a>
+<a href="tasks.php?action=all" class="button1">Заказы</a>
 <ul>
-<li><a href="sblist.php?action=all" class="button1">ALL</a></li>
-<li><a href="sblist.php?action=737" class="button1">737</a></li>
-<li><a href="sblist.php?action=767" class="button1">767</a></li>
+<li><a href="tasks.php?action=archive" class="button1">Архив</a></li>
 </ul>
 </li>
 <li>
@@ -41,6 +39,11 @@ include('db_conn.php');
 		</ul>
 		</li>";}*/
 ?>
+<li>
+<a href="prod.php" class="button1">Склад</a>
+<ul>
+</ul>
+</li>
 
 <li>
 <a href="users.php" class="button1">Users</a>
@@ -108,6 +111,12 @@ window.onload=startList;
 ////$oper=mysqli_fetch_array($oper_query);
 ////echo $oper['name']; 
 //echo($_SERVER['HTTP_USER_AGENT']);
+//require('db_conn.php');
+//mysql_select_db('dbrt_garage', $db);
+$cur_query=mysqli_query($db,"SELECT * FROM currency");
+while ($cur=mysqli_fetch_array($cur_query,MYSQL_ASSOC)) {
+			echo ($cur['name'].":".$cur['value']." ");
+		}
 ?>
 
 <br>
