@@ -37,17 +37,14 @@ if (!isset($mnf['id'])) {$mnf['id']=$ai['AUTO_INCREMENT'];
 //		'".$_POST['work_disc']."', '".$_POST['shop_disc']."')");
 
 
-echo(mysql_error($result));
+//echo(mysql_error($result));
 echo "Добавлен!";
 mysql_close();
 include('../footer.php');
 
 ?>
-<?php
-/*
+
 <script>
 var tm=1000
 window.setTimeout("opener.window.location.reload(); window.close();",tm)
 </script>
-*/
-?>
