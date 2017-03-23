@@ -1,7 +1,7 @@
 <table border=0>
 <tr><td>Клиент</td><td>
-<?php $cl_lst_query=mysql_query("SELECT id as cl_id, username as cl_name FROM clients WHERE id='".$task_lst['client']."'");
-$cl_lst=mysql_fetch_array($cl_lst_query);
+<?php $cl_lst_query=mysqli_query($db,"SELECT id as cl_id, username as cl_name FROM clients WHERE id='".$task_lst['client']."'");
+$cl_lst=mysqli_fetch_array($cl_lst_query);
 
 ?>
 
@@ -17,14 +17,14 @@ $cl_lst=mysql_fetch_array($cl_lst_query);
 //        } else {
 //        $bike_lst_query=mysql_query("SELECT id as bike_id, model as mod_id FROM bike WHERE bike.owner='".$_GET['cl_id']."'");
 //        }
-$model_name=mysql_query("select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."')");
-$model=mysql_fetch_array($model_name);
-$payment=mysql_query("select payment from tasks where id='".$_GET['id']."'");
-$payment=mysql_fetch_array($payment,MYSQL_ASSOC);
-$payed=mysql_query("select * from payments where task='".$_GET['id']."'");
+$model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."')");
+$model=mysqli_fetch_array($model_name);
+$payment=mysqli_query($db,"select payment from tasks where id='".$_GET['id']."'");
+$payment=mysqli_fetch_array($payment);
+$payed=mysqli_query($db,"select * from payments where task='".$_GET['id']."'");
 $payed_sum=0;
 
-while ($payed_lst=mysql_fetch_array($payed,MYSQL_ASSOC)) {
+while ($payed_lst=mysqli_fetch_array($payed)) {
 			$payed_sum=$payed_sum+$payed_lst['sum'];
 	}
  echo ($model['make']." ".$model['model']." ".$model['capacity']); 
@@ -35,15 +35,15 @@ while ($payed_lst=mysql_fetch_array($payed,MYSQL_ASSOC)) {
 </tr>
 
 <tr><td>Пробег</td><td colspan="3">
-<?php $bike_data_query=mysql_query("SELECT * FROM bike WHERE id='".$task_lst['bike']."'");
-$bike_data=mysql_fetch_array($bike_data_query);
+<?php $bike_data_query=mysqli_query($db,"SELECT * FROM bike WHERE id='".$task_lst['bike']."'");
+$bike_data=mysqli_fetch_array($bike_data_query);
 if ($bike_data['mi_km']==0) {$units='km';} else {$units='miles';} 
 echo $bike_data['mileage_last']." ".$units ;
 ?>
 </td>
 <td><b>Оплачено:</b></td><td>
 <?php 
-while ($payed_lst=mysql_fetch_array($payed,MYSQL_ASSOC)) {
+while ($payed_lst=mysqli_fetch_array($payed)) {
 			$payed_sum=$payed_sum+$payed_lst['sum'];
 			echo $payed_lst['sum']. 'грн.'. $payed_lst['date_payment'].'<br>';
 		}
@@ -55,10 +55,10 @@ while ($payed_lst=mysql_fetch_array($payed,MYSQL_ASSOC)) {
 
 <select name="status">
 <?php 
-$stat_cur=mysql_query("SELECT status,comment from tasks where id='".$_GET['id']."'");
-$stat_cur=mysql_fetch_array($stat_cur,MYSQL_ASSOC);
-$status_lst_query=mysql_query("SELECT * FROM tasks_status");
-while ($status_lst = mysql_fetch_array($status_lst_query)) {
+$stat_cur=mysqli_query($db,"SELECT status,comment from tasks where id='".$_GET['id']."'");
+$stat_cur=mysqli_fetch_array($stat_cur);
+$status_lst_query=mysqli_query("SELECT * FROM tasks_status");
+while ($status_lst = mysqli_fetch_array($status_lst_query)) {
       $status_lst_array[] = array('id' => $status_lst['id'],
                                  'name' => $status_lst['name']);
 ?>

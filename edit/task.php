@@ -2,11 +2,11 @@
 session_start();
 include('../top2.php');
 require('../config.php');
-mysql_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysql_select_db('dbrt_garage');
-mysql_query("SET NAMES 'utf8'");
-$task_lst_query=mysql_query("SELECT * FROM tasks WHERE id='".$_GET['id']."'");
-$task_lst=mysql_fetch_array($task_lst_query);
+$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db($db,"dbrt_garage");
+mysqli_query($db,"SET NAMES 'utf8'");
+$task_lst_query=mysqli_query($db,"SELECT * FROM tasks WHERE id='".$_GET['id']."'");
+$task_lst=mysqli_fetch_array($task_lst_query);
 ?>
 
 <style type="text/css">
@@ -42,10 +42,10 @@ $task_lst=mysql_fetch_array($task_lst_query);
 	
 <div id="products" class="tabset_content">
 	<h2 class="tabset_label">Товары</h2>
-	<p><?php include('task-prod.php');
+	<p><?php 
+	include('task-prod.php');
 	    ?></p>
-</div>
-
+</div> 
 <div id="valvetable" class="tabset_content">
 	<h2 class="tabset_label">Таблица клапанов</h2>
 	<p><?php include('task-valve.php');

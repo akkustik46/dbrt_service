@@ -1,16 +1,16 @@
 <?php 
-$wrkgr_lst_query=mysql_query("SELECT * FROM works_groups");
-$wrk_lst_query=mysql_query("SELECT * FROM works_types");
+$wrkgr_lst_query=mysqli_query($db,"SELECT * FROM works_groups");
+$wrk_lst_query=mysqli_query($db,"SELECT * FROM works_types");
 
-$bike_lst_query=mysql_query("SELECT cylinders, valves_per_cyl, eng_type FROM models WHERE id=(SELECT model from bike WHERE id=(SELECT bike FROM tasks WHERE id='".$_GET['id']."'))");
-$spec=mysql_fetch_array($bike_lst_query, MYSQL_ASSOC);
-$clear_query=mysql_query("SELECT valve_in,valve_ex FROM tech_data WHERE model_id=(SELECT model from bike WHERE id=(SELECT bike FROM tasks WHERE id='".$_GET['id']."'))");
-$clear=mysql_fetch_array($clear_query,MYSQL_ASSOC);
-$valves_query=mysql_query("SELECT * FROM valve_clearances where task_id='".$_GET['id']."'");
-$valves=mysql_fetch_array($valves_query,MYSQL_ASSOC);
+$bike_lst_query=mysqli_query($db,"SELECT cylinders, valves_per_cyl, eng_type FROM models WHERE id=(SELECT model from bike WHERE id=(SELECT bike FROM tasks WHERE id='".$_GET['id']."'))");
+$spec=mysqli_fetch_array($bike_lst_query);
+$clear_query=mysqli_query($db,"SELECT valve_in,valve_ex FROM tech_data WHERE model_id=(SELECT model from bike WHERE id=(SELECT bike FROM tasks WHERE id='".$_GET['id']."'))");
+$clear=mysqli_fetch_array($clear_query);
+$valves_query=mysqli_query($db,"SELECT * FROM valve_clearances where task_id='".$_GET['id']."'");
+$valves=mysqli_fetch_array($valves_query);
 
-$exist=mysql_query("SELECT COUNT(valvenum) as valvecount FROM valve_clearances where task_id='".$_GET['id']."' GROUP BY task_id");
-$exist=mysql_fetch_array($exist);
+$exist=mysqli_query($db,"SELECT COUNT(valvenum) as valvecount FROM valve_clearances where task_id='".$_GET['id']."' GROUP BY task_id");
+$exist=mysqli_fetch_array($exist);
 if (!isset($exist['valvecount'])) {$exist['valvecount']=0;}
 echo "Valves in database for this task:".$exist['valvecount']."<br>";
 
@@ -71,8 +71,8 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
     <?php
 $valve_num=1;
 	for ($i=1;$i<=($ex_valves*$spec['cylinders']);$i++) { 
-		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";    
 	$valve_num++;
 	}
@@ -82,8 +82,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=($in_valves*$spec['cylinders']);$i++) {
-		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
 	$valve_num++;
 	}
@@ -107,8 +107,8 @@ $valve_num=1;
     <?php
 $valve_num=1;
 	for ($i=1;$i<=($ex_valves*$spec['cylinders']);$i++) {
-		$shim_before=mysql_query("SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$shim_before=mysql_fetch_array($shim_before,MYSQL_ASSOC);
+		$shim_before=mysqli_query($db,"SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$shim_before=mysqli_fetch_array($shim_before);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_before[".$valve_num."] value='".$shim_before['shim_before']."'></td>";
 		$valve_num++;
 	}
@@ -118,8 +118,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=($in_valves*$spec['cylinders']);$i++) {
-		$shim_before=mysql_query("SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$shim_before=mysql_fetch_array($shim_before,MYSQL_ASSOC);
+		$shim_before=mysqli_query($db,"SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$shim_before=mysqli_fetch_array($shim_before);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_before[".$valve_num."] value='".$shim_before['shim_before']."'></td>";
 		$valve_num++;
 	}
@@ -143,8 +143,8 @@ $valve_num=1;
     <?php
 $valve_num=1;
 	for ($i=1;$i<=($ex_valves*$spec['cylinders']);$i++) {
-		$shim_need=mysql_query("SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$shim_need=mysql_fetch_array($shim_need,MYSQL_ASSOC);
+		$shim_need=mysqli_query($db,"SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$shim_need=mysqli_fetch_array($shim_need);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_need[".$valve_num."] value='".$shim_need['shim_need']."'></td>";
 		$valve_num++;
 	}
@@ -154,8 +154,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=($in_valves*$spec['cylinders']);$i++) {
-		$shim_need=mysql_query("SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$shim_need=mysql_fetch_array($shim_need,MYSQL_ASSOC);
+		$shim_need=mysqli_query($db,"SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$shim_need=mysqli_fetch_array($shim_need);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_need[".$valve_num."] value='".$shim_need['shim_need']."'></td>";
 		$valve_num++;
 	}
@@ -179,8 +179,8 @@ $valve_num=1;
     <?php
 $valve_num=1;
 	for ($i=1;$i<=($ex_valves*$spec['cylinders']);$i++) {
-		$shim_installed=mysql_query("SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$shim_installed=mysql_fetch_array($shim_installed,MYSQL_ASSOC);
+		$shim_installed=mysqli_query($db,"SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$shim_installed=mysqli_fetch_array($shim_installed);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_installed[".$valve_num."] value='".$shim_installed['shim_installed']."'></td>";
 		$valve_num++;
 	}
@@ -190,8 +190,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=($in_valves*$spec['cylinders']);$i++) {
-		$shim_installed=mysql_query("SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$shim_installed=mysql_fetch_array($shim_installed,MYSQL_ASSOC);
+		$shim_installed=mysqli_query($db,"SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$shim_installed=mysqli_fetch_array($shim_installed);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_installed[".$valve_num."] value='".$shim_installed['shim_installed']."'></td>";
 		$valve_num++;
 	}
@@ -219,8 +219,8 @@ $valve_num=1;
     <?php
 $valve_num=1;
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
 		$valve_num++;
 	}
@@ -230,8 +230,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
 	$valve_num++;
 	}
@@ -250,8 +250,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
 	$valve_num++;
 	}
@@ -261,8 +261,8 @@ $valve_num=1;
 <td bgcolor=white>EX</td>
     <?php
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT clearance from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=valve[".$valve_num."] value='".$clearance['clearance']."'></td>";
 		$valve_num++;
 	}
@@ -286,8 +286,8 @@ $valve_num=1;
     <?php
 $valve_num=1;
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_before[".$valve_num."] value='".$clearance['shim_before']."'></td>";
 		$valve_num++;
 	}
@@ -297,8 +297,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 		for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_before[".$valve_num."] value='".$clearance['shim_before']."'></td>";
 		$valve_num++;
 	}
@@ -317,8 +317,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_before[".$valve_num."] value='".$clearance['shim_before']."'></td>";
 		$valve_num++;
 	}
@@ -328,8 +328,8 @@ $valve_num=1;
 <td bgcolor=white>EX</td>
     <?php
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_before from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_before[".$valve_num."] value='".$clearance['shim_before']."'></td>";
 		$valve_num++;
 	}
@@ -353,8 +353,8 @@ $valve_num=1;
     <?php
 $valve_num=1;
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_need[".$valve_num."] value='".$clearance['shim_need']."'></td>";
 		$valve_num++;
 	}
@@ -364,8 +364,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_need[".$valve_num."] value='".$clearance['shim_need']."'></td>";
 		$valve_num++;
 	}
@@ -384,8 +384,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_need[".$valve_num."] value='".$clearance['shim_need']."'></td>";
 		$valve_num++;
 	}
@@ -395,8 +395,8 @@ $valve_num=1;
 <td bgcolor=white>EX</td>
     <?php
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_need from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_need[".$valve_num."] value='".$clearance['shim_need']."'></td>";
 		$valve_num++;
 	}
@@ -420,8 +420,8 @@ $valve_num=1;
     <?php
 $valve_num=1;
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_installed[".$valve_num."] value='".$clearance['shim_installed']."'></td>";
 		$valve_num++;
 	}
@@ -431,8 +431,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_installed[".$valve_num."] value='".$clearance['shim_installed']."'></td>";
 		$valve_num++;
 	}
@@ -451,8 +451,8 @@ $valve_num=1;
 <td bgcolor=white>IN</td>
     <?php
 	for ($i=1;$i<=(($in_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_installed[".$valve_num."] value='".$clearance['shim_installed']."'></td>";
 		$valve_num++;
 	}
@@ -462,8 +462,8 @@ $valve_num=1;
 <td bgcolor=white>EX</td>
     <?php
 	for ($i=1;$i<=(($ex_valves*$spec['cylinders'])/2);$i++) {
-		$clearance=mysql_query("SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
-		$clearance=mysql_fetch_array($clearance,MYSQL_ASSOC);
+		$clearance=mysqli_query($db,"SELECT shim_installed from valve_clearances where task_id='".$_GET['id']."' AND valvenum='".$valve_num."'");
+		$clearance=mysqli_fetch_array($clearance);
 		echo "<td bgcolor=white><input type=text size=5 name=shim_installed[".$valve_num."] value='".$clearance['shim_installed']."'></td>";
 		$valve_num++;
 	}

@@ -2,9 +2,9 @@
 session_start();
 include('../top2.php');
 require('../config.php');
-mysql_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysql_select_db('dbrt_garage');
-mysql_query("SET NAMES 'utf8'");
+$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db('dbrt_garage');
+mysqli_query($db,"SET NAMES 'utf8'");
 
 ?>
 <form action="bike-proc.php" method="post">

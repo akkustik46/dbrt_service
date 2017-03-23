@@ -49,13 +49,21 @@ if (!isset($exist['valvecount'])) {
     }
 mysql_query("UPDATE tasks SET payment='".$_POST['wrk_sum']."' where id='".$_POST['task_id']."'");
 
+if (isset($_POST['prod'])) {
+	foreach($_POST['prod'] as $key=>$value){
+	mysql_query("INSERT INTO prod_sale (task,prod,qty,date_sale) VALUES (".$_POST['task_id'].",".$value.",".$_POST['qty'][$key].",now())");
+	}
+    }
+
 echo "UPDATE works SET ";
 echo "Изменено!";
 mysql_close();
 include('../footer.php');
 ?>
-
+<?php /*
 <script>
 var tm=1000
 window.setTimeout("opener.window.location.reload(); window.close();",tm)
 </script>
+*/
+?>
