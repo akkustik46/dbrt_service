@@ -2,24 +2,20 @@
 session_start();
 include('../top2.php');
 require('../config.php');
-mysql_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysql_select_db('dbrt_garage');
-mysql_query("SET NAMES 'utf8'");
-$pos_lst_query=mysql_query("SELECT * FROM positions ORDER BY positions.name");
-//$loc_lst_query=mysql_query("SELECT locations.id, locations.building, buildings.room FROM locations ORDER BY locations.building, buildings.room");
-//$phones_lst_query=mysql_query("SELECT * FROM phones WHERE (phones.num RLIKE '^380'or phones.num RLIKE '---') order by phones.num");
-//$travel_lst_query=mysql_query("SELECT * FROM phones WHERE (phones.num RLIKE '^3725' or phones.num RLIKE '---') order by phones.num");
+$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db($db,'dbrt_garage');
+mysqli_query($db,"SET NAMES 'utf8'");
 
 ?>
 <form action="bike-proc.php" method="post">
 Добавить мотоцикл<br>
 <table border=0>
 <tr><td>Марка</td><td>
-<?php $mnf_lst_query=mysql_query("SELECT * FROM mnf ORDER BY mnf.mnf_name");
+<?php $mnf_lst_query=mysqli_query($db,"SELECT * FROM mnf ORDER BY mnf.mnf_name");
 ?>
 <select name="mnf" size=1>
 <?php
-while ($mnf_lst = mysql_fetch_array($mnf_lst_query)) {
+while ($mnf_lst = mysqli_fetch_array($mnf_lst_query)) {
       $mnf_lst_array[] = array('id' => $mnf_lst['id'],
                                  'mnf_name' => $mnf_lst['mnf_name']);
 
@@ -31,11 +27,11 @@ while ($mnf_lst = mysql_fetch_array($mnf_lst_query)) {
 </select></td></tr>
 
 <tr><td>Модель</td><td>
-<?php $model_lst_query=mysql_query("SELECT * FROM models ORDER BY models.model");
+<?php $model_lst_query=mysqli_query($db,"SELECT * FROM models ORDER BY models.model");
 ?>
 <select name="model" size=1>
 <?php
-while ($model_lst = mysql_fetch_array($model_lst_query)) {
+while ($model_lst = mysqli_fetch_array($model_lst_query)) {
       $model_lst_array[] = array('id' => $model_lst['id'],
                                  'model' => $model_lst['model'],
 				 'capacity' => $model_lst['capacity'],
@@ -49,11 +45,11 @@ while ($model_lst = mysql_fetch_array($model_lst_query)) {
 ?>
 </select></td></tr>
 <tr><td>Владелец</td><td>
-<?php $owner_lst_query=mysql_query("SELECT * FROM clients ORDER BY clients.username");
+<?php $owner_lst_query=mysqli_query($db,"SELECT * FROM clients ORDER BY clients.username");
 ?>
 <select name="owner" size=1>
 <?php
-while ($owner_lst = mysql_fetch_array($owner_lst_query)) {
+while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
       $owner_lst_array[] = array('id' => $owner_lst['id'],
                                  'username' => $owner_lst['username']);
 
