@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Час створення: Бер 24 2017 р., 00:54
+-- Час створення: Бер 25 2017 р., 00:41
 -- Версія сервера: 5.7.17-0ubuntu0.16.04.1
 -- Версія PHP: 7.0.15-0ubuntu0.16.04.4
 
@@ -109,10 +109,6 @@ CREATE TABLE `models` (
   `year_begin` int(11) NOT NULL,
   `year_end` int(11) NOT NULL,
   `comment` text NOT NULL,
-  `valve_in` varchar(10) NOT NULL,
-  `valve_ex` varchar(10) NOT NULL,
-  `fork_oil_cap` int(11) NOT NULL,
-  `fork_oil_level` int(11) NOT NULL,
   `cylinders` int(11) NOT NULL,
   `valves_per_cyl` int(11) NOT NULL,
   `eng_type` char(1) NOT NULL
@@ -501,12 +497,12 @@ ALTER TABLE `known_issues`
 -- AUTO_INCREMENT для таблиці `mnf`
 --
 ALTER TABLE `mnf`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблиці `models`
 --
 ALTER TABLE `models`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT для таблиці `payments`
 --
@@ -551,7 +547,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT для таблиці `tech_data`
 --
 ALTER TABLE `tech_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT для таблиці `works`
 --

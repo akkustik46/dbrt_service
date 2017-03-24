@@ -94,7 +94,7 @@ $bg='#ccccee';
 }
 $x++;
 $tech_data=mysqli_query($db,"SELECT * FROM tech_data where model_id='".$models_lst['id']."'");
-$tech_data=mysqli_fetch_array($tech_data,MYSQL_ASSOC);
+$tech_data=mysqli_fetch_array($tech_data);
 ?>
 
 <tr>
