@@ -36,13 +36,13 @@ else{
 //предполагается, что информацию о пользователях вы
 //храните в базе данных, в таблице users, содержащей поля id, login, pass
 
-$db=mysql_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysql_select_db('dbrt_garage', $db);
-mysql_query("SET NAMES 'utf8'");
+$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db($db,"dbrt_garage");
+mysqli_query($db,"SET NAMES 'utf8'");
 //проверяем есть ли пользователь с таким loginом и passwordом
-$res=mysql_query("SELECT * FROM users WHERE users.name='".$_POST['login']."'
-        AND users.passwd='".md5($_POST['pass'])."'", $db);
-if(mysql_num_rows($res)!=1){//такого пользователя нет
+$res=mysqli_query($db,"SELECT * FROM users WHERE users.name='".$_POST['login']."'
+        AND users.passwd='".md5($_POST['pass'])."'");
+if(mysqli_num_rows($res)!=1){//такого пользователя нет
 echo "
 <table width='100%' height='100%'>
 <tr><td align=center>
@@ -67,7 +67,7 @@ Header("Location: tasks.php");// еренаправляем на protected.php
 
 }
 
-mysql_close();
+mysqli_close($db);
 unset($_SESSION['pass']);
 }
 ?>

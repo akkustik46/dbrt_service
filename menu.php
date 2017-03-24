@@ -114,7 +114,7 @@ window.onload=startList;
 //require('db_conn.php');
 //mysql_select_db('dbrt_garage', $db);
 $cur_query=mysqli_query($db,"SELECT * FROM currency");
-while ($cur=mysqli_fetch_array($cur_query,MYSQL_ASSOC)) {
+while ($cur=mysqli_fetch_array($cur_query)) {
 			echo ($cur['name'].":".$cur['value']." ");
 		}
 ?>
