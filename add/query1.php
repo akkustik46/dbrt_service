@@ -1,9 +1,9 @@
 <?php
 session_start();
 require('../config.php');
-mysql_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysql_select_db('dbrt_garage');
-mysql_query("SET NAMES 'utf8'");
+$dbq=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db($dbq,'dbrt_garage');
+mysqli_query($dbq,"SET NAMES 'utf8'");
 
 /**
  * @author Evgeni Lezhenkin evgeni@lezhenkin.ru http://lezhenkin.ru
@@ -15,15 +15,26 @@ mysql_query("SET NAMES 'utf8'");
 // значения, запрашиваемые JavaScript-сценарием. В ваших сценариях этих массивов, скорее всего,
 // не будет. Информация, подобная этой, будет в вашей базе данных, и вам её придется оттуда 
 // извлечь. Как вы это сделаете, это уже ваши предпочтения
-$wgr_query = mysql_query("SELECT * from works_groups");
+$wgr_query = mysqli_query($dbq,"SELECT * from works_groups");
 $wgr = array();
-while($wgr_lst = mysql_fetch_array($wgr_query,MYSQL_ASSOC)) {
-	$wrk_query=mysql_query("SELECT id,name from works_types where group_id='".$wgr_lst['id']."'");
+while($wgr_lst = mysqli_fetch_array($wgr_query)) {
+	$wrk_query=mysqli_query($dbq,"SELECT id,name from works_types where group_id='".$wgr_lst['id']."'");
 	    $types[$wgr_lst['id']]=array();
-	while ($wrk_lst=mysql_fetch_array($wrk_query,MYSQL_ASSOC)) {
+	while ($wrk_lst=mysqli_fetch_array($wrk_query)) {
 	$types[$wgr_lst['id']]=$types[$wgr_lst['id']] + array($wrk_lst['id']=>$wrk_lst['name']);
 	}
 }
+
+$cat_query = mysqli_query($dbq,"SELECT * from prod_category");
+$cat = array();
+while($cat_lst = mysqli_fetch_array($cat_query)) {
+	$prod_query=mysqli_query($dbq,"SELECT id,name from prod_prod where category='".$cat_lst['id']."'");
+	    $prodtypes[$cat_lst['id']]=array();
+	while ($prod_lst=mysqli_fetch_array($prod_query)) {
+	$prodtypes[$cat_lst['id']]=$prodtypes[$cat_lst['id']] + array($prod_lst['id']=>$prod_lst['name']);
+	}
+}
+
 /*
 $types = array(
     1 => array(
@@ -125,6 +136,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'getWork')
  
     exit;
 }
+if (isset($_GET['action']) && $_GET['action'] == 'getProd')
+{
+    if (isset($prodtypes[$_GET['types']]))
+    {
+        echo json_encode($prodtypes[$_GET['types']],JSON_UNESCAPED_UNICODE); // возвращаем данные в JSON формате;
+    }
+    else
+    {
+        echo json_encode(array('Выберите тип'),JSON_UNESCAPED_UNICODE);
+    }
+
+    exit;
+}
+
 /**
  * Данный код не идеален. Сама идея представления исходных данных о транспорте в виде массива очень
  * далека от идеала. И вы должны понимать почему. Данные должны храниться в реляционной базе данных, 
@@ -133,5 +158,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'getWork')
  * между языками программирования
  */
 //session_close();
+mysqli_close($dbq);
 ?>
     

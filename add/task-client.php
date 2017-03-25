@@ -1,11 +1,11 @@
 <table border=1>
 <tr><td>Клиент</td><td>
-<?php $cl_lst_query=mysql_query("SELECT id as cl_id, username as cl_name FROM clients ORDER BY clients.username");
+<?php $cl_lst_query=mysqli_query($db,"SELECT id as cl_id, username as cl_name FROM clients ORDER BY clients.username");
 ?>
 
 <select name="cl_id" size="1" id="cl_select" onchange=loadBike(this)>
 <?php
-while ($cl_lst = mysql_fetch_array($cl_lst_query)) {
+while ($cl_lst = mysqli_fetch_array($cl_lst_query)) {
       $cl_lst_array[] = array('cl_id' => $cl_lst['cl_id'],
                                  'cl_name' => $cl_lst['cl_name']);
 
@@ -57,8 +57,8 @@ $getadd=$getadd."&bike_id=".$bike_lst['bike_id'];
 <tr><td>Статус</td><td colspan="4">
 
 <select name="status">
-<?php $status_lst_query=mysql_query("SELECT * FROM tasks_status");
-while ($status_lst = mysql_fetch_array($status_lst_query)) {
+<?php $status_lst_query=mysqli_query($db,"SELECT * FROM tasks_status");
+while ($status_lst = mysqli_fetch_array($status_lst_query)) {
       $status_lst_array[] = array('id' => $status_lst['id'],
                                  'name' => $status_lst['name']);
 ?>

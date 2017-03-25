@@ -1,6 +1,6 @@
 <?php 
-$wrkgr_lst_query=mysql_query("SELECT * FROM works_groups");
-$wrk_lst_query=mysql_query("SELECT * FROM works_types");
+$wrkgr_lst_query=mysqli_query($db,"SELECT * FROM works_groups");
+$wrk_lst_query=mysqli_query($db,"SELECT * FROM works_types");
 
 echo "<script language='javascript'>\n".
 	    "var items=1;\n".
@@ -10,7 +10,7 @@ echo "<script language='javascript'>\n".
   "items++;\n".
   "newitem=\"<br><strong>Поле \" + items + \": </strong>\";\n".
   "newitem+=\"<select name='w_gr[\" + items+ \"]' size='1'>\";\n";
-while ($wrkgr_lst=mysql_fetch_array($wrkgr_lst_query)) {
+while ($wrkgr_lst=mysqli_fetch_array($wrkgr_lst_query)) {
 	$wrkgr_lst_array[] = array('id' => $wrkgr_lst['id'],
                                  'name' => $wrkgr_lst['name']);
 echo "newitem+=\"<option value='".$wrkgr_lst['id']."'>".$wrkgr_lst['name']."</option>\";\n";
@@ -18,7 +18,7 @@ echo "newitem+=\"<option value='".$wrkgr_lst['id']."'>".$wrkgr_lst['name']."</op
   echo "newitem+=\"</select>\";\n".
   "newitem+=\"<select name='wrk[\" + items;\n".
   "newitem+=\"]' size='1'>\";\n";
-while ($wrk_lst=mysql_fetch_array($wrk_lst_query)) {
+while ($wrk_lst=mysqli_fetch_array($wrk_lst_query)) {
 	$wrk_lst_array[] = array('id' => $wrk_lst['id'],
                                  'name' => $wrk_lst['name']);
 echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option>\";\n";

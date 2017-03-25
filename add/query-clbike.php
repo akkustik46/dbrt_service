@@ -1,9 +1,9 @@
 <?php
 session_start();
 require('../config.php');
-mysql_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysql_select_db('dbrt_garage');
-mysql_query("SET NAMES 'utf8'");
+$dbq=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db($dbq,'dbrt_garage');
+mysqli_query($dbq,"SET NAMES 'utf8'");
 
 /**
  * @author Evgeni Lezhenkin evgeni@lezhenkin.ru http://lezhenkin.ru
@@ -15,14 +15,14 @@ mysql_query("SET NAMES 'utf8'");
 // значения, запрашиваемые JavaScript-сценарием. В ваших сценариях этих массивов, скорее всего,
 // не будет. Информация, подобная этой, будет в вашей базе данных, и вам её придется оттуда 
 // извлечь. Как вы это сделаете, это уже ваши предпочтения
-$cli_query = mysql_query("SELECT id,username from clients");
+$cli_query = mysqli_query($dbq,"SELECT id,username from clients");
 $cli = array();
-while($cli_lst = mysql_fetch_array($cli_query,MYSQL_ASSOC)) {
-	$bike_query=mysql_query("SELECT id,model from bike where owner='".$cli_lst['id']."'");
+while($cli_lst = mysqli_fetch_array($cli_query)) {
+	$bike_query=mysqli_query($dbq,"SELECT id,model from bike where owner='".$cli_lst['id']."'");
 	    $bikes[$cli_lst['id']]=array();
-	while ($bike_lst=mysql_fetch_array($bike_query,MYSQL_ASSOC)) {
-		$model_name=mysql_query("select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$bike_lst['id']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$bike_lst['id']."')");
-		    $model=mysql_fetch_array($model_name);
+	while ($bike_lst=mysqli_fetch_array($bike_query)) {
+		$model_name=mysqli_query($dbq,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$bike_lst['id']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$bike_lst['id']."')");
+		    $model=mysqli_fetch_array($model_name);
 
 		$bikes[$cli_lst['id']]=$bikes[$cli_lst['id']] + array($bike_lst['id']=>$model['make']." ".$model['model']." ".$model['capacity']);
 	}
@@ -49,5 +49,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'getBikes')
  * между языками программирования
  */
 //session_close();
+mysqli_close($dbq);
 ?>
     

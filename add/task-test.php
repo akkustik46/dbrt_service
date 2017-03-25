@@ -1,6 +1,6 @@
 <?php 
-$wrkgr_lst_query=mysql_query("SELECT * FROM works_groups");
-$wrk_lst_query=mysql_query("SELECT * FROM works_types");
+$wrkgr_lst_query=mysqli_query($db,"SELECT * FROM works_groups");
+$wrk_lst_query=mysqli_query($db,"SELECT * FROM works_types");
 //$wrkgr_lst=mysql_fetch_array($wrkgr_lst_query,MYSQL_ASSOC);
 //print_r($wrkgr_lst);
 echo "<script language='javascript'>\n".
@@ -10,7 +10,7 @@ echo "<script language='javascript'>\n".
   "button=document.getElementById(\"add\");\n".
   "items++;\n".
   "newitem=\"<select name='wrk_gr[\" + items+ \"]' size='1' onchange='loadCity(this)'>\";\n";
-while ($wrkgr_lst=mysql_fetch_array($wrkgr_lst_query)) {
+while ($wrkgr_lst=mysqli_fetch_array($wrkgr_lst_query)) {
 	$wrkgr_lst_array[] = array('id' => $wrkgr_lst['id'],
                                  'name' => $wrkgr_lst['name']);
 echo "newitem+=\"<option value='".$wrkgr_lst['id']."'>".$wrkgr_lst['name']."</option>\";\n";
@@ -18,7 +18,7 @@ echo "newitem+=\"<option value='".$wrkgr_lst['id']."'>".$wrkgr_lst['name']."</op
   echo "newitem+=\"</select>\";\n".
   "newitem+=\"<select name='work[\" + items;\n".
   "newitem+=\"]' id='wrk_gr[\" + items + \"]' disabled='disabled'>\";\n";
-while ($wrk_lst=mysql_fetch_array($wrk_lst_query)) {
+while ($wrk_lst=mysqli_fetch_array($wrk_lst_query)) {
 	$wrk_lst_array[] = array('id' => $wrk_lst['id'],
                                  'name' => $wrk_lst['name']);
 echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option>\";\n";
@@ -36,8 +36,8 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
     <option></option>
 
     <?php
-    $wrkgr_lst_query=mysql_query("SELECT * FROM works_groups");
-    while ($wrkgr_lst=mysql_fetch_array($wrkgr_lst_query,MYSQL_ASSOC)) { 
+    $wrkgr_lst_query=mysqli_query($db,"SELECT * FROM works_groups");
+    while ($wrkgr_lst=mysqli_fetch_array($wrkgr_lst_query)) { 
 		$wrkgr=array('id'=>$wrkgr_lst['id'],
 				'name'=>$wrkgr_lst['name']);
 	// заполняем список областей

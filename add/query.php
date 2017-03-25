@@ -1,9 +1,9 @@
 <?php
 session_start();
 require('../config.php');
-mysql_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysql_select_db('dbrt_garage');
-mysql_query("SET NAMES 'utf8'");
+$dbq=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db($dbq,'dbrt_garage');
+mysqli_query($dbq,"SET NAMES 'utf8'");
 
 /**
  * @author Evgeni Lezhenkin evgeni@lezhenkin.ru http://lezhenkin.ru
@@ -15,12 +15,12 @@ mysql_query("SET NAMES 'utf8'");
 // значения, запрашиваемые JavaScript-сценарием. В ваших сценариях этих массивов, скорее всего,
 // не будет. Информация, подобная этой, будет в вашей базе данных, и вам её придется оттуда 
 // извлечь. Как вы это сделаете, это уже ваши предпочтения
-$wgr_query = mysql_query("SELECT * from works_groups");
+$wgr_query = mysqli_query($dbq,"SELECT * from works_groups");
 $wgr = array();
-while($wgr_lst = mysql_fetch_array($wgr_query,MYSQL_ASSOC)) {
-	$wrk_query=mysql_query("SELECT id,name from works_types where group_id='".$wgr_lst['id']."'");
+while($wgr_lst = mysqli_fetch_array($wgr_query)) {
+	$wrk_query=mysqli_query($dbq,"SELECT id,name from works_types where group_id='".$wgr_lst['id']."'");
 	    $types[$wgr_lst['id']]=array();
-	while ($wrk_lst=mysql_fetch_array($wrk_query,MYSQL_ASSOC)) {
+	while ($wrk_lst=mysqli_fetch_array($wrk_query)) {
 	$types[$wgr_lst['id']]=$types[$wgr_lst['id']] + array($wrk_lst['id']=>$wrk_lst['name']);
 	}
 }
@@ -166,5 +166,6 @@ echo json_encode($result,JSON_UNESCAPED_UNICODE);
  * между языками программирования
  */
 //session_close();
+mysqli_close($dbq);
 ?>
     
