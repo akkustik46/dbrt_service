@@ -57,7 +57,7 @@ while ($payed_lst=mysqli_fetch_array($payed)) {
 <?php 
 $stat_cur=mysqli_query($db,"SELECT status,comment from tasks where id='".$_GET['id']."'");
 $stat_cur=mysqli_fetch_array($stat_cur);
-$status_lst_query=mysqli_query("SELECT * FROM tasks_status");
+$status_lst_query=mysqli_query($db,"SELECT * FROM tasks_status");
 while ($status_lst = mysqli_fetch_array($status_lst_query)) {
       $status_lst_array[] = array('id' => $status_lst['id'],
                                  'name' => $status_lst['name']);
