@@ -28,3 +28,18 @@ function loadBike(select)
 	bikeSelect.removeAttr('disabled');
     });
 }
+function loadProd(select)
+{
+    var prodSelect = $('select[id="'+select.name+'"]');
+
+    // послыаем AJAX запрос, который вернёт список городов для выбранной области
+    $.getJSON('/add/query2.php', {action:'getProd', types:select.value}, function(prodList){
+        prodSelect.html(''); // очищаем список городов
+
+        // заполняем список городов новыми пришедшими данными
+        $.each(prodList, function(i){
+            prodSelect.append('<option value="' + i + '">' + this + '</option>');
+        });
+	prodSelect.removeAttr('disabled');
+    });
+}

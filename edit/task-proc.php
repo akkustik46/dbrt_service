@@ -15,7 +15,7 @@ mysqli_query($db,"SET NAMES 'utf8'");
 if ($_POST['phone_mts']<>'33') { mysql_query("UPDATE phones SET phones.user_id='".$_POST['id']."' WHERE phones.id='".$_POST['phone_mts']."'"); }
 if ($_POST['phone_travel']<>'33') { mysql_query("UPDATE phones SET phones.user_id='".$_POST['id']."' WHERE phones.id='".$_POST['phone_travel']."'"); }
 */
-print_r ($_POST);
+//print_r ($_POST);
 
 //рабочее
 mysqli_query($db,"UPDATE tasks SET tasks.status='".$_POST['status']."', tasks.date_change=now(), comment='".$_POST['comment']."' WHERE tasks.id='".$_POST['task_id']."'");
@@ -47,7 +47,7 @@ if (!isset($exist['valvecount'])) {
 				mysqli_query($db,"UPDATE valve_clearances SET clearance='".$value."', shim_before='".$_POST['shim_before'][$key]."', shim_need='".$_POST['shim_need'][$key]."', shim_installed='".$_POST['shim_installed'][$key]."' WHERE task_id='".$_POST['task_id']."' AND valvenum='".$key."'");
 				}
     }
-mysqli_query($db,"UPDATE tasks SET payment='".$_POST['wrk_sum']."' where id='".$_POST['task_id']."'");
+mysqli_query($db,"UPDATE tasks SET payment='".($_POST['wrk_sum']+$_POST['prod_sum'])."' where id='".$_POST['task_id']."'");
 
 if (isset($_POST['prod'])) {
 	foreach($_POST['prod'] as $key=>$value){
