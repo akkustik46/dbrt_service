@@ -42,7 +42,7 @@ echo "newitem2+=\"<option value='".$prod_lst['id']."'>".$prod_lst['name']."</opt
 <?php
 ////$prod_query=mysql_query("SELECT * from prod_sale WHERE task='".$_GET['id']."'"); 
 $prod_query=mysqli_query($db,"SELECT id,(select name from prod_category where id=(select category from prod_prod where id=prod)) as cat, (select name from prod_prod where id=prod) as name, qty, (select price_out from prod_prod where id=prod) as price, (select value from currency where id=(select currency from prod_prod where id=prod)) as cur  from prod_sale WHERE task='".$_GET['id']."'");
-$uah=0;
+$prod_sum=0;
 while($prod_lst=mysqli_fetch_array($prod_query)) {
 		$task_prod=array('cat'=>$prod_lst['cat'],
 				'name'=>$prod_lst['name'],
@@ -55,13 +55,13 @@ while($prod_lst=mysqli_fetch_array($prod_query)) {
 //$status=mysql_query("SELECT status_name from status WHERE id='".$task_wrk['status']."'");
 //$status=mysql_fetch_array($status,MYSQL_ASSOC);
 //    if ($task_wrk['status']==1) {$wrk_chk='checked';} else {$wrk_chk='';}
-	$uah=($task_prod['price']*$task_prod['cur']);
+	$uah=($prod_lst['price']*$prod_lst['cur']);
 	echo "<tr><td bgcolor='white'>".$prod_lst['name']."</td><td bgcolor='white'>".$prod_lst['cat']."</td><td bgcolor='white'>".$uah."</td><td bgcolor='white' align=center>".$task_prod['qty']."</td><td bgcolor='white' align=center>".($uah*$task_prod['qty'])."</td>";
-$prod_sum=$prod_sum+$uah;
+$prod_sum=$prod_sum+($uah*$task_prod['qty']);
 }
  ?>
-<tr><td bgcolor='white'><b>Сумма по товарам</b></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $uah; ?></b></td></tr>
-<input type=hidden name='prod_sum' value=<?php echo $uah; ?>>
+<tr><td bgcolor='white'><b>Сумма по товарам</b></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $prod_sum; ?></b></td></tr>
+<input type=hidden name='prod_sum' value=<?php echo $prod_sum; ?>>
 </table>
 <div ID="prod">
 <select name="cat[1]" onchange="loadProd(this)">
