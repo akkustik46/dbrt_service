@@ -11,7 +11,7 @@ if ($mnf_cnt==0) {
 			mysqli_query($db,"INSERT INTO mnf (mnf.mnf_name) VALUES ('".$_POST['mnf']."')");
 			mysqli_query($db,"INSERT INTO models (models.model, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders, 
 			models.valves_per_cyl, models.eng_type) 
-			VALUES ('".$_POST['model']."', '".$_POST['eng']."', '".mysql_insert_id($db)."','".$_POST['year_begin']."',
+			VALUES ('".$_POST['model']."', '".$_POST['eng']."', '".mysqli_insert_id($db)."','".$_POST['year_begin']."',
 			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['cyl']."', '".$_POST['valve']."', '".$_POST['eng_type']."')");
 			mysqli_query($db,"INSERT INTO tech_data (tech_data.model_id, tech_data.valve_in, tech_data.valve_ex, tech_data.fork_oil_cap, tech_data.fork_oil_level, tech_data.fork_oil_type) 
 			VALUES (
