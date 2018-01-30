@@ -1,0 +1,3 @@
+.sortable tbody tr:hover, .sortable tbody tr.hover { filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); }
+.sortable .even { filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60); }
+

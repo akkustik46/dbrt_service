@@ -2,13 +2,13 @@
 include('../top2.php');
 require('../config.php');
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysqli_select_db($db,'dbrt_garage');
+mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
-//mysql_query("UPDATE users SET users.last_name='" . $_POST['last_name'] . "', users.first_name='" . $_POST['first_name'] . "', users.father_name='" . $_POST['father_name'] . 
-//	    "', users.login='" . $_POST['login'] . "', users.passwd='" . $pass . 
-//	    "', users.departament_id='" . $_POST['depart'] . "', users.building_id='" . $_POST['building'] . "', users.tel='" . $_POST['tel'] . 
+//mysql_query("UPDATE users SET users.last_name='" . $_POST['last_name'] . "', users.first_name='" . $_POST['first_name'] . "', users.father_name='" . $_POST['father_name'] .
+//	    "', users.login='" . $_POST['login'] . "', users.passwd='" . $pass .
+//	    "', users.departament_id='" . $_POST['depart'] . "', users.building_id='" . $_POST['building'] . "', users.tel='" . $_POST['tel'] .
 //	    "', users.email='" . $_POST['email'] . "'  WHERE users.id='" . $_POST['usr_id'] . "'");
-/*mysql_query("UPDATE users SET users.last_name='".$_POST['last_name']."', users.first_name='".$_POST['first_name']."', users.father_name='".$_POST['father_name']."', 
+/*mysql_query("UPDATE users SET users.last_name='".$_POST['last_name']."', users.first_name='".$_POST['first_name']."', users.father_name='".$_POST['father_name']."',
 		users.local_login='".$_POST['login']."', users.local_pwd='".$_POST['passwd']."', users.email='".$_POST['mail_login']."', users.email_pwd='".$_POST['mail_passwd']."',
 		users.tel_mts='".$_POST['phone_mts']."', users.tel_travel='".$_POST['phone_travel']."', users.position='".$_POST['position']."', users.lido_login='".$_POST['lido_log']."',
 		users.lido_pwd='".$_POST['lido_pass']."', users.dep_id='".$_POST['depart']."' WHERE users.id='".$_POST['id']."'");
@@ -30,7 +30,7 @@ foreach ($_POST['price'] as $key=>$value) {
 	mysqli_query($db,"UPDATE works SET price='".$value."', status='0' where task_id='".$_POST['task_id']."' AND id='".$key."'");
 	}
     }
-if (isset($_POST['work'])) { 
+if (isset($_POST['work'])) {
 		foreach($_POST['work'] as $key=>$value){
 				mysqli_query($db,"INSERT INTO works (type_id,task_id,price,status) VALUES ('".$value."','".$_POST['task_id']."','0','0')");
 			}

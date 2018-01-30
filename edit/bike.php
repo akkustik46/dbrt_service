@@ -3,8 +3,8 @@ session_start();
 include('../top2.php');
 require('../config.php');
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-$mysqli = new mysqli(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, "dbrt_garage");
-mysqli_select_db($db,'dbrt_garage');
+$mysqli = new mysqli(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, DB_SERVER_DATABASE);
+mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 
 ?>

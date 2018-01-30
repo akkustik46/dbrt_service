@@ -3,7 +3,7 @@ session_start();
 include('../top2.php');
 require('../config.php');
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysqli_select_db($db,'dbrt_garage');
+mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 //$loc_lst_query=mysql_query("SELECT locations.id, locations.building, buildings.room FROM locations ORDER BY locations.building, buildings.room");
 //$phones_lst_query=mysql_query("SELECT * FROM phones WHERE (phones.num RLIKE '^380'or phones.num RLIKE '---') order by phones.num");
@@ -73,4 +73,8 @@ while ($cur_lst=mysqli_fetch_array($cur_query)) {
 </form>
 <?php
 include('../footer.php');
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> development

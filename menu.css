@@ -6,7 +6,7 @@ width: 99%;
       background-repeat: no-repeat;
       background-attachment:fixed; */
       }
-      
+
 ul {
 list-style: none;
 }
@@ -27,7 +27,7 @@ position: absolute; /* чтобы положение подменю не вли�
 left: -40px;
 top: 30px; /* высоту лучше не делать большей высоты пункта меню первого уровня, иначе попасть на подменю будет проблематично */
 margin: 0 ;
-width: 180px;
+width: 130px;
 /* background: #ccc; */
 border: 0px solid #000;
 }
@@ -39,11 +39,11 @@ background: none;
 }
 ul li:hover ul {
 display: block; /* при наведении на пункт меню первого уровня, показывем подменю */
-} 
+}
 ul li.over ul {
 display: block;
 margin:0;
-} 
+}
 
 /* tooltip */
 a.tt span{
@@ -84,7 +84,7 @@ background:#aaaaff;/*фон, что бы было видно тултип*/
     padding:6px 20px;
     text-decoration:none;
     text-shadow:1px 1px 0px #1570cd;
-    width: 150px;
+    width: 100px;
 }.button1:hover {
     background-color:#1f6adb;
 }.button1:active {
@@ -126,4 +126,3 @@ background:#aaaaff;/*фон, что бы было видно тултип*/
     left: 1000px;
     background: #Eaea54;
     }
-

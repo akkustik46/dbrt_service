@@ -37,7 +37,7 @@ else{
 //храните в базе данных, в таблице users, содержащей поля id, login, pass
 
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysqli_select_db($db,"dbrt_garage");
+mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 //проверяем есть ли пользователь с таким loginом и passwordом
 $res=mysqli_query($db,"SELECT * FROM users WHERE users.name='".$_POST['login']."'

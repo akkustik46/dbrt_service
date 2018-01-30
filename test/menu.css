@@ -1,0 +1,129 @@
+body {
+background-color:#b2afc9;
+width:1420px;
+  /*bauckground-image: url("images/aerosvit.png");
+    background-position: 80% 30px;
+      background-repeat: no-repeat;
+      background-attachment:fixed; */
+      }
+      
+ul {
+list-style: none;
+}
+ul li {
+float: left; /* элементы списка делаем блочными и выстраиваем в ряд */
+height: 33px; /* высоту лучше жестко указать, чтобы выпадающее меню появлялось в предсказуемом месте */
+margin-right: -12px;
+margin-bottom:-3px;
+cursor: pointer;
+position: relative; /* чтобы выпадающее меню позиционировалось относительно родителя */
+z-index: 0;
+/*background: #99CCCC;*/
+padding: 0 5px;
+}
+ul li ul {
+display: none; /* скрываем выпадающе меню */
+position: absolute; /* чтобы положение подменю не влияло на окружение и легко было позиционировать */
+left: -40px;
+top: 30px; /* высоту лучше не делать большей высоты пункта меню первого уровня, иначе попасть на подменю будет проблематично */
+margin: 0 ;
+width: 180px;
+/* background: #ccc; */
+border: 0px solid #000;
+}
+ul li ul li {
+float: none;
+display: block;
+background: none;
+/*border-bottom: 1px solid #CCC;*/
+}
+ul li:hover ul {
+display: block; /* при наведении на пункт меню первого уровня, показывем подменю */
+} 
+ul li.over ul {
+display: block;
+margin:0;
+} 
+
+/* tooltip */
+a.tt span{
+display:none;/*собственно прячем тултип – пока мышь не наведена*/
+}
+a.tt:hover{
+position:relative;/*Ставим точку отсчета для тултипа внутрь данной ссылки*/
+text-decoration: none;
+color:#666666;
+z-index:23;/*это нужно что бы тултип показывался поверх этой и других ссылок*/
+}
+a.tt:hover span{
+color:#000000;
+border:1px solid #aaaaaa;
+display:block;/*показываем тултип при наведении*/
+text-decoration: none;
+position:absolute;
+height: 30px;
+top:-40px;
+left:0px;/*три строки для позиции тултипа относительно левого верхнего угла ссылки*/
+z-index:22;/*мне 22 + см. выше*/
+background:#aaaaff;/*фон, что бы было видно тултип*/
+}
+.button1 {
+    -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    background-color:#3d94f6;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    color:#f0f099;
+    font-family:arial;
+    font-size:14px;
+    font-weight:bold;
+    padding:6px 20px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #1570cd;
+    width: 150px;
+}.button1:hover {
+    background-color:#1f6adb;
+}.button1:active {
+    position:relative;
+    top:1px;
+}
+.button2 {
+    -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    box-shadow:inset 0px 1px 0px 0px #97c4fe;
+    background-color:#3d94f6;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    color:#f0f099;
+    font-family:arial;
+    font-size:13px;
+    font-weight:bold;
+    padding:6px 20px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #1570cd;
+    width: 380px;
+}
+.button2:hover {
+    background-color:#1f6adb;
+    }
+.button2:active {
+    background-color:#1f6adb;
+    position:relative;
+    top:1px;
+    }
+.notification {
+    position: absolute;
+    /* height: 24px; */
+    width: 346px;
+    top: 18px;
+    left: 1000px;
+    background: #Eaea54;
+    }
+

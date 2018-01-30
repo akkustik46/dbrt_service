@@ -19,7 +19,7 @@ $cl_lst=mysqli_fetch_array($cl_lst_query);
 //        }
 $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."')");
 $model=mysqli_fetch_array($model_name);
-$payment=mysqli_query($db,"select payment from tasks where id='".$_GET['id']."'");
+$payment=mysqli_query($db,"select payment,mileage from tasks where id='".$_GET['id']."'");
 $payment=mysqli_fetch_array($payment);
 $payed=mysqli_query($db,"select * from payments where task='".$_GET['id']."'");
 $payed_sum=0;
@@ -38,7 +38,7 @@ while ($payed_lst=mysqli_fetch_array($payed)) {
 <?php $bike_data_query=mysqli_query($db,"SELECT * FROM bike WHERE id='".$task_lst['bike']."'");
 $bike_data=mysqli_fetch_array($bike_data_query);
 if ($bike_data['mi_km']==0) {$units='km';} else {$units='miles';} 
-echo $bike_data['mileage_last']." ".$units ;
+echo $payment['mileage']." ".$units ;
 ?>
 </td>
 <td><b>Оплачено:</b></td><td>

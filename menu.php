@@ -42,6 +42,10 @@ include('db_conn.php');
 <li>
 <a href="prod.php" class="button1">Склад</a>
 <ul>
+<<<<<<< HEAD
+=======
+<li><a href="sales.php" class="button1">Продажи за период</a></li>
+>>>>>>> development
 </ul>
 </li>
 
@@ -114,9 +118,14 @@ window.onload=startList;
 //require('db_conn.php');
 //mysql_select_db('dbrt_garage', $db);
 $cur_query=mysqli_query($db,"SELECT * FROM currency");
+echo("Курс: ");
 while ($cur=mysqli_fetch_array($cur_query)) {
-			echo ($cur['name'].":".$cur['value']." ");
+		if ($cur['name']=='UAH') {} else {
+			echo ($cur['name'].":".round($cur['value'],2)." ");
+			$upd=$cur['updated'];
+		    }
 		}
+    echo (" обновлен: ".$upd);
 ?>
 
 <br>

@@ -3,7 +3,7 @@ session_start();
 include('../top2.php');
 require('../config.php');
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysqli_select_db($db,"dbrt_garage");
+mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 $task_lst_query=mysqli_query($db,"SELECT * FROM tasks WHERE id='".$_GET['id']."'");
 $task_lst=mysqli_fetch_array($task_lst_query);
@@ -12,7 +12,7 @@ $task_lst=mysqli_fetch_array($task_lst_query);
 <style type="text/css">
 		/* These styles are for the documentation only */
 		body	{ font-family:'Trebuchet MS',serif; background-color:#eee }
-		
+
 	</style>
 
 </head><body>
@@ -39,13 +39,13 @@ $task_lst=mysqli_fetch_array($task_lst_query);
 	<p><?php include('task-test.php');
 	    ?></p>
 </div>
-	
+
 <div id="products" class="tabset_content">
 	<h2 class="tabset_label">Товары</h2>
-	<p><?php 
+	<p><?php
 	include('task-prod.php');
 	    ?></p>
-</div> 
+</div>
 <div id="valvetable" class="tabset_content">
 	<h2 class="tabset_label">Таблица клапанов</h2>
 	<p><?php include('task-valve.php');
@@ -56,7 +56,7 @@ $task_lst=mysqli_fetch_array($task_lst_query);
 
 <div id="notes" class="tabset_content">
 	<h2 class="tabset_label">Notes</h2>
-	<p>������� �4</p>
+	<p>Вкладка №4</p>
 </div>
 
 
