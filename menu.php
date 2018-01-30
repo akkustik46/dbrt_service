@@ -42,10 +42,7 @@ include('db_conn.php');
 <li>
 <a href="prod.php" class="button1">Склад</a>
 <ul>
-<<<<<<< HEAD
-=======
 <li><a href="sales.php" class="button1">Продажи за период</a></li>
->>>>>>> development
 </ul>
 </li>
 
