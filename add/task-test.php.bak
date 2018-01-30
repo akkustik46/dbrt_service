@@ -1,0 +1,56 @@
+<?php
+$wrkgr_lst_query=mysql_query("SELECT * FROM works_groups");
+?>
+
+<div class="row">
+            <label for="type">Категория:</label>
+            <!-- Создаем поле со списком -->
+            <select id="type" name="type[1]">
+                <!-- В список сразу внесем значение по умолчанию, а также
+                    несколько значений видов транспорта. Предположим, что они
+                    нам известны заранее, и хранятся, допустим, в базе данных -->
+	<option value="0">Выберите из списка</option>
+<?php
+while ($wrkgr_lst=mysql_fetch_array($wrkgr_lst_query)) {
+$wrkgr_lst[] = array('id' => $wrkgr_lst['id'],
+                                 'name' => $wrkgr_lst['name']);
+	echo "<option value=\"".$wrkgr_lst['id']."\">".$wrkgr_lst['name']."</option>";
+}
+?>
+            </select>
+        <!-- Для списков видов и категорий транспорта мы создадим только значения по умолчанию,
+            остальные значения мы будем подгружать в них тогда, когда будет сделан выбор
+            в первом списке -->
+            <label for="kind">Работы:</label>
+            <!-- Так как это список зависит от выбора в первом списке, отключаем его, добавив
+                к тегу select атрибут disabled-->
+            <select id="kind" name="kind[1]" disabled>
+                <option value="0">Выберите из списка</option>
+            </select>
+<br>
+    <label for="type">Категория:</label>
+            <!-- Создаем поле со списком -->
+            <select id="type" name="type[2]">
+                <!-- В список сразу внесем значение по умолчанию, а также
+                    несколько значений видов транспорта. Предположим, что они
+                    нам известны заранее, и хранятся, допустим, в базе данных -->
+		<option value="0">Выберите из списка</option>
+<?php
+$wrkgr_lst_query=mysql_query("SELECT * FROM works_groups");
+while ($wrkgr_lst=mysql_fetch_array($wrkgr_lst_query)) {
+$wrkgr_lst[] = array('id' => $wrkgr_lst['id'],
+                                 'name' => $wrkgr_lst['name']);
+		echo "<option value=\"".$wrkgr_lst['id']."\">".$wrkgr_lst['name']."</option>";
+}
+?>
+            </select>
+        <!-- Для списков видов и категорий транспорта мы создадим только значения по умолчанию,
+            остальные значения мы будем подгружать в них тогда, когда будет сделан выбор
+            в первом списке -->
+            <label for="kind">Работы:</label>
+            <!-- Так как это список зависит от выбора в первом списке, отключаем его, добавив
+                к тегу select атрибут disabled-->
+            <select id="kind" name="kind[2]" disabled>
+                <option value="0">Выберите из списка</option>
+            </select>
+        </div>
