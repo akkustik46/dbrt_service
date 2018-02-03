@@ -117,7 +117,7 @@ window.onload=startList;
 $cur_query=mysqli_query($db,"SELECT * FROM currency");
 //echo("Курс: ");
 ?>
-<div id="currency" style="float:left">
+<div id="currency" style="float:right">
 <?
 while ($cur=mysqli_fetch_array($cur_query)) {
 		if ($cur['name']=='UAH') {} else {
