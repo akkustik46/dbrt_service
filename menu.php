@@ -116,13 +116,15 @@ window.onload=startList;
 //mysql_select_db('dbrt_garage', $db);
 $cur_query=mysqli_query($db,"SELECT * FROM currency");
 //echo("Курс: ");
+?>
+<div class="currency">
+<?
 while ($cur=mysqli_fetch_array($cur_query)) {
 		if ($cur['name']=='UAH') {} else {
 			echo ($cur['name'].":".round($cur['value'],2)." ");
 			$upd=$cur['updated'];
 		    }
 		}
-    echo ("  ".$upd);
+    echo (" <br> ".$upd);
 ?>
-
-<br>
+</div>
