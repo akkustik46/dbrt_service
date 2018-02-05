@@ -2,7 +2,7 @@
 session_start();
 require('../config.php');
 $dbq=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysqli_select_db($dbq,'dbrt_garage');
+mysqli_select_db($dbq,DB_SERVER_DATABASE);
 mysqli_query($dbq,"SET NAMES 'utf8'");
 
 /**
