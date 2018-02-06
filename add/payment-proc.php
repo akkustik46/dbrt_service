@@ -16,8 +16,5 @@ include('../footer.php');
 <script>
 var tm=5000
 window.setTimeout("opener.window.location.reload(); window.close();",tm)
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> development
+
