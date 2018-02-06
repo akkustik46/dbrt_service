@@ -17,8 +17,5 @@ mysqli_query($db,"SET NAMES 'utf8'");
 </form>
 <?php
 include('../footer.php');
-<<<<<<< HEAD
+
 ?>
-=======
-?>
->>>>>>> development
