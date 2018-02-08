@@ -11,6 +11,7 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 ?>
 <br>
 <br>
+<p>
 <?php 
 if ($_SESSION['login']=='admin') {
  echo "<div style=\"padding-top: 10px; margin-left: 50px; margin-top: 30px\">".
@@ -18,6 +19,7 @@ if ($_SESSION['login']=='admin') {
 "</div>";
     }
 ?>
+</p>
 <p>
 
 <b>
