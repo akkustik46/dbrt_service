@@ -12,13 +12,9 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <br>
 <br>
 <p>
-<?php 
-if ($_SESSION['login']=='admin') {
- echo "<div style=\"padding-top: 10px; margin-left: 50px; margin-top: 30px\">".
-"<a href='add/bike.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddBike', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;\">Добавить мотоцикл</a>".
-"</div>";
-    }
-?>
+<div style="padding-top: 10px; margin-left: 50px; margin-top: 30px">
+<a href='add/bike.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddBike', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;\">Добавить мотоцикл</a>
+</div>
 </p>
 <p>
 
