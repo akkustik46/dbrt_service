@@ -108,7 +108,7 @@ thead .str {width:90%; }
 .navig input {padding:0 .2em; margin:0 .2em; width:3em; vertical-align:middle; }
 .navig .find {width:11em; }
 .navig .seekval {width:9em; }
-.navig {text-align:center; margin:20px 100px 0.5em auto; clear:both;}
+.navig {margin:20px 100px 0.5em 300px; clear:both;}
 
 .def {text-align:center; margin: 2em auto 1em auto;}
 .def span {white-space: nowrap; }

@@ -10,8 +10,8 @@ include('menu.php');
 ?>
 <br>
 
-<div style="padding-top: 10px; margin-left: 50px; margin-top: 30px">
-<a href='add/task.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddTask', 'location,width=600,height=700,top=0'); popupWin.focus(); return false;\" style="padding-left:90px;">Добавить задачу</a>
+<div style="padding-top: 10px; margin-left: 0px; margin-top: 40px">
+<a href='add/task.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddTask', 'location,width=600,height=700,top=0'); popupWin.focus(); return false;\" style="padding-left:90px;"><img src="img/add.svg" width=50px height=50px></a>
 </div>
 
 <table class="sortable" id='t'>
