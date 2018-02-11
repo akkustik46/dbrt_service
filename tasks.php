@@ -9,11 +9,11 @@ include('menu.php');
 //include('db_conn.php');
 ?>
 <br>
-
-<div style="padding-top: 10px; margin-left: 0px; margin-top: 40px">
-<a href='add/task.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddTask', 'location,width=600,height=700,top=0'); popupWin.focus(); return false;\" style="padding-left:90px;"><img src="img/add.svg" width=50px height=50px></a>
+<p>
+<div style="padding-top: 10px; margin-left: -40px; margin-top: 30px">
+<a href='add/task.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddTask', 'location,width=600,height=700,top=0'); popupWin.focus(); return false;\" style="padding-left:90px;"><img src="img/add.svg" width=30px height=30px></a>
 </div>
-
+</p>
 <table class="sortable" id='t'>
 <col class='id'><col class='bike'><col class='client'><col class='date'><col class='work'><col class='prices'><col class='status2'>
 <col class='esg'><col class='esg'><col class='season'><col class='season'><col class='season'><col class='act'><col class='stat'><thead>
