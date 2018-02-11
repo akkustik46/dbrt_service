@@ -117,7 +117,7 @@ $cur_query=mysqli_query($db,"SELECT * FROM currency");
 //echo("Курс: ");
 ?>
 <div id="currency" style="float:right">
-<?
+<?php
 while ($cur=mysqli_fetch_array($cur_query)) {
 		if ($cur['name']=='UAH') {} else {
 			echo ($cur['name'].":".round($cur['value'],2)." ");
