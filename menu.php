@@ -9,7 +9,7 @@ header('Refresh: 0; index.php');
 <?php /*
 <li><a href="zayavki.php">Заявки</a></li>
 */ ?>
-<?php 
+<?php
 include('db_conn.php');
 //$dep_lst_query=mysql_query("SELECT * from departments WHERE departments.parent_id='0' ORDER BY departments.dep_name");
 
@@ -69,7 +69,6 @@ echo ('<li><a href="restricted_list.php?action='.$type_lst['id'].'" class="butto
 
 
     }*/
-	
 ?>
 <li>
 <a href="logout.php" class="button1">Logout</a>
