@@ -10,14 +10,9 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 
 ?>
 <br>
-<br>
-<?php 
-if ($_SESSION['login']=='admin') {
- echo "<p style=\"margin-left: 50px\">".
-"<a href='add/client.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddClient', 'location=no,width=470,height=300,top=200,left=60'); popupWin.focus(); return false;\">Добавить клиента</a>".
-"</p>";
-    }
-?>
+<p>
+<a href='add/client.php' target='_blank' onClick="popupWin = window.open(this.href, 'AddClient', 'location=no,width=470,height=300,top=200,left=60'); popupWin.focus(); return false;"><img src="img/add.svg" width=30px height=30px></a>
+</p
 <p>
 
 <b>
