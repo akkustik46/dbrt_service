@@ -28,7 +28,6 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 */
 ?>
 </b>
-<br>
 
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black" style="margin-left: 50px">
     <tr>
