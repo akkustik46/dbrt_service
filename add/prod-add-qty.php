@@ -17,11 +17,9 @@ echo "<b>".$prod['name']."</b>";
 <form action="prod-add-new-proc.php" method="post">
 <input type="hidden" value="prod_buy" name="tbl">
 <input type="hidden" value="now()" name="date_buy">
-<<<<<<< HEAD
-<input type="hidden" value="<?php echo $prod['id']; ?>" name="prod"> 
-=======
+
 <input type="hidden" value="<?php echo $prod['id']; ?>" name="prod">
->>>>>>> development
+
 Добавить количество<br>
 <table border=0>
 <tr><td>Количество</td><td><input type="text" name="qty" size=5></td></tr>
@@ -32,8 +30,5 @@ echo "<b>".$prod['name']."</b>";
 </form>
 <?php
 include('../footer.php');
-<<<<<<< HEAD
+
 ?>
-=======
-?>
->>>>>>> development
