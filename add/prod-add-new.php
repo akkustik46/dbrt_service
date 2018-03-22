@@ -73,8 +73,6 @@ while ($cur_lst=mysqli_fetch_array($cur_query)) {
 </form>
 <?php
 include('../footer.php');
-<<<<<<< HEAD
+
 ?>
-=======
-?>
->>>>>>> development
+
