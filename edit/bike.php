@@ -32,7 +32,7 @@ echo $model_lst['model'].$model_lst['capacity'];
 ?>
 <select name="owner" size=1>
 <?php
-$bike_q=$mysqli->query("SELECT owner,year,mileage_last,mi_km,vin from bike WHERE id='".$_GET['id']."'");
+$bike_q=$mysqli->query("SELECT owner,year,mileage_last,mi_km,vin,comment from bike WHERE id='".$_GET['id']."'");
 $bike=$bike_q->fetch_array(MYSQLI_ASSOC);
 while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
       $owner_lst_array[] = array('id' => $owner_lst['id'],
