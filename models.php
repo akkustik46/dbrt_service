@@ -68,14 +68,15 @@ if ($_SESSION['login']=='admin') {
     </td>
 </tr>
 <?php
-$models_lst_query=mysqli_query($db, "SELECT * from models ORDER BY models.model asc");
-
+//$models_lst_query=mysqli_query($db, "SELECT * from models ORDER BY models.model asc");
+$models_lst_query=mysqli_query($db, "SELECT * from models inner join mnf on models.mnf_id=mnf.id ORDER by mnf.mnf_name ASC");
+	
 $x=1;
 while ($models_lst = mysqli_fetch_array($models_lst_query)) {
       $models_lst_array[] = array('id' => $models_lst['id'],
 				'model' => $models_lst['model'],
 				'capacity' => $models_lst['capacity'],
-				'mnf_id' => $models_lst['mnf_id'],
+				'mnf_name' => $models_lst['mnf_name'],
 				'year_begin' => $models_lst['year_begin'],
 				'year_end' => $models_lst['year_end'],
 				'comment' => $models_lst['comment'],
@@ -102,9 +103,7 @@ $tech_data=mysqli_fetch_array($tech_data);
     <?php echo ($models_lst['id']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?>>
-    <?php $mnf=mysqli_query($db,"SELECT mnf_name from mnf where mnf.id='".$models_lst['mnf_id']."'");
-	    $mnf=mysqli_fetch_array($mnf);
-	    echo ($mnf['mnf_name']); ?>
+    <?php echo ($models_lst['mnf_name']); ?>
     </td>
     <td align=center bgcolor=<?php echo $bg; ?>>
     <?php echo ($models_lst['model'].' '.$models_lst['capacity']); ?>
