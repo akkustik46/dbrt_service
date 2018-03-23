@@ -10,6 +10,7 @@ mysqli_query($db,"SET NAMES 'utf8'");
 ?>
 <form action="bike-proc.php" method="post">
 Редактировать мотоцикл<br>
+<input type="hidden" name="id" value="<?php echo($_GET['id']); ?>">
 <table border=0>
 <tr><td>Марка</td><td>
 <?php $mnf_lst_query=mysqli_query($db,"SELECT mnf_name FROM mnf where id=(SELECT mnf_id from models where id=(SELECT model FROM bike WHERE id='".$_GET['id']."'))");
