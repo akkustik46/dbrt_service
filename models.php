@@ -69,7 +69,7 @@ if ($_SESSION['login']=='admin') {
 </tr>
 <?php
 //$models_lst_query=mysqli_query($db, "SELECT * from models ORDER BY models.model asc");
-$models_lst_query=mysqli_query($db, "SELECT * from models inner join mnf on models.mnf_id=mnf.id ORDER by mnf.mnf_name ASC");
+$models_lst_query=mysqli_query($db, "SELECT m.id, m.model, m.capacity, m.year_begin, m.year_end, m.comment, m.cylinders, m.valves_per_cyl, m.eng_type, mn.mnf_name from models m inner join mnf mn on m.mnf_id=mn.id ORDER by mn.mnf_name ASC");
 	
 $x=1;
 while ($models_lst = mysqli_fetch_array($models_lst_query)) {
