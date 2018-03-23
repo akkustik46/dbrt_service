@@ -31,7 +31,7 @@ echo $model_lst['model'].$model_lst['capacity'];
 ?>
 <select name="owner" size=1>
 <?php
-$bike_q=$mysqli->query("SELECT owner,year,mileage,mi_km,vin from bike WHERE id='".$_GET['id']."'");
+$bike_q=$mysqli->query("SELECT owner,year,mileage_last,mi_km,vin from bike WHERE id='".$_GET['id']."'");
 $bike=$bike_q->fetch_array(MYSQLI_ASSOC);
 while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
       $owner_lst_array[] = array('id' => $owner_lst['id'],
@@ -46,7 +46,7 @@ while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
 
 
 <tr><td>Год выпуска</td><td><input type="text" name="year" size="5" value="<?php echo $bike['year']; ?>"></td></tr>
-<tr><td>Пробег</td><td><input type="text" name="mileage" size="7" value="<?php echo $bike['mileage']; ?>">
+<tr><td>Пробег</td><td><input type="text" name="mileage" size="7" value="<?php echo $bike['mileage_last']; ?>">
 <?php
 if ($bike['mi_km']==0) {
 			echo "km<input type=\"radio\" name=\"mikm\" value=\"0\" checked>mi<input type=\"radio\" name=\"mikm\" value=\"1\">";
