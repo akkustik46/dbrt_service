@@ -66,6 +66,9 @@ if ($_SESSION['login']=='admin') {
     <td align=center bgcolor=#acacff>
     <?php echo ('Клапанов на цилиндр'); ?>
     </td>
+    <td align=center bgcolor=#acacff>
+    <?php echo ('Коментарий'); ?>
+    </td>
 </tr>
 <?php
 //$models_lst_query=mysqli_query($db, "SELECT * from models ORDER BY models.model asc");
@@ -129,7 +132,9 @@ $tech_data=mysqli_fetch_array($tech_data);
     <td bgcolor=<?php echo $bg; ?> align=right>
     <?php echo ($models_lst['valves_per_cyl']); ?>
     </td>
-
+    <td bgcolor=<?php echo $bg; ?> align=right>
+    <?php echo ($models_lst['comment']); ?>
+    </td>
 </tr>
 <?php
 }
