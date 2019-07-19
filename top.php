@@ -1,7 +1,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
-<title>Double Bubbles RT Garage Management</title>
+<title>Shamans Bike Management</title>
  <link rel="stylesheet" type="text/css" href="/menu.css">
 
 </head>

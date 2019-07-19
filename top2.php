@@ -1,7 +1,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
-<title>Double Bubbles RT Garage Management</title>
+<title>Shamans Bike Management</title>
 	<script type="text/javascript" src="/js/jquery-1.11.0.js"></script>
 	<script type="text/javascript" src="/js/addclasskillclass.js"></script>
 	<script type="text/javascript" src="/js/attachevent.js"></script>

@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="en">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <head>
-<title>Double Bubbles RT Garage Management</title>
+<title>Shamans Bike Management</title>
  <link rel="stylesheet" type="text/css" href="/menu.css">
 <link rel='stylesheet' href='classes.css' type='text/css'>
 <link rel='stylesheet' href='tabsort1.css' type='text/css'>
