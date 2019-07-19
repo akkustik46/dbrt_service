@@ -84,6 +84,9 @@ $x++;
     <td align=center bgcolor=#acacff>
     <?php echo ('Работы'); ?>
     </td>
+     <td align=center bgcolor=#acacff>
+    <?php echo ('AW'); ?>
+    </td>
 </tr>
 <?php
 $wrk_lst_query=mysqli_query($db, "SELECT * from works_types where group_id='".$_GET['id']."' ORDER BY name asc");
@@ -91,7 +94,8 @@ $wrk_lst_query=mysqli_query($db, "SELECT * from works_types where group_id='".$_
 $x=1;
 while ($wrk_lst = mysqli_fetch_array($wrk_lst_query)) {
       $wrk_lst_array[] = array('id' => $wrk_lst['id'],
-				'name' => $wrk_lst['name']);
+				'name' => $wrk_lst['name'],
+				'timing' => $wrk_lst['timing']);
 
 $bg=$x%2;
 if ($bg===0) {
@@ -107,6 +111,9 @@ $x++;
     </td>
     <td>
     <?php echo ($wrk_lst['name']); ?>
+    </td>
+    <td>
+    <?php echo ($wrk_lst['timing']); ?>
     </td>
 
 </tr>
