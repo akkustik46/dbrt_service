@@ -29,9 +29,12 @@ $w_gr=mysqli_query($db,"SELECT * FROM works_groups");
 </select>
 </td></tr>
 <tr><td>Наименование:</td>
-<td><input type="text" name="work" size="30">
+<td><input type="text" name="work" size="30"></td>
 </tr>
-
+<tr>
+<td>AW:</td>
+<td><input type="text" name="timing" size="10"></td>
+</tr>
 <tr><td width=100%><center><input type="submit" value="Добавить"></center></td></tr>
 </table>
 </form>

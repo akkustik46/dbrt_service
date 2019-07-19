@@ -6,7 +6,7 @@ $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
 mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 
-mysqli_query($db,"INSERT INTO works_types (name, group_id) VALUES ('".$_POST['work']."', '".$_POST['w_gr']."')");
+mysqli_query($db,"INSERT INTO works_types (name, group_id,timing) VALUES ('".$_POST['work']."', '".$_POST['w_gr']."', '".$_POST['timing']."')");
 //print_r ($_POST);
 echo "Добавлен!";
 mysqli_close($db);
