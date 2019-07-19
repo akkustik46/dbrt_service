@@ -27,7 +27,7 @@ include('db_conn.php');
 <li><a href="bikes.php" class="button1">Мотоциклы</a></li>
 <li><a href="models.php" class="button1">Модели</a></li>
 <li><a href="works.php" class="button1">Работы</a></li>
-<li><a href="issues.php" class="button1">Извесные проблемы</a></li>
+<?php /*<li><a href="issues.php" class="button1">Извесные проблемы</a></li>*/ ?>
 </ul>
 </li>
 <?php
