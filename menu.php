@@ -37,14 +37,17 @@ include('db_conn.php');
 		<a href='sb_send.php' class='button1'>Send to Eval</a>
 		<ul>
 		</ul>
-		</li>";}*/
-?>
+		</li>";}
+
+
 <li>
 <a href="prod.php" class="button1">Склад</a>
 <ul>
 <li><a href="sales.php" class="button1">Продажи за период</a></li>
 </ul>
 </li>
+*/
+?>
 
 <li>
 <a href="users.php" class="button1">Users</a>
