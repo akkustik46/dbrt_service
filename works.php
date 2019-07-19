@@ -21,7 +21,8 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 ?>
 <p>
 <div style="padding-top: 10px; margin-left: 50px; margin-top: 30px">
-<a href='add/w_group.php' target='_blank' onClick="popupWin = window.open(this.href, 'AddWorksGroup', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;"><img src="img/add.svg" width=30px height=30px> </a>
+<a href='add/w_group.php' target='_blank' onClick="popupWin = window.open(this.href, 'AddWorksGroup', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;"><img src="img/add.svg" width=30px height=30px alt="Добавить группу" title="Добавить группу"> </a>
+<a href='add/works.php' target='_blank' onClick="popupWin = window.open(this.href, 'AddWorks', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;"> <img src="img/add.svg" width=30px height=30px alt="Добавить работы" title="Добавить работы"></a>
 </p>
 <p>
 
