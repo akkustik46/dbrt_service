@@ -2,7 +2,7 @@
 if('Chie6kahquieteih' == $_GET['key']) {
     echo '<pre> Update...' . PHP_EOL;
 
-    $dir = '/home/dbrt/dbrt.com.ua/shamans/';
+    $dir = '/home/dbrt/dbrt.com.ua/shamans-bike/';
     exec("cd $dir && /usr/bin/git pull 2>&1", $output);
     $output = [];
     //exec("cd $dir && /usr/bin/git fetch --all 2>&1", $output);
