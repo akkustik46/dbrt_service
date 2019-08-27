@@ -2,7 +2,7 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <head>
 <title>Double Bubbles RT Garage Management</title>
- <link rel="stylesheet" type="text/css" href="/menu-new.css">
+ <link rel="stylesheet" type="text/css" href="/menu.css">
 <link rel='stylesheet' href='classes.css' type='text/css'>
 <link rel='stylesheet' href='tabsort1.css' type='text/css'>
 <script type='text/javascript'>var d0 = new Date()</script>

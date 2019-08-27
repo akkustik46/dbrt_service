@@ -5,7 +5,8 @@ header('Refresh: 0; index.php');
 }
 ?>
 <div style="float:left">
-<?php //<ul id="nav">
+<ul id="nav">
+<?php
  /*
 <li><a href="zayavki.php">Заявки</a></li>
 */ ?>
@@ -13,19 +14,17 @@ header('Refresh: 0; index.php');
 include('db_conn.php');
 //$dep_lst_query=mysql_query("SELECT * from departments WHERE departments.parent_id='0' ORDER BY departments.dep_name");
 ?>
-<nav class="menu">
-<ul class="topmenu">
 
 <li>
-<a href="tasks.php?action=all" class="button1">Заказы<i class="fa fa-angle-down"></i></a>
-    <ul class="submenu">
+<a href="tasks.php?action=all" class="button1">Заказы</a>
+    <ul>
 	<li><a href="tasks.php?action=archive" class="button1">Архив</a></li>
     </ul>
 </li>
 <li>
 
-<a href="" class="button1">Справочник<i class="fa fa-angle-down"></i></a>
-    <ul class="submenu">
+<a href="" class="button1">Справочник</a>
+    <ul>
 	<li><a href="clients.php" class="button1">Клиенты</a></li>
 	<li><a href="bikes.php" class="button1">Мотоциклы</a></li>
 	<li><a href="models.php" class="button1">Модели</a></li>
@@ -43,8 +42,8 @@ include('db_conn.php');
 		</li>";}*/
 ?>
 <li>
-<a href="prod.php" class="button1">Склад<i class="fa fa-angle-down"></i></a>
-    <ul class="submenu">
+<a href="prod.php" class="button1">Склад</a>
+    <ul>
 	<li><a href="sales.php" class="button1">Продажи за период</a></li>
     </ul>
 </li>
