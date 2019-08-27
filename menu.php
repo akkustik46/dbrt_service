@@ -22,6 +22,7 @@ include('db_conn.php');
 </li>
 <li>
 <a href="" class="button1">Справочник</a>
+</li>
 <ul>
 <li><a href="clients.php" class="button1">Клиенты</a></li>
 <li><a href="bikes.php" class="button1">Мотоциклы</a></li>
@@ -29,7 +30,7 @@ include('db_conn.php');
 <li><a href="works.php" class="button1">Работы</a></li>
 <li><a href="issues.php" class="button1">Извесные проблемы</a></li>
 </ul>
-</li>
+
 <?php
 /*    $user_query=mysqli_query($db,"select position, restricted_parts from users where users.name='".$_SESSION['login']."'");
     $user_pos=mysqli_fetch_array($user_query);
