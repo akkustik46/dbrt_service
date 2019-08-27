@@ -71,18 +71,18 @@ a {
 .two ul li:hover .submenu {
   visibility: visible;
 }
-.three ul {
+.menu ul {
   background: #E4EFD1;
 }
-.three ul a {
+.menu ul a {
   color: #74924C;
 }
-.three .submenu {
+.menu .submenu {
   visibility: hidden;
   opacity: 0;
   background: #BAD78B;
 }
-.three ul li:hover .submenu {
+.menu ul li:hover .submenu {
   visibility: visible;
   opacity: 1;
 }
