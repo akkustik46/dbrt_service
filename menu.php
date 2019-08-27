@@ -12,6 +12,7 @@ header('Refresh: 0; index.php');
 <?php
 include('db_conn.php');
 //$dep_lst_query=mysql_query("SELECT * from departments WHERE departments.parent_id='0' ORDER BY departments.dep_name");
+?>
 <nav class="menu">
 <ul class="topmenu">
 ?>
