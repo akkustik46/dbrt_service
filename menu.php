@@ -17,14 +17,14 @@ include('db_conn.php');
 <ul class="topmenu">
 ?>
 <li>
-<a href="tasks.php?action=all" class="button1">Заказы</a>
+<a href="tasks.php?action=all" class="button1">Заказы<i class="fa fa-angle-down"></i></a>
     <ul class="submenu">
 	<li><a href="tasks.php?action=archive" class="button1">Архив</a></li>
     </ul>
 </li>
 <li>
 
-<a href="" class="button1">Справочник</a>
+<a href="" class="button1">Справочник<i class="fa fa-angle-down"></i></a>
     <ul class="submenu">
 	<li><a href="clients.php" class="button1">Клиенты</a></li>
 	<li><a href="bikes.php" class="button1">Мотоциклы</a></li>
@@ -43,7 +43,7 @@ include('db_conn.php');
 		</li>";}*/
 ?>
 <li>
-<a href="prod.php" class="button1">Склад</a>
+<a href="prod.php" class="button1">Склад<i class="fa fa-angle-down"></i></a>
     <ul class="submenu">
 	<li><a href="sales.php" class="button1">Продажи за период</a></li>
     </ul>
