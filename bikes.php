@@ -34,7 +34,7 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <col class="id"><col class="make"><col class="model"><col class="year"><col class="vin"><col class="model"><col class="owner"><col class="mileage"><col class="status">
 <thead>
 <tr><th axis="str">ID&nbsp;</th><th axis="str">Марка&nbsp;</th><th axis="str">Модель&nbsp;</th><th axis="str">Год&nbsp;</th><th axis="str">VIN&nbsp;</th><th axis="str">Номер&nbsp;</th>
-<th axis="str">Владелец&nbsp;</th><th axis="str">Пробег&nbsp;</th><th axis="str">Статус&nbsp;</th></tr>
+<th axis="str">Владелец&nbsp;</th><th axis="str">Пробег&nbsp;</th><th axis="str">История&nbsp;</th></tr>
 </thead>
 <?php /*
     <tr>
@@ -63,7 +63,7 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
     <?php echo ('Пробег'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Статус'); ?>
+    <?php echo ('История'); ?>
     </td>
 </tr>
 */ ?>
@@ -80,7 +80,7 @@ while ($bike_lst = mysqli_fetch_array($bike_lst_query)) {
 				'mileage' => $bike_lst['mileage'],
 				'mi-km' => $bike_lst['mi_km'],
 				'mileage_lastchg' => $bike_lst['mileage_lastchg'],
-				'status' => $bike_lst['status'],
+				/*'status' => $bike_lst['status'],*/
 				'vin' => $bike_lst['vin'],
 				'licence_plate' => $bike_lst['license_plate'],
 				'comment' => $bike_lst['comment'],
@@ -129,9 +129,10 @@ $x++;
 	echo ($bike_lst['mileage_last'].$mikm); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php $status=mysqli_query($db,"SELECT status_name from status where status.id='".$bike_lst['status']."'"); 
+    <?php /* $status=mysqli_query($db,"SELECT status_name from status where status.id='".$bike_lst['status']."'"); 
 	$status=mysqli_fetch_array($status);
-    echo ($status['status_name']); ?>
+    echo ($status['status_name']); */
+    echo "<a href=tasks.php?action=bike_history&bike_id=".$bike_lst['id'].">История</a>" ?>
     </td>
 
 </tr>
