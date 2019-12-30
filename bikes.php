@@ -33,7 +33,7 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <table class="sortable" id="t">
 <col class="id"><col class="make"><col class="model"><col class="year"><col class="vin"><col class="owner"><col class="mileage"><col class="status">
 <thead>
-<tr><th axis="str">ID&nbsp;</th><th axis="str">Марка&nbsp;</th><th axis="str">Модель&nbsp;</th><th axis="str">Год&nbsp;</th><th axis="str">VIN&nbsp;</th><th axis="str">Номер&nbsp;</th>
+<tr><th axis="str">ID&nbsp;</th><th axis="str">Марка&nbsp;</th><th axis="str">Модель&nbsp;</th><th axis="str">Год&nbsp;</th><th axis="str">VIN&nbsp;</th>
 <th axis="str">Владелец&nbsp;</th><th axis="str">Пробег&nbsp;</th><th axis="str">Статус&nbsp;</th></tr>
 </thead>
 <?php /*
@@ -79,7 +79,6 @@ while ($bike_lst = mysqli_fetch_array($bike_lst_query)) {
 				'mileage_lastchg' => $bike_lst['mileage_lastchg'],
 				'status' => $bike_lst['status'],
 				'vin' => $bike_lst['vin'],
-				'licence_plate' => lst['licence_plate']
 				'comment' => $bike_lst['comment'],
 				'mileage_last' => $bike_lst['mileage_last']);
 
@@ -112,9 +111,6 @@ $x++;
     </td>
     <td bgcolor=<?php echo $bg; ?>>
     <?php echo ($bike_lst['vin']); ?>
-    </td>
-    <td bgcolor=<?php echo $bg; ?>>
-    <?php echo ($bike_lst['license_plate']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=left>
     <?php $client=mysqli_query($db, "SELECT username FROM clients WHERE id='".$bike_lst['owner']."'");
