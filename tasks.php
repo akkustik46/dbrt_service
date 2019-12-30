@@ -33,7 +33,7 @@ switch ($_GET['action']) {
     $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
     break;
     case 'bike_history':
-    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where bike=$_GET['bike_id']");
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where bike=".$_GET['bike_id']);
     break;
     default:
     $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
