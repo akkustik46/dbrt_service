@@ -11,7 +11,10 @@ include('menu.php');
 <br>
 <p>
 <div style="padding-top: 10px; margin-left: -40px; margin-top: 30px">
-<a href='add/task.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddTask', 'location,width=600,height=700,top=0'); popupWin.focus(); return false;\" style="padding-left:90px;"><img src="img/add.svg" width=30px height=30px></a>
+<?php if ($_GET['action']=='all') { 
+echo ("<a href='add/task.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddTask', 'location,width=600,height=700,top=0'); popupWin.focus(); return false;\" style="padding-left:90px;\"><img src=\"img/add.svg\" width=30px height=30px></a>");
+} ?>
+
 </div>
 </p>
 <table class="sortable" id='t'>
