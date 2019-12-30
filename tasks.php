@@ -30,7 +30,7 @@ switch ($_GET['action']) {
 echo ("<div style=\"padding-top: 10px; margin-left: -40px; margin-top: 30px\"><a href=\'add/task.php\' target=\'_blank\' onClick=\"popupWin = window.open(this.href, \'AddTask\', \'location,width=600,height=700,top=0\'); popupWin.focus(); return false;\" style=\"padding-left:90px;\"><img src=\"img/add.svg\" width=30px height=30px></a>");
 } 
 if ($_GET['action']=='bike_history') {
-				    echo ("<div style=\"padding-top: 10px; margin-left: 200px; margin-top: 30px\;font-size: x-large\">MODEL");
+				    echo ("<div style=\"padding-top: 10px; margin-left: 200px; margin-top: 30px\;font-size: x-large;\">MODEL");
 				    } 
 ?>
 
