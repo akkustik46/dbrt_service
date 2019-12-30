@@ -7,6 +7,21 @@ if (!isset($_GET['action'])) { $_GET['action']='all'; }
 include('top3.php');
 include('menu.php');
 //include('db_conn.php');
+switch ($_GET['action']) {
+    case 'archive':
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status=4");
+    break;
+    case 'all':
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
+    break;
+    case 'bike_history':
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where bike=".$_GET['bike_id']);
+    break;
+    default:
+    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
+    break;
+    }
+
 ?>
 <br>
 <p>
@@ -14,6 +29,9 @@ include('menu.php');
 <?php if ($_GET['action']=='all') { 
 echo ("<a href=\'add/task.php\' target=\'_blank\' onClick=\"popupWin = window.open(this.href, \'AddTask\', \'location,width=600,height=700,top=0\'); popupWin.focus(); return false;\" style=\"padding-left:90px;\"><img src=\"img/add.svg\" width=30px height=30px></a>");
 } 
+if ($_GET['action']=='bike_history') {
+				    echo ("MODEL");
+				    } 
 ?>
 
 </div>
@@ -29,20 +47,6 @@ echo ("<a href=\'add/task.php\' target=\'_blank\' onClick=\"popupWin = window.op
 <?php
 //$pos_query=mysqli_query($db,"SELECT positions.name FROM positions where positions.id=(SELECT users.position FROM users WHERE users.name='".$_SESSION['login']."')");
 //$pos=mysqli_fetch_array($pos_query);
-switch ($_GET['action']) {
-    case 'archive':
-    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status=4");
-    break;
-    case 'all':
-    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
-    break;
-    case 'bike_history':
-    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where bike=".$_GET['bike_id']);
-    break;
-    default:
-    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
-    break;
-	}
 $x=1;
 while ($tasks_lst = mysqli_fetch_array($tasks_query)) {
       $tasks_array[] = array('id' => $tasks_lst['id'],
