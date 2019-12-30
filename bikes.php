@@ -96,7 +96,7 @@ $x++;
 ?>
 
 
-<tr onClick="popupWin = window.open('edit/bike.php<?php echo ("?id=".$bike_lst['id']);?>', 'Изменить мотоцикл', 'location,width=800,height=550,top=0'); popupWin.focus(); return false;" style="padding-left:90px;">
+<tr>
     <td bgcolor=<?php echo $bg; ?>>
     <?php echo ($bike_lst['id']); ?>
     </td>
@@ -119,7 +119,7 @@ $x++;
     <td bgcolor=<?php echo $bg; ?>>
     <?php echo ($bike_lst['license_plate']); ?>
     </td>
-    <td bgcolor=<?php echo $bg; ?> align=left>
+    <td onClick="popupWin = window.open('edit/bike.php<?php echo ("?id=".$bike_lst['id']);?>', 'Изменить мотоцикл', 'location,width=800,height=550,top=0'); popupWin.focus(); return false;" style="padding-left:90px;" bgcolor=<?php echo $bg; ?> align=left>
     <?php $client=mysqli_query($db, "SELECT username FROM clients WHERE id='".$bike_lst['owner']."'");
 		$client=mysqli_fetch_array($client);
 		echo ($client['username']); ?>
