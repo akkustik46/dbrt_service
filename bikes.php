@@ -31,7 +31,7 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 </b>
 
 <table class="sortable" id="t">
-<col class="id"><col class="make"><col class="model"><col class="year"><col class="vin"><col class="owner"><col class="mileage"><col class="status">
+<col class="id"><col class="make"><col class="model"><col class="year"><col class="vin"><col class="model"><col class="owner"><col class="mileage"><col class="status">
 <thead>
 <tr><th axis="str">ID&nbsp;</th><th axis="str">Марка&nbsp;</th><th axis="str">Модель&nbsp;</th><th axis="str">Год&nbsp;</th><th axis="str">VIN&nbsp;</th><th axis="str">Номер&nbsp;</th>
 <th axis="str">Владелец&nbsp;</th><th axis="str">Пробег&nbsp;</th><th axis="str">Статус&nbsp;</th></tr>
