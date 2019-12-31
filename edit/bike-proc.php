@@ -5,7 +5,7 @@ require('../config.php');
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
 mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
-mysqli_query($db,"UPDATE bike SET bike.owner='".$_POST['owner']."', bike.year='".$_POST['year']."', bike.mileage_last='".$_POST['mileage']."', bike.mileage_lastchg=now(), bike.mi_km='".$_POST['mikm']."', bike.vin='".$_POST['vin']."', bike.license_plate='".$_POST['license_plate']."', bike.comment='".$_POST['comment']."', bike.license_plate='".$_POST['license_plate']."' where bike.id='".$_POST['id']."'");
+mysqli_query($db,"UPDATE bike SET bike.owner='".$_POST['owner']."', bike.year='".$_POST['year']."', bike.mileage_last='".$_POST['mileage']."', bike.mileage_lastchg=now(), bike.mi_km='".$_POST['mikm']."', bike.vin='".$_POST['vin']."', bike.license_plate='".$_POST['license_plate']."' where bike.id='".$_POST['id']."'");
 //print_r($_POST);
 //echo "<br>";
 //print_r($_SESSION["bike"]);
@@ -18,8 +18,8 @@ foreach ($changes as $key => $value) {
 	$act_id=mysqli_query($db,"SELECT id FROM bike_action_type WHERE parameter='".$key."'");
 	$act_id=mysqli_fetch_array($act_id);
 //	echo "action_id=".$act_id['id'];
-//	mysqli_query($db,"INSERT INTO bike_action (bike, old, new, type, date_change) VALUES ('".$_POST['id']."', '".$_SESSION['bike'][$key]."', '".$_POST[$key]."', '".$act_id['id']."', now())");
-	echo "INSERT INTO bike_action (bike, old, new, type, date_change) VALUES ('".$_POST['id']."', '".$_SESSION['bike'][$key]."', '".$_POST[$key]."', '".$act_id['id']."', now())"
+	mysqli_query($db,"INSERT INTO bike_action (bike, old, new, type, date_change) VALUES ('".$_POST['id']."', '".$_SESSION['bike'][$key]."', '".$_POST[$key]."', '".$act_id['id']."', now())");
+//	echo "INSERT INTO bike_action (bike, old, new, type, date_change) VALUES ('".$_POST['id']."', '".$_SESSION['bike'][$key]."', '".$_POST[$key]."', '".$act_id['id']."', now())"
     }
 //echo "<br>";
 //echo count($changes);
