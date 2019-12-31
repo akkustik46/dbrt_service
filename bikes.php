@@ -132,7 +132,7 @@ $x++;
     <?php /* $status=mysqli_query($db,"SELECT status_name from status where status.id='".$bike_lst['status']."'"); 
 	$status=mysqli_fetch_array($status);
     echo ($status['status_name']); */
-    echo "<a href=tasks.php?action=bike_history&bike_id=".$bike_lst['id'].">История</a>" ?>
+    echo "<a href=bike-history.php?bike_id=".$bike_lst['id'].">История</a>" ?>
     </td>
 
 </tr>
