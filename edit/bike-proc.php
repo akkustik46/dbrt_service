@@ -12,7 +12,9 @@ echo "Изменено!";
 mysqli_close($db);
 include('../footer.php');
 ?>
+<?php /*
 <script>
 var tm=1000
 window.setTimeout("opener.window.location.reload(); window.close();",tm)
 </script>
+*/ ?>
