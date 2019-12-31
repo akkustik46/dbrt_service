@@ -10,7 +10,7 @@ print_r($_POST);
 echo "<br>";
 print_r($_SESSION["bike"]);
 
-print_r(array_diff($_POST,$_SESSION["bike"]));
+print_r(key(array_diff($_POST,$_SESSION["bike"])));
 
 echo "Изменено!";
 mysqli_close($db);
