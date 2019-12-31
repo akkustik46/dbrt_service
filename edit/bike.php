@@ -64,5 +64,8 @@ if ($bike['mi_km']==0) {
 </table>
 </form>
 <?php
+
+print_r($bike);
+
 include('../footer.php');
 ?>
