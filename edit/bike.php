@@ -65,5 +65,6 @@ if ($bike['mi_km']==0) {
 </table>
 </form>
 <?php
+$_SESSION["bike"]=$bike;
 include('../footer.php');
 ?>
