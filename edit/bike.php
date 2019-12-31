@@ -7,10 +7,9 @@ $mysqli = new mysqli(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, DB_SERVE
 mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 
-if(!isset($_POST)) {echo "NOT DEFINED";} else {print_r($POST);}
 
 ?>
-<form action="bike.php?id=<?php echo($_GET['id']); ?>" method="post">
+<form action="bike-proc.php" method="post">
 Редактировать мотоцикл<br>
 <input type="hidden" name="id" value="<?php echo($_GET['id']); ?>">
 <table border=0>
@@ -26,7 +25,7 @@ echo $mnf_lst['mnf_name'];
 <tr><td>Модель</td><td>
 <?php $model_lst_query=mysqli_query($db,"SELECT model, capacity  FROM models  WHERE id=(SELECT model FROM bike WHERE id='".$_GET['id']."')");
 $model_lst=mysqli_fetch_array($model_lst_query);
-echo $model_lst['model'].$model_lst['capacity'];
+echo $model_lst['model']." ".$model_lst['capacity'];
 ?>
 </td></tr>
 <tr><td>Владелец</td><td>
@@ -66,8 +65,5 @@ if ($bike['mi_km']==0) {
 </table>
 </form>
 <?php
-
-print_r($bike);
-
 include('../footer.php');
 ?>
