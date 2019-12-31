@@ -7,10 +7,10 @@ $mysqli = new mysqli(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, DB_SERVE
 mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 
-if(isset($_POST)) {echo "NOT DEFINED";}
+if(isset($_POST)) {echo "NOT DEFINED";} else {print_r($POST);}
 
 ?>
-<form action="bike-proc.php" method="post">
+<form action="bike.php" method="post">
 Редактировать мотоцикл<br>
 <input type="hidden" name="id" value="<?php echo($_GET['id']); ?>">
 <table border=0>
