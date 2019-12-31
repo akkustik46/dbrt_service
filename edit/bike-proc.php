@@ -13,6 +13,9 @@ print_r($_SESSION["bike"]);
 $changes=array_diff($_POST,$_SESSION["bike"]);
 echo "<br>";
 print_r($changes);
+foreach ($changes as $key => $value) {
+	echo "INSERT INTO bike_action old=".$_SESSION['bike'][$key].", new=".$_POST[$key];
+    }
 echo "<br>";
 echo count($changes);
 
