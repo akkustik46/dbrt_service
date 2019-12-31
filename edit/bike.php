@@ -7,7 +7,7 @@ $mysqli = new mysqli(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, DB_SERVE
 mysqli_select_db($db,DB_SERVER_DATABASE);
 mysqli_query($db,"SET NAMES 'utf8'");
 
-if(isset($_POST)) {echo "NOT DEFINED";} else {print_r($POST);}
+if(!isset($_POST)) {echo "NOT DEFINED";} else {print_r($POST);}
 
 ?>
 <form action="bike.php?id=<?php echo($_GET['id']); ?>" method="post">
