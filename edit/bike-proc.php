@@ -10,7 +10,11 @@ print_r($_POST);
 echo "<br>";
 print_r($_SESSION["bike"]);
 
-print_r(key(array_diff($_POST,$_SESSION["bike"])));
+$changes=array_diff($_POST,$_SESSION["bike"]);
+echo "<br>";
+print_r($changes);
+echo "<br>";
+echo count($changes);
 
 echo "Изменено!";
 mysqli_close($db);
