@@ -15,6 +15,8 @@ echo "<br>";
 print_r($changes);
 foreach ($changes as $key => $value) {
 	echo "INSERT INTO bike_action old=".$_SESSION['bike'][$key].", new=".$_POST[$key].", action=".$key;
+	$act_id=mysqli_query($db,"SELECT id FROM bike_action_type WHERE parameter='".$key."'");
+	echo "action_id=".$act_id;
     }
 echo "<br>";
 echo count($changes);
