@@ -5,6 +5,7 @@ exit;
 }
 include('top3.php');
 include('menu.php');
+$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
 
 $tasks_query=mysqli_query($db,"SELECT * FROM tasks where bike=".$_GET['bike_id']);
 $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$_GET['bike_id']."'))) as make, model, capacity from models where id=(SELECT modelFROM bike WHERE id='".$_GET['bike_id']."')");
