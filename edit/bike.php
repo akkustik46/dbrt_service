@@ -32,7 +32,7 @@ echo $model_lst['model'].$model_lst['capacity'];
 ?>
 <select name="owner" size=1>
 <?php
-$bike_q=$mysqli->query("SELECT owner,year,mileage_last,mi_km,vin,comment from bike WHERE id='".$_GET['id']."'");
+$bike_q=$mysqli->query("SELECT owner,year,mileage_last,mi_km,vin,license_plate,comment from bike WHERE id='".$_GET['id']."'");
 $bike=$bike_q->fetch_array(MYSQLI_ASSOC);
 while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
       $owner_lst_array[] = array('id' => $owner_lst['id'],
@@ -57,6 +57,7 @@ if ($bike['mi_km']==0) {
 ?>
 </td></tr>
 <tr><td>VIN</td><td><input type="text" name="vin" size="19" value="<?php echo $bike['vin']; ?>"></td></tr>
+<tr><td>ДНЗ</td><td><input type="text" name="vin" size="8" value="<?php echo $bike['license_plate']; ?>"></td></tr>
 <tr><td colspan="2">Коментарий:</td></tr>
 <tr><td colspan="2"><textarea name="comment" cols="50" rows="5"><?php echo $bike['comment']; ?></textarea></td></tr>
 <tr><td colspan="2"><center><input type="submit" value="Добавить"></center></td></tr>
