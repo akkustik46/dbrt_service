@@ -60,7 +60,7 @@ if ($bike['mi_km']==0) {
 <tr><td>ДНЗ</td><td><input type="text" name="license_plate" size="8" value="<?php echo $bike['license_plate']; ?>"></td></tr>
 <tr><td colspan="2">Коментарий:</td></tr>
 <tr><td colspan="2"><textarea name="comment" cols="50" rows="5"><?php echo $bike['comment']; ?></textarea></td></tr>
-<tr><td colspan="2"><center><input type="submit" value="Добавить"></center></td></tr>
+<tr><td colspan="2"><center><input type="submit" value="Сохранить"></center></td></tr>
 </table>
 </form>
 <?php
