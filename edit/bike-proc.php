@@ -11,7 +11,7 @@ $changes=array_diff($_POST,$_SESSION["bike"]);
 foreach ($changes as $key => $value) {
 	$act_id=mysqli_query($db,"SELECT id FROM bike_action_type WHERE parameter='".$key."'");
 	$act_id=mysqli_fetch_array($act_id);
-	mysqli_query($db,"INSERT INTO bike_action (bike, old, new, type, date_change) VALUES ('".$_POST['id']."', '".$_SESSION['bike'][$key]."', '".$_POST[$key]."', '".$act_id['id']."', now())");
+	mysqli_query($db,"INSERT INTO bike_action (bike, old, new, type, mileage, date_change) VALUES ('".$_POST['id']."', '".$_SESSION['bike'][$key]."', '".$_POST[$key]."', '".$act_id['id']."', '".$_POST['mileage']."', now())");
     }
 
 echo "Изменено!";
