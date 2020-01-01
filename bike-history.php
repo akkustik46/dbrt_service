@@ -10,7 +10,7 @@ include('menu.php');
 $tasks_query=mysqli_query($db,"SELECT * FROM tasks where bike=".$_GET['bike_id']);
 $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$_GET['bike_id']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$_GET['bike_id']."')");
 $model=mysqli_fetch_array($model_name);
-		    echo ("<div style=\"padding-top: 10px; margin-left: 200px; margin-top: 30px;font-size: x-large;\">".$model['make']." ".$model['model']." ".$model['capacity']."</div>");
+		    echo ("<div style=\"padding-top: 10px; margin-left: 100px; margin-top: 30px;font-size: x-large;\">".$model['make']." ".$model['model']." ".$model['capacity']."</div>");
 $x=1;
 while ($tasks_lst = mysqli_fetch_array($tasks_query)) {
       $tasks_array[] = array('id' => $tasks_lst['id'],
