@@ -49,8 +49,7 @@ $x++;
 <td>
 <?php $work_lst_query=mysqli_query($db,"SELECT * FROM works WHERE task_id='".$tasks_lst['id']."'");
                 while ($works_lst=mysqli_fetch_array($work_lst_query)) {
-                            $wrk_query=mysqli_query($db,"SELECT (select name from works_groups where id=(select group_id from works_types where id='".$works_lst['type_id']."')) as group_name, name FROM works_types where id='".$works_lst['
-type_id']."'");
+                            $wrk_query=mysqli_query($db,"SELECT (select name from works_groups where id=(select group_id from works_types where id='".$works_lst['type_id']."')) as group_name, name FROM works_types where id='".$works_lst['type_id']."'");
                             $wrk=mysqli_fetch_array($wrk_query);
                             echo ($wrk['group_name']." > ".$wrk['name']);
                             if ($works_lst['status']==1) {echo "   <img src=/images/green.png height='12px' width='12px'><br>";} else {echo "   <img src=/images/red.png height='12px' width='12px'><br>";}
