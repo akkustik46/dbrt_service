@@ -41,7 +41,7 @@ if ($_GET['action']=='bike_history') {
 <col class='esg'><col class='esg'><col class='season'><col class='season'><col class='season'><col class='act'><col class='stat'><thead>
 <tr><th axis="str">ID&nbsp;</th><th>Мотоцикл&nbsp;</th><th>Клієнт&nbsp;</th><th axis="str">Створено&nbsp;</th><th>Роботи&nbsp;</th><th>Коментар&nbsp;</th>
 <th>Стан&nbsp;</th><th axis="str">Змінено&nbsp;</th>
-<th axis="str">Завершен&nbsp;</th></tr>
+<th axis="str">Завершено&nbsp;</th></tr>
 </thead>
 <tbody>
 <?php
