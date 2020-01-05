@@ -16,20 +16,20 @@ include('db_conn.php');
 ?>
 
 <li>
-<a href="tasks.php?action=all" class="button1">Заказы</a>
+<a href="tasks.php?action=all" class="button1">Замовлення</a>
     <ul>
-	<li><a href="tasks.php?action=archive" class="button1">Архив</a></li>
+	<li><a href="tasks.php?action=archive" class="button1">Архів</a></li>
     </ul>
 </li>
 <li>
 
-<a href="" class="button1">Справочник</a>
+<a href="" class="button1">База</a>
     <ul>
-	<li><a href="clients.php" class="button1">Клиенты</a></li>
-	<li><a href="bikes.php" class="button1">Мотоциклы</a></li>
-	<li><a href="models.php" class="button1">Модели</a></li>
-	<li><a href="works.php" class="button1">Работы</a></li>
-	<li><a href="issues.php" class="button1">Извесные проблемы</a></li>
+	<li><a href="clients.php" class="button1">Клієнти</a></li>
+	<li><a href="bikes.php" class="button1">Мотоцикли</a></li>
+	<li><a href="models.php" class="button1">Моделі</a></li>
+	<li><a href="works.php" class="button1">Види робіт</a></li>
+	<li><a href="issues.php" class="button1">Відомі проблеми</a></li>
     </ul>
 </li>
 <?php
@@ -44,7 +44,7 @@ include('db_conn.php');
 <li>
 <a href="prod.php" class="button1">Склад</a>
     <ul>
-	<li><a href="sales.php" class="button1">Продажи за период</a></li>
+	<li><a href="sales.php" class="button1">Продажі за період</a></li>
     </ul>
 </li>
 
