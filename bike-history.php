@@ -13,6 +13,14 @@ $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select 
 $model=mysqli_fetch_array($model_name);
 		    echo ("<br><p><div style=\"padding-top: 10px; margin-left: 100px; margin-top: 30px;font-size: x-large;\">".$model['make']." ".$model['model']." ".$model['capacity']."</div></p>");
 $x=1;
+?>
+<table class="sortable" id='t'>
+<col class='act'><col class='bike'><col class='client'><col class='date'><col class='date'>
+<thead>
+<tr><th axis="str">Пробіг&nbsp;</th><th>Тип&nbsp;</th><th>Старий запис&nbsp;</th><th axis="str">Новий запис&nbsp;</th><th>Дата&nbsp;</th></tr>
+</thead>
+<tbody>
+<?php
 while ($tasks_lst = mysqli_fetch_array($tasks_query)) {
       $tasks_array[] = array('id' => $tasks_lst['id'],
 				'date' => $tasks_lst['date_create'],
@@ -31,9 +39,21 @@ $bg='#ddddee';
 $bg='#ccccee';
 }
 $x++;
-echo $tasks_lst['mileage']." ".$tasks_lst['type']." ".$tasks_lst['date_change']."<br>";
-}
+?>
+<tr>
+<td><?php echo $tasks_lst['mileage']; ?> </td>
+<td><?php echo $tasks_lst['type']; ?> </td>
+<td></td>
+<td></td>
+<td><?php echo $tasks_lst['date_change']; ?> </td>
+</tr>
+<?php
+//echo $tasks_lst['mileage']." ".$tasks_lst['type']." ".$tasks_lst['date_change']."<br>";
 
+} ?>
+
+
+<?php
 while ($action_lst = mysqli_fetch_array($action_query)) {
 	$action_array[] = array('old' => $action_lst['old'],
 				'new' => $action_lst['new'],
@@ -41,6 +61,16 @@ while ($action_lst = mysqli_fetch_array($action_query)) {
 				'mileage' => $action_lst['mileage'],
 				'date_change' => $action_lst['date_change']);
 
-echo $action_lst['mileage']." ".$action_lst['old']." ".$action_lst['new']." ".$action_lst['type']." ".$action_lst['date_change']."<br>";
+//echo $action_lst['mileage']." ".$action_lst['old']." ".$action_lst['new']." ".$action_lst['type']." ".$action_lst['date_change']."<br>";
+?>
+<tr>
+<td><?php echo $action_lst['mileage']; ?> </td>
+<td><?php echo $action_lst['type']; ?> </td>
+<td><?php echo $action_lst['old']; ?></td>
+<td><?php echo $action_lst['new']; ?></td>
+<td><?php echo $action_lst['date_change']; ?> </td>
+</tr>
+
+<?php
 }
 ?>
