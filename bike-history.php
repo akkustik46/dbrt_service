@@ -17,7 +17,7 @@ $x=1;
 <table class="sortable" id='t'>
 <col class='act'><col class='bike'><col class='client'><col class='client'><col class='season'>
 <thead>
-<tr><th axis="str" class="u_1_u sort">Пробіг&nbsp;</th><th>Тип&nbsp;</th><th>Попередній&nbsp;</th><th axis="str">Новий запис&nbsp;</th><th>Дата&nbsp;</th></tr>
+<tr><th axis="str">Пробіг&nbsp;</th><th>Тип&nbsp;</th><th>Попередній&nbsp;</th><th axis="str">Новий запис&nbsp;</th><th>Дата&nbsp;</th></tr>
 </thead>
 <tbody>
 <?php
@@ -46,7 +46,17 @@ $x++;
 	    $type=mysqli_fetch_array($type_query);
 	    echo $type['name'];
 	 ?> </td>
-<td></td>
+<td>
+<?php $work_lst_query=mysqli_query($db,"SELECT * FROM works WHERE task_id='".$tasks_lst['id']."'");
+                while ($works_lst=mysqli_fetch_array($work_lst_query)) {
+                            $wrk_query=mysqli_query($db,"SELECT (select name from works_groups where id=(select group_id from works_types where id='".$works_lst['type_id']."')) as group_name, name FROM works_types where id='".$works_lst['
+type_id']."'");
+                            $wrk=mysqli_fetch_array($wrk_query);
+                            echo ($wrk['group_name']." > ".$wrk['name']);
+                            if ($works_lst['status']==1) {echo "   <img src=/images/green.png height='12px' width='12px'><br>";} else {echo "   <img src=/images/red.png height='12px' width='12px'><br>";}
+                        }
+            ?>
+</td>
 <td></td>
 <td><?php echo $tasks_lst['date_change']; ?> </td>
 </tr>
