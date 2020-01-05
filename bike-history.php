@@ -68,7 +68,12 @@ while ($action_lst = mysqli_fetch_array($action_query)) {
 ?>
 <tr>
 <td><?php echo $action_lst['mileage']; ?> </td>
-<td><?php echo $action_lst['type']; ?> </td>
+<td>
+<?php $type_query=mysqli_query($db, "SELECT name from bike_action_type WHERE id='".$action_lst['type']."'");
+	    $type=mysqli_fetch_array($type_query);
+	    echo $type['name'];
+	 ?>
+ </td>
 <td><?php echo $action_lst['old']; ?></td>
 <td><?php echo $action_lst['new']; ?></td>
 <td><?php echo $action_lst['date_change']; ?> </td>
