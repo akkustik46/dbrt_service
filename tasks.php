@@ -39,8 +39,8 @@ if ($_GET['action']=='bike_history') {
 <table class="sortable" id='t'>
 <col class='id'><col class='bike'><col class='client'><col class='date'><col class='work'><col class='prices'><col class='status2'>
 <col class='esg'><col class='esg'><col class='season'><col class='season'><col class='season'><col class='act'><col class='stat'><thead>
-<tr><th axis="str">ID&nbsp;</th><th>Мотоцикл&nbsp;</th><th>Клиент&nbsp;</th><th axis="str">Создан&nbsp;</th><th>Работы&nbsp;</th><th>Коментарий&nbsp;</th>
-<th>Состояние&nbsp;</th><th axis="str">Изменен&nbsp;</th>
+<tr><th axis="str">ID&nbsp;</th><th>Мотоцикл&nbsp;</th><th>Клієнт&nbsp;</th><th axis="str">Створено&nbsp;</th><th>Роботи&nbsp;</th><th>Коментар&nbsp;</th>
+<th>Стан&nbsp;</th><th axis="str">Змінено&nbsp;</th>
 <th axis="str">Завершен&nbsp;</th></tr>
 </thead>
 <tbody>
