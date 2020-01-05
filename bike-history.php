@@ -23,6 +23,7 @@ while ($tasks_lst = mysqli_fetch_array($tasks_query)) {
 				'date_end' => $tasks_lst['date_end'],
 				'date_change' => $tasks_lst['date_change']);
 
+$tasks_lst['type']=1;
 $bg=$x%2;
 if ($bg===0) {
 $bg='#ddddee';
@@ -30,7 +31,7 @@ $bg='#ddddee';
 $bg='#ccccee';
 }
 $x++;
-echo $tasks_lst['mileage']." ".$tasks_lst['date_change']."<br>";
+echo $tasks_lst['mileage']." ".$tasks_lst['type']." ".$tasks_lst['date_change']."<br>";
 }
 
 while ($action_lst = mysqli_fetch_array($action_query)) {
