@@ -15,9 +15,9 @@ $model=mysqli_fetch_array($model_name);
 $x=1;
 ?>
 <table class="sortable" id='t'>
-<col class='act'><col class='bike'><col class='client'><col class='date'><col class='date'>
+<col class='act'><col class='bike'><col class='client'><col class='client'><col class='season'>
 <thead>
-<tr><th axis="str">Пробіг&nbsp;</th><th>Тип&nbsp;</th><th>Старий запис&nbsp;</th><th axis="str">Новий запис&nbsp;</th><th>Дата&nbsp;</th></tr>
+<tr><th axis="str">Пробіг&nbsp;</th><th>Тип&nbsp;</th><th>Попередній&nbsp;</th><th axis="str">Новий запис&nbsp;</th><th>Дата&nbsp;</th></tr>
 </thead>
 <tbody>
 <?php
