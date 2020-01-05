@@ -116,7 +116,7 @@ $x++;
     <td bgcolor=<?php echo $bg; ?>>
     <?php echo ($bike_lst['vin']); ?>
     </td>
-    <td bgcolor=<?php echo $bg; ?>>
+    <td onClick="popupWin = window.open('edit/bike.php<?php echo ("?id=".$bike_lst['id']);?>', 'Изменить мотоцикл', 'location,width=800,height=550,top=0'); popupWin.focus(); return false;"  bgcolor=<?php echo $bg; ?>>
     <?php echo ($bike_lst['license_plate']); ?>
     </td>
     <td onClick="popupWin = window.open('edit/bike.php<?php echo ("?id=".$bike_lst['id']);?>', 'Изменить мотоцикл', 'location,width=800,height=550,top=0'); popupWin.focus(); return false;"  bgcolor=<?php echo $bg; ?> align=left>
