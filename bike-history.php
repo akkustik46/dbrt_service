@@ -42,7 +42,10 @@ $x++;
 ?>
 <tr>
 <td><?php echo $tasks_lst['mileage']; ?> </td>
-<td><?php echo $tasks_lst['type']; ?> </td>
+<td><?php $type_query=mysqli_query($db, "SELECT name from bike_action_type WHERE id='".$tasks_lst['type']."'");
+	    $type=mysqli_fetch_array($type_query);
+	    echo $type['name'];
+	 ?> </td>
 <td></td>
 <td></td>
 <td><?php echo $tasks_lst['date_change']; ?> </td>
