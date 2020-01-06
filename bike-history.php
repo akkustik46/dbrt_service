@@ -14,7 +14,7 @@ $model=mysqli_fetch_array($model_name);
 		    echo ("<br><p><div style=\"padding-top: 10px; margin-left: 100px; margin-top: 30px;font-size: x-large;\">".$model['make']." ".$model['model']." ".$model['capacity']."</div></p>");
 		     $client_query=mysqli_query($db,"SELECT username FROM clients where id='".$tasks_lst['client']."'");
 		    $client=mysqli_fetch_array($client_query);
-		    echo ("Власник".$client['username']);
+		    echo ("<p><div style=\"padding-top: 10px; margin-left: 100px; margin-top: 50px;font-size: x-large;\">Власник".$client['username']."</div></p>");
 $x=1;
 ?>
 <table class="sortable" id='t'>
