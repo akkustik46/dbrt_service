@@ -33,40 +33,9 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <table class="sortable" id="t">
 <col class="id"><col class="make"><col class="model"><col class="year"><col class="vin"><col class="model"><col class="owner"><col class="mileage"><col class="status">
 <thead>
-<tr><th axis="str">ID&nbsp;</th><th axis="str">Марка&nbsp;</th><th axis="str">Модель&nbsp;</th><th axis="str">Год&nbsp;</th><th axis="str">VIN&nbsp;</th><th axis="str">Номер&nbsp;</th>
-<th axis="str">Владелец&nbsp;</th><th axis="str">Пробег&nbsp;</th><th axis="str">История&nbsp;</th></tr>
+<tr><th axis="str">ID&nbsp;</th><th axis="str">Марка&nbsp;</th><th axis="str">Модель&nbsp;</th><th axis="str">Рік&nbsp;</th><th axis="str">VIN&nbsp;</th><th axis="str">ДНЗ&nbsp;</th>
+<th axis="str">Власник&nbsp;</th><th axis="str">Пробіг&nbsp;</th><th axis="str">Історія&nbsp;</th></tr>
 </thead>
-<?php /*
-    <tr>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('  ID  '); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('Марка'); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('Модель'); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('Рік випуску'); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('VIN'); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('ДНЗ'); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('Власник'); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('Пробіг'); ?>
-    </td>
-    <td align=center bgcolor=#acacff>
-    <?php echo ('Історія'); ?>
-    </td>
-</tr>
-*/ ?>
 <tbody>
 <?php
 $bike_lst_query=mysqli_query($db, "SELECT * from bike");
