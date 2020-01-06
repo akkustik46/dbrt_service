@@ -13,10 +13,10 @@ $bike_info=mysqli_fetch_array($bike_query);
 $action_query=mysqli_query($db,"SELECT * FROM bike_action where bike=".$_GET['bike_id']);
 $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$_GET['bike_id']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$_GET['bike_id']."')");
 $model=mysqli_fetch_array($model_name);
-		    echo ("<br><p><div style=\"padding-top: 10px; margin-left: 100px; margin-top: 40px;font-size: x-large;\">Мотоцикл: ".$model['make']." ".$model['model']." ".$model['capacity']." VIN: ".$bike_info['vin']."</div></p>");
+		    echo ("<br><p><div style=\"padding-top: 10px; margin-left: 100px; margin-top: 40px;font-size: x-large;\">Мотоцикл: ".$model['make']." ".$model['model']." ".$model['capacity']." <br>VIN: ".$bike_info['vin']."</div></p>");
 		     $client_query=mysqli_query($db,"SELECT username FROM clients where id='".$bike_info['owner']."'");
 		    $client=mysqli_fetch_array($client_query);
-		    echo ("<p><div style=\"padding-top: 10px; margin-left: 100px; margin-top: 0px;font-size: x-large;\">Власник: ".$client['username']." ДНЗ: ".$bike_info['license_plate']."</div></p>");
+		    echo ("<p><div style=\"padding-top: 10px; margin-left: 100px; margin-top: 0px;font-size: x-large;\">Власник: ".$client['username']." <br>ДНЗ: ".$bike_info['license_plate']."</div></p>");
 $x=1;
 ?>
 <table class="sortable" id='t'>
