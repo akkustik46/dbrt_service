@@ -14,9 +14,6 @@ switch ($_GET['action']) {
     case 'all':
     $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
     break;
-    case 'bike_history':
-    $tasks_query=mysqli_query($db,"SELECT * FROM tasks where bike=".$_GET['bike_id']);
-    break;
     default:
     $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status<>4");
     break;
@@ -27,11 +24,8 @@ switch ($_GET['action']) {
 <p>
 
 <?php if ($_GET['action']=='all') { 
-echo ("<div style=\"padding-top: 10px; margin-left: -40px; margin-top: 30px\"><a href=\'add/task.php\' target=\'_blank\' onClick=\"popupWin = window.open(this.href, \'AddTask\', \'location,width=600,height=700,top=0\'); popupWin.focus(); return false;\" style=\"padding-left:90px;\"><img src=\"img/add.svg\" width=30px height=30px></a>");
+echo ("<div style=\"padding-top: 10px; margin-left: -40px; margin-top: 30px\"><a href='add/task.php' target=\'_blank\' onClick=\"popupWin = window.open(this.href, \'AddTask\', \'location,width=600,height=700,top=0\'); popupWin.focus(); return false;\" style=\"padding-left:90px;\"><img src=\"img/add.svg\" width=30px height=30px></a>");
 } 
-if ($_GET['action']=='bike_history') {
-				    echo ("<div style=\"padding-top: 10px; margin-left: 200px; margin-top: 30px;font-size: x-large;\">MODEL");
-				    } 
 ?>
 
 </div>
@@ -67,9 +61,14 @@ $bg='#ccccee';
 $x++;
 
 ?>
+
+<?php /*
 <tr onClick="popupWin = window.open('edit/task.php<?php echo ("?id=".$tasks_lst['id']);?>', 'Добавить задачу', 'location,width=800,height=680,top=0'); popupWin.focus(); return false;" style="padding-left:90px;">
+*/ 
+?>
+
 <td><?php echo ($tasks_lst['id']); ?></td>
-<td><?php $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."')");
+<td ><?php $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."')");
 $model=mysqli_fetch_array($model_name);
 		    echo ($model['make']." ".$model['model']." ".$model['capacity']); ?></td>
 <td><?php $client_query=mysqli_query($db,"SELECT username FROM clients where id='".$tasks_lst['client']."'");
