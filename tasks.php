@@ -68,7 +68,7 @@ $x++;
 ?>
 
 <td><?php echo ($tasks_lst['id']); ?></td>
-<td onClick="window.location.replace('bike-history.php?bike_id=<?php echo ($tasks_lst['bike']);?>');">
+<td onClick="window.open('bike-history.php?bike_id=<?php echo ($tasks_lst['bike']);?>', '_self');">
 <?php $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."')");
 $model=mysqli_fetch_array($model_name);
 		    echo ($model['make']." ".$model['model']." ".$model['capacity']); ?></td>
