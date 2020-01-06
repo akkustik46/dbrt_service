@@ -79,7 +79,7 @@ echo ($client['username']); ?></td>
         echo ($tasks_lst['date_create']);
     
     ?>
-</td><td onClick="popupWin = window.open('edit/task.php<?php echo ("?id=".$tasks_lst['id']);?>', 'Редагувати задачу', 'location,width=800,height=680,top=0'); popupWin.focus(); return false;" style="padding-left:90px;">
+</td><td onClick="popupWin = window.open('edit/task.php<?php echo ("?id=".$tasks_lst['id']);?>', 'Редагувати задачу', 'location,width=800,height=680,top=0'); popupWin.focus(); return false;">
 <?php $work_lst_query=mysqli_query($db,"SELECT * FROM works WHERE task_id='".$tasks_lst['id']."'");
 		while ($works_lst=mysqli_fetch_array($work_lst_query)) {
 			    $wrk_query=mysqli_query($db,"SELECT (select name from works_groups where id=(select group_id from works_types where id='".$works_lst['type_id']."')) as group_name, name FROM works_types where id='".$works_lst['type_id']."'");
