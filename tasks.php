@@ -68,7 +68,8 @@ $x++;
 ?>
 
 <td><?php echo ($tasks_lst['id']); ?></td>
-<td ><?php $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."')");
+<td onClick="window.location.replace('bike-history.php?bike_id=<?php echo ($tasks_lst['bike']);?>');">
+<?php $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$tasks_lst['bike']."')");
 $model=mysqli_fetch_array($model_name);
 		    echo ($model['make']." ".$model['model']." ".$model['capacity']); ?></td>
 <td><?php $client_query=mysqli_query($db,"SELECT username FROM clients where id='".$tasks_lst['client']."'");
