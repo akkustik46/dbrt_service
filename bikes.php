@@ -48,22 +48,22 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
     <?php echo ('Модель'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Год выпуска'); ?>
+    <?php echo ('Рік випуску'); ?>
     </td>
     <td align=center bgcolor=#acacff>
     <?php echo ('VIN'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Номер'); ?>
+    <?php echo ('ДНЗ'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Владелец'); ?>
+    <?php echo ('Власник'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Пробег'); ?>
+    <?php echo ('Пробіг'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('История'); ?>
+    <?php echo ('Історія'); ?>
     </td>
 </tr>
 */ ?>
@@ -132,7 +132,7 @@ $x++;
     <?php /* $status=mysqli_query($db,"SELECT status_name from status where status.id='".$bike_lst['status']."'"); 
 	$status=mysqli_fetch_array($status);
     echo ($status['status_name']); */
-    echo "<a href=bike-history.php?bike_id=".$bike_lst['id'].">История</a>" ?>
+    echo "<a href=bike-history.php?bike_id=".$bike_lst['id'].">Історія</a>" ?>
     </td>
 
 </tr>
