@@ -127,7 +127,7 @@ $pdf->SetXY (20,57);
 $html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
 	<tr>
 	    <td width="20"><b>№</b></td>
-	    <td><b>Найменування робіт</b></td>
+	    <td width="400"><b>Найменування робіт</b></td>
 	    <td width="80"><b>Ціна</b></td>
 	</tr>';
 
@@ -144,7 +144,7 @@ $wrk=mysqli_query($db,"select works_groups.name as wgr_name, works_types.name as
 $wrk=mysqli_fetch_array($wrk);
 $html.='<tr><td width="20">';
 $html.=$i;
-$html.='</td><td>';
+$html.='</td><td width="400">';
 $html.=$wrk['wrk_name'];
 $html.='</td><td width="80" align="right">';
 $html.=$task_wrk_lst['price'];
