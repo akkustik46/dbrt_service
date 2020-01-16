@@ -131,7 +131,7 @@ $html = '<table cellspacing="1" cellpadding="1" border="1">
 	    <td>Ціна</td>
 	</tr>';
 
-
+/*
 $task_wrk_query=mysqli_query($db,"SELECT * from works WHERE task_id='".$_GET['id']."'");
 $wrk_sum=0;
 $i=1;
@@ -146,6 +146,7 @@ $html.="<tr><td>".$i."</td><td>".$wrk['wrk_name']."</td><td>".$task_wrk_lst['pri
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i=$i++;
 }
+*/
 $html.='<tr><td><b>Разом</b></td><td></td><td>'.$wrk_sum.'</td></tr></table>';
 
 
