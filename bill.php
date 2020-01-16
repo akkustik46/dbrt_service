@@ -10,7 +10,7 @@ $task_lst=mysqli_fetch_array($task_lst_query);
 require_once('tcpdf/config/lang/ukr.php');
 require_once('tcpdf/tcpdf.php');
 
-$cl_lst_query=mysqli_query($db,"SELECT id as cl_id, username as cl_name FROM clients WHERE id='".$task_lst['client']."'");
+$cl_lst_query=mysqli_query($db,"SELECT id as cl_id, username as cl_name, tel1 as cl_tel FROM clients WHERE id='".$task_lst['client']."'");
 $cl_lst=mysqli_fetch_array($cl_lst_query);
 //echo ($cl_lst['cl_name']);
 
@@ -72,11 +72,11 @@ $pdf->AddPage();
 
 
 $pdf->SetXY (20,40);
-$pdf->Write('1', 'Клієнт:');
+$pdf->Write('1', 'Клієнт: '.$cl_lst['cl_name'].'тел.: '.$cl_lst['cl_tel']);
 
-$pdf->SetXY (35,40);
+//$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
-$pdf->Write('1', $cl_lst['cl_name']);
+//$pdf->Write('1', $cl_lst['cl_name']);
 
 
 // Set some content to print
