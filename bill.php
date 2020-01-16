@@ -13,6 +13,8 @@ require_once('tcpdf/tcpdf.php');
 $cl_lst_query=mysqli_query($db,"SELECT id as cl_id, username as cl_name, tel1 as cl_tel FROM clients WHERE id='".$task_lst['client']."'");
 $cl_lst=mysqli_fetch_array($cl_lst_query);
 //echo ($cl_lst['cl_name']);
+$model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."')");
+$model=mysqli_fetch_array($model_name);
 
 
 // create new PDF document
@@ -23,7 +25,7 @@ $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('DBRT Service');
 $pdf->SetTitle('');
 $pdf->SetSubject('');
-$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+$pdf->SetKeywords('');
 
 // set default header data
 //$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
@@ -74,10 +76,18 @@ $pdf->AddPage();
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (20,40);
 $pdf->Write('1', 'Клієнт: ');
+
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (35,40);
+$pdf->SetXY (36,40);
 $pdf->Write('1', $cl_lst['cl_name'].'  тел.: '.$cl_lst['cl_tel']);
 
+$pdf->SetFont('dejavusans', 'B', 10, '', true);
+$pdf->SetXY (20,45);
+$pdf->Write('1', 'Мотоцикл: ');
+
+$pdf->SetFont('dejavusans', '', 10, '', true);
+$pdf->SetXY (36,45);
+$pdf->Write('1', $model['make'].' '.$model['model']);
 //$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
 //$pdf->Write('1', $cl_lst['cl_name']);
