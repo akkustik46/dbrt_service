@@ -84,10 +84,18 @@ $pdf->AddPage();
 //$pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
 // Set some content to print
-$html = '<table>
+$html = '<table cellspacing="1" cellpadding="2" border="0" bgcolor="black" >
 	<tr>
 	    <td>test</td>
 	    <td>test2</td>
+	</tr>
+	<tr>
+	    <td>
+	    Українська
+	    </td>
+	    <td>
+	    Перевірка
+	    </td>
 	</tr>
 </table>';
 
