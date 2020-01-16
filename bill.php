@@ -146,7 +146,7 @@ $html.='<tr><td width="20">';
 $html.=$i;
 $html.='</td><td>';
 $html.=$wrk['wrk_name'];
-$html.='</td><td width="50" align="right">';
+$html.='</td><td width="80" align="right">';
 $html.=$task_wrk_lst['price'];
 $html.='</td></tr>';
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
