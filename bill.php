@@ -1,4 +1,12 @@
 <?php
+include('../top2.php');
+require('../config.php');
+$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+mysqli_select_db($db,DB_SERVER_DATABASE);
+mysqli_query($db,"SET NAMES 'utf8'");
+$task_lst_query=mysqli_query($db,"SELECT * FROM tasks WHERE id='".$_GET['id']."'");
+$task_lst=mysqli_fetch_array($task_lst_query);
+
 require_once('tcpdf/config/lang/ukr.php');
 require_once('tcpdf/tcpdf.php');
 
