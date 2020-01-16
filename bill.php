@@ -134,7 +134,7 @@ $html = '<table cellspacing="1" cellpadding="1" border="1">
 
 $task_wrk_query=mysqli_query($db,"SELECT * from works WHERE task_id='".$_GET['id']."'");
 $wrk_sum=0;
-$i=0;
+$i=1;
 while($task_wrk_lst=mysqli_fetch_array($task_wrk_query)) {
                 $task_wrk=array('id'=>$task_wrk_lst['id'],
                                 'type_id'=>$task_wrk_lst['type_id'],
@@ -142,9 +142,9 @@ while($task_wrk_lst=mysqli_fetch_array($task_wrk_query)) {
                                 'status'=>$task_wrk_lst['status']);
 $wrk=mysqli_query($db,"select works_groups.name as wgr_name, works_types.name as wrk_name from works_groups,works_types where works_groups.id=(SELECT  group_id FROM `works_types` WHERE id='".$task_wrk['type_id']."') and works_types.id='".$task_wrk['type_id']."'");
 $wrk=mysqli_fetch_array($wrk);
-$html.='<tr><td>'.$i.'</td><td>'.$wrk['wrk_name'].'</td><td>'.$task_wrk_lst['price'].'</td>';
+$html.="<tr><td>".$i."</td><td>".$wrk['wrk_name']."</td><td>".$task_wrk_lst['price']."</td>";
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
-
+$i=$i++;
 }
 $html.='<tr><td><b>Разом</b></td><td></td><td>'.$wrk_sum.'</td></tr></table>';
 
