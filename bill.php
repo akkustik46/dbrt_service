@@ -124,11 +124,11 @@ $pdf->Write('1', 'Виконані роботи: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->SetXY (20,57);
 
-$html = '<table cellspacing="1" cellpadding="1" border="1">
+$html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
 	<tr>
 	    <td width="5%"><b>№</b></td>
 	    <td><b>Найменування робіт</b></td>
-	    <td width="15%"><b>Ціна</b></td>
+	    <td width="10%"><b>Ціна</b></td>
 	</tr>';
 
 
@@ -146,14 +146,14 @@ $html.='<tr><td width="5%">';
 $html.=$i;
 $html.='</td><td>';
 $html.=$wrk['wrk_name'];
-$html.='</td><td width="15%" align=right>';
+$html.='</td><td width="15%" align="right">';
 $html.=$task_wrk_lst['price'];
 $html.='</td></tr>';
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i++;
 }
 
-$html.='<tr><td></td><td align=right><b>Разом</b></td><td align=right>'.$wrk_sum.'</td></tr></table>';
+$html.='<tr><td></td><td align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr></table>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
