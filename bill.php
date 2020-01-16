@@ -1,34 +1,11 @@
 <?php
-//============================================================+
-// File name   : example_001.php
-// Begin       : 2008-03-04
-// Last Update : 2012-07-25
-//
-// Description : Example 001 for TCPDF class
-//               Default Header and Footer
-//
-// Author: Nicola Asuni
-//
-// (c) Copyright:
-//               Nicola Asuni
-//               Tecnick.com LTD
-//               Manor Coach House, Church Hill
-//               Aldershot, Hants, GU12 4RQ
-//               UK
-//               www.tecnick.com
-//               info@tecnick.com
-//============================================================+
-
-/**
- * Creates an example PDF TEST document using TCPDF
- * @package com.tecnick.tcpdf
- * @abstract TCPDF - Example: Default Header and Footer
- * @author Nicola Asuni
- * @since 2008-03-04
- */
-
 require_once('tcpdf/config/lang/ukr.php');
 require_once('tcpdf/tcpdf.php');
+
+$cl_lst_query=mysqli_query($db,"SELECT id as cl_id, username as cl_name FROM clients WHERE id='".$task_lst['client']."'");
+$cl_lst=mysqli_fetch_array($cl_lst_query);
+//echo ($cl_lst['cl_name']);
+
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -76,7 +53,7 @@ $pdf->setFontSubsetting(true);
 // dejavusans is a UTF-8 Unicode font, if you only need to
 // print standard ASCII chars, you can use core fonts like
 // helvetica or times to reduce file size.
-$pdf->SetFont('dejavusans', '', 14, '', true);
+$pdf->SetFont('dejavusans', '', 10, '', true);
 
 // Add a page
 // This method has several options, check the source code documentation for more information.
@@ -84,6 +61,10 @@ $pdf->AddPage();
 
 // set text shadow effect
 //$pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+
+$pdf->SetXY (41,89);
+$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
+
 
 // Set some content to print
 $html = '<table cellspacing="1" cellpadding="1" border="1">
