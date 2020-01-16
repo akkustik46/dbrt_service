@@ -77,7 +77,7 @@ $pdf->AddPage();
 
 // set text shadow effect
 //$pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
-$pdf->Image('https://dbrt.com.ua/images/medved2.png','15','9','70','15');
+$pdf->Image('images/medved2.png','15','9','260','50');
 
 
 
