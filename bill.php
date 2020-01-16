@@ -153,7 +153,7 @@ $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i++;
 }
 
-$html.='<td></td><td align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></table>';
+$html.='<tr><td></td><td align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr></table>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
