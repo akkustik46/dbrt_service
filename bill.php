@@ -106,7 +106,7 @@ $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (130,45);
 $pdf->Write('1', 'ДНЗ: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (140,45);
+$pdf->SetXY (141,45);
 $pdf->Write('1', $bike_info['license_plate']);
 
 //$pdf->SetXY (35,40);
