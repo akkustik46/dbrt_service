@@ -84,7 +84,11 @@ $pdf->Image('images/medved2.png', '', '', 95, 22, 'PNG', '', '', true, 300, '', 
 //$pdf->Image('images/medved2.png','','','260','50');
 $pdf->SetXY (12,27);
 $pdf->SetFont('dejavusans', '', 8, '', true);
-$pdf->Write('1', 'DBRT Service <br>м. Київ, вул. Азербайджанська, 25 <br>тел. 044-384-26-45 067-768-03-71');
+$pdf->Write('1', 'DBRT Service');
+$pdf->SetXY (12,29);
+$pdf->Write('1', 'м. Київ, вул. Азербайджанська, 25');
+$pdf->SetXY (12,31);
+$pdf->Write('1', 'тел. 044-384-26-45 067-768-03-71');
 
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
