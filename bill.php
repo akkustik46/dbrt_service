@@ -87,7 +87,7 @@ $pdf->SetFont('dejavusans', '', 8, '', true);
 $pdf->Write('1', 'DBRT Service');
 $pdf->SetXY (12,30);
 $pdf->Write('1', 'м. Київ, вул. Азербайджанська, 25');
-$pdf->SetXY (12,32);
+$pdf->SetXY (12,33);
 $pdf->Write('1', 'тел. 044-384-26-45 067-768-03-71');
 
 
