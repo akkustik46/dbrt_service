@@ -127,7 +127,7 @@ $pdf->SetXY (20,57);
 $html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
 	<tr>
 	    <td width="20"><b>№</b></td>
-	    <td width="400"><b>Найменування робіт</b></td>
+	    <td width="600"><b>Найменування робіт</b></td>
 	    <td width="80"><b>Ціна</b></td>
 	</tr>';
 
@@ -144,7 +144,7 @@ $wrk=mysqli_query($db,"select works_groups.name as wgr_name, works_types.name as
 $wrk=mysqli_fetch_array($wrk);
 $html.='<tr><td width="20">';
 $html.=$i;
-$html.='</td><td width="400">';
+$html.='</td><td width="600">';
 $html.=$wrk['wrk_name'];
 $html.='</td><td width="80" align="right">';
 $html.=$task_wrk_lst['price'];
@@ -153,7 +153,7 @@ $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i++;
 }
 
-$html.='<tr><td></td><td align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr></table>';
+$html.='<td></td><td align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></table>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
