@@ -15,7 +15,7 @@ $cl_lst=mysqli_fetch_array($cl_lst_query);
 //echo ($cl_lst['cl_name']);
 $model_name=mysqli_query($db,"select (select mnf_name from mnf where id=(select mnf_id from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."'))) as make, model, capacity from models where id=(SELECT model FROM bike WHERE id='".$task_lst['bike']."')");
 $model=mysqli_fetch_array($model_name);
-$bike_query=mysqli_query($db,"SELECT vin, owner, license_plate FROM bike where id=".$task_lst['bike']);
+$bike_query=mysqli_query($db,"SELECT vin, owner, license_plate, mi_km FROM bike where id=".$task_lst['bike']);
 $bike_info=mysqli_fetch_array($bike_query);
 
 
@@ -99,8 +99,13 @@ $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (90,45);
 $pdf->Write('1', 'Пробіг: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (106,45);
-$pdf->Write('1', $payment['mileage']);
+$pdf->SetXY (107,45);
+//$pdf->Write('1', $payment['mileage']);
+if ($bike_info['mi_km']==0) {
+	$pdf->Write('1', $payment['mileage'].'км');
+	} else { 
+	$pdf->Write('1', $payment['mileage'].'миль');
+	}
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (130,45);
