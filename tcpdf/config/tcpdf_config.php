@@ -59,7 +59,7 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	}
 
 	/**
-	 * Installation path (/var/www/tcpdf/).
+	 * Installation path (/var/www/tcpdf/)
 	 * By default it is automatically calculated but you can also set it as a fixed string to improve performances.
 	 */
 	define ('K_PATH_MAIN', $k_path_main);
@@ -121,12 +121,12 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	/**
 	 * document creator
 	 */
-	define ('PDF_CREATOR', 'TCPDF');
+	define ('PDF_CREATOR', 'DBRT Service');
 
 	/**
 	 * document author
 	 */
-	define ('PDF_AUTHOR', 'TCPDF');
+	define ('PDF_AUTHOR', 'DBRT Service');
 
 	/**
 	 * header title
@@ -136,12 +136,12 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 	/**
 	 * header description string
 	 */
-	define ('PDF_HEADER_STRING', "by Nicola Asuni - Tecnick.com\nwww.tcpdf.org");
+	define ('PDF_HEADER_STRING', "dbrt.com.ua");
 
 	/**
 	 * image logo
 	 */
-	define ('PDF_HEADER_LOGO', 'tcpdf_logo.jpg');
+	define ('PDF_HEADER_LOGO', '');
 
 	/**
 	 * header logo image width [mm]
