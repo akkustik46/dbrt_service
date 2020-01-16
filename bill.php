@@ -126,7 +126,7 @@ $pdf->SetXY (20,57);
 
 $html = '<table cellspacing="1" cellpadding="1" border="1">
 	<tr>
-	    <td>№</td>
+	    <td width=10px>№</td>
 	    <td>Найменування робіт</td>
 	    <td>Ціна</td>
 	</tr>';
@@ -153,7 +153,7 @@ $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i++;
 }
 
-$html.='<tr><td><b>Разом</b></td><td></td><td>'.$wrk_sum.'</td></tr></table>';
+$html.='<tr><td></td><td align=right><b>Разом</b></td><td>'.$wrk_sum.'</td></tr></table>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
