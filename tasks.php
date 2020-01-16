@@ -94,6 +94,7 @@ $status_query=mysqli_query($db,"SELECT name FROM tasks_status WHERE id='".$tasks
 $status=mysqli_fetch_array($status_query);
 echo ($status['name']); ?></td><td><?php echo ($tasks_lst['date_change']); ?></td>
 <td><?php echo ($tasks_lst['date_end']); ?></td>
+<td><a href='bill.php'>Друк</a></td>
 <?php /*
 <td align=center>
 	 <a href="m21.php?<?php echo 'id=' . $sb_lst['id']; ?>
