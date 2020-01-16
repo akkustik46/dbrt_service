@@ -72,7 +72,7 @@ $pdf->AddPage();
 
 
 $pdf->SetXY (20,40);
-$pdf->Write('1', 'Клієнт: '.$cl_lst['cl_name'].'тел.: '.$cl_lst['cl_tel']);
+$pdf->Write('1', 'Клієнт: '.$cl_lst['cl_name'].'  тел.: '.$cl_lst['cl_tel']);
 
 //$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
