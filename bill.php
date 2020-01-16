@@ -99,7 +99,7 @@ $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (90,45);
 $pdf->Write('1', 'Пробіг: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (105,45);
+$pdf->SetXY (106,45);
 $pdf->Write('1', $payment['mileage']);
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
