@@ -124,10 +124,10 @@ $pdf->Write('1', 'Виконані роботи: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->SetXY (20,57);
 
-$html = '<table cellspacing="1" cellpadding="1" border="1">
+$html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
 	<tr>
 	    <td width="20"><b>№</b></td>
-	    <td width="200"><b>Найменування робіт</b></td>
+	    <td><b>Найменування робіт</b></td>
 	    <td width="80"><b>Ціна</b></td>
 	</tr>';
 
@@ -144,7 +144,7 @@ $wrk=mysqli_query($db,"select works_groups.name as wgr_name, works_types.name as
 $wrk=mysqli_fetch_array($wrk);
 $html.='<tr><td width="20">';
 $html.=$i;
-$html.='</td><td width="200">';
+$html.='</td><td>';
 $html.=$wrk['wrk_name'];
 $html.='</td><td width="50" align="right">';
 $html.=$task_wrk_lst['price'];
