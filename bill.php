@@ -86,8 +86,8 @@ $pdf->SetXY (20,45);
 $pdf->Write('1', 'Мотоцикл: ');
 
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (36,45);
-$pdf->Write('1', $model['make'].' '.$model['model']);
+$pdf->SetXY (42,45);
+$pdf->Write('1', $model['make'].' '.$model['model'].' '.$model['capacity']);
 //$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
 //$pdf->Write('1', $cl_lst['cl_name']);
