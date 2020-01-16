@@ -150,7 +150,7 @@ $html.='</td><td>';
 $html.=$task_wrk_lst['price'];
 $html.='</td></tr>';
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
-$i=$i++;
+$i++;
 }
 
 $html.='<tr><td><b>Разом</b></td><td></td><td>'.$wrk_sum.'</td></tr></table>';
