@@ -86,26 +86,26 @@ $pdf->Image('images/medved2.png', '', '', 95, 22, 'PNG', '', '', true, 300, '', 
 
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
-$pdf->SetXY (20,40);
+$pdf->SetXY (20,60);
 $pdf->Write('1', 'Клієнт: ');
 
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (36,40);
+$pdf->SetXY (36,60);
 $pdf->Write('1', $cl_lst['cl_name'].'  тел.: '.$cl_lst['cl_tel']);
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
-$pdf->SetXY (20,45);
+$pdf->SetXY (20,65);
 $pdf->Write('1', 'Мотоцикл: ');
 
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (43,45);
+$pdf->SetXY (43,65);
 $pdf->Write('1', $model['make'].' '.$model['model'].' '.$model['capacity']);
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
-$pdf->SetXY (90,45);
+$pdf->SetXY (90,65);
 $pdf->Write('1', 'Пробіг: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (107,45);
+$pdf->SetXY (107,65);
 //$pdf->Write('1', $payment['mileage']);
 if ($bike_info['mi_km']==0) {
 	$pdf->Write('1', $payment['mileage'].'км');
@@ -114,21 +114,21 @@ if ($bike_info['mi_km']==0) {
 	}
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
-$pdf->SetXY (130,45);
+$pdf->SetXY (130,65);
 $pdf->Write('1', 'ДНЗ: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (141,45);
+$pdf->SetXY (141,65);
 $pdf->Write('1', $bike_info['license_plate']);
 
 //$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
 //$pdf->Write('1', $cl_lst['cl_name']);
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
-$pdf->SetXY (20,52);
+$pdf->SetXY (20,72);
 $pdf->Write('1', 'Виконані роботи: ');
 
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (20,57);
+$pdf->SetXY (20,77);
 
 $html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
 	<tr>
