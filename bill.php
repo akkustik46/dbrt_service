@@ -126,9 +126,9 @@ $pdf->SetXY (20,57);
 
 $html = '<table cellspacing="1" cellpadding="1" border="1">
 	<tr>
-	    <td width="10"><b>№</b></td>
+	    <td width="20"><b>№</b></td>
 	    <td><b>Найменування робіт</b></td>
-	    <td width="20"><b>Ціна</b></td>
+	    <td width="50"><b>Ціна</b></td>
 	</tr>';
 
 
@@ -142,11 +142,11 @@ while($task_wrk_lst=mysqli_fetch_array($task_wrk_query)) {
                                 'status'=>$task_wrk_lst['status']);
 $wrk=mysqli_query($db,"select works_groups.name as wgr_name, works_types.name as wrk_name from works_groups,works_types where works_groups.id=(SELECT  group_id FROM `works_types` WHERE id='".$task_wrk['type_id']."') and works_types.id='".$task_wrk['type_id']."'");
 $wrk=mysqli_fetch_array($wrk);
-$html.='<tr><td width="10">';
+$html.='<tr><td width="20">';
 $html.=$i;
 $html.='</td><td>';
 $html.=$wrk['wrk_name'];
-$html.='</td><td width="20" align="right">';
+$html.='</td><td width="50" align="right">';
 $html.=$task_wrk_lst['price'];
 $html.='</td></tr>';
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
