@@ -117,23 +117,36 @@ $pdf->Write('1', $bike_info['license_plate']);
 //$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
 //$pdf->Write('1', $cl_lst['cl_name']);
+$pdf->SetFont('dejavusans', 'B', 10, '', true);
+$pdf->SetXY (20,52);
+$pdf->Write('1', 'Виконані роботи: ');
 
+$pdf->SetFont('dejavusans', '', 10, '', true);
+$pdf->SetXY (20,57);
 
-// Set some content to print
 $html = '<table cellspacing="1" cellpadding="1" border="1">
 	<tr>
-	    <td>test</td>
-	    <td>test2</td>
-	</tr>
-	<tr>
-	    <td>
-	    Українська
-	    </td>
-	    <td>
-	    Перевірка
-	    </td>
-	</tr>
-</table>';
+	    <td>№</td>
+	    <td>Найменування робіт</td>
+	    <td>Ціна</td>
+	</tr>';
+
+
+$task_wrk_query=mysqli_query($db,"SELECT * from works WHERE task_id='".$_GET['id']."'");
+$wrk_sum=0;
+$i=0;
+while($task_wrk_lst=mysqli_fetch_array($task_wrk_query)) {
+                $task_wrk=array('id'=>$task_wrk_lst['id'],
+                                'type_id'=>$task_wrk_lst['type_id'],
+                                'price'=>$task_wrk_lst['price'],
+                                'status'=>$task_wrk_lst['status']);
+$wrk=mysqli_query($db,"select works_groups.name as wgr_name, works_types.name as wrk_name from works_groups,works_types where works_groups.id=(SELECT  group_id FROM `works_types` WHERE id='".$task_wrk['type_id']."') and works_types.id='".$task_wrk['type_id']."'");
+$wrk=mysqli_fetch_array($wrk);
+$html.='<tr><td>'.$i.'</td><td>'.$wrk['wrk_name'].'</td><td>'.$task_wrk_lst['price'].'</td>';
+$wrk_sum=$wrk_sum+$task_wrk_lst['price'];
+
+}
+$html.='<tr><td><b>Разом</b></td><td></td><td>'.$wrk_sum.'</td></tr></table>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
