@@ -124,7 +124,8 @@ $pdf->Write('1', 'Виконані роботи: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->SetXY (20,57);
 
-$html = '<table cellspacing="1" cellpadding="1" border="1">
+$html = '<<EOD 
+	<table cellspacing="1" cellpadding="1" border="1">
 	<tr>
 	    <td width=10>№</td>
 	    <td>Найменування робіт</td>
@@ -153,7 +154,7 @@ $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i++;
 }
 
-$html.='<tr><td></td><td align=right><b>Разом</b></td><td>'.$wrk_sum.'</td></tr></table>';
+$html.='<tr><td></td><td align=right><b>Разом</b></td><td>'.$wrk_sum.'</td></tr></table> EOD';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
