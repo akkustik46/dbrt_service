@@ -32,7 +32,7 @@ echo ("<div style=\"padding-top: 10px; margin-left: -40px; margin-top: 30px\"><a
 </p>
 <table class="sortable" id='t'>
 <col class='id'><col class='bike'><col class='client'><col class='date'><col class='work'><col class='prices'><col class='status2'>
-<col class='esg'><col class='esg'><col class='season'><col class='season'><col class='season'><col class='act'><col class='stat'><col class='stat'><thead>
+<col class='esg'><col class='esg'><col class='season'><col class='season'><col class='season'><col class='act'><col class='stat'><col class='id'><thead>
 <tr><th axis="str">ID&nbsp;</th><th>Мотоцикл&nbsp;</th><th>Клієнт&nbsp;</th><th axis="str">Створено&nbsp;</th><th>Роботи&nbsp;</th><th>Коментар&nbsp;</th>
 <th>Стан&nbsp;</th><th axis="str">Змінено&nbsp;</th>
 <th axis="str">Завершено&nbsp;</th><th>PDF</th></tr>
