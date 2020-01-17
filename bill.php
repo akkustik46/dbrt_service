@@ -94,7 +94,7 @@ $pdf->SetXY (55,50);
 $pdf->SetFont('dejavusans', 'B', 12, '', true);
 $pdf->Write('1', 'Замовлення №');
 
-$pdf->SetXY (95,50);
+$pdf->SetXY (92,50);
 $pdf->SetFont('dejavusans', '', 12, '', true);
 $pdf->Write('1', 'DBRT'.$task_lst['date_create'].'-'.$_GET['id']);
 
