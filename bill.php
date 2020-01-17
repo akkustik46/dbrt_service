@@ -90,9 +90,13 @@ $pdf->Write('1', 'м. Київ, вул. Азербайджанська, 25');
 $pdf->SetXY (12,33);
 $pdf->Write('1', 'тел. 044-384-26-45 067-768-03-71');
 
-$pdf->SetXY (60,50);
+$pdf->SetXY (55,50);
 $pdf->SetFont('dejavusans', 'B', 12, '', true);
 $pdf->Write('1', 'Замовлення №');
+
+$pdf->SetXY (95,50);
+$pdf->SetFont('dejavusans', '', 12, '', true);
+$pdf->Write('1', 'DBRT'.$task_lst['date_create'].'-'.$_GET['id']);
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (20,60);
