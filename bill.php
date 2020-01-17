@@ -90,6 +90,9 @@ $pdf->Write('1', 'м. Київ, вул. Азербайджанська, 25');
 $pdf->SetXY (12,33);
 $pdf->Write('1', 'тел. 044-384-26-45 067-768-03-71');
 
+$pdf->SetXY (60,40);
+$pdf->SetFont('dejavusans', 'B', 12, '', true);
+$pdf->Write('1', 'Замовлення №');
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (20,60);
@@ -177,7 +180,7 @@ $pdf->writeHTML($html, true, false, true, false, '');
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 ob_end_clean();
-$pdf->Output('bill.pdf', 'I');
+$pdf->Output('bill.pdf'.$task_lst['date_create'].'-'$_GET['id'], 'I');
 
 //============================================================+
 // END OF FILE
