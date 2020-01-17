@@ -180,7 +180,7 @@ $pdf->writeHTML($html, true, false, true, false, '');
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 ob_end_clean();
-$pdf->Output('bill.pdf'.$task_lst['date_create'].'-'$_GET['id'], 'I');
+$pdf->Output('bill.pdf'.$task_lst['date_create'].'-'.$_GET['id'], 'I');
 
 //============================================================+
 // END OF FILE
