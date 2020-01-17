@@ -178,7 +178,7 @@ $html.='<tr><td></td><td align="right"><b>Разом</b></td><td align="right">'
 $pdf->writeHTML($html, true, false, true, false, '');
 
 
-$pdf->SetXY (120,150);
+$pdf->SetXY (130,110);
 $pdf->Image('images/stamp.png', '', '', 30, 30, 'PNG', '', '', true, 300, '', false, false, 0, false, false, false);
 
 // Print text using writeHTMLCell()
