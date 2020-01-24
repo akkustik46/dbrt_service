@@ -41,22 +41,22 @@ if ($_SESSION['login']=='admin') {
     <?php echo ('  ID  '); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Категория'); ?>
+    <?php echo ('Категорія'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Производитель'); ?>
+    <?php echo ('Виробник'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Наименование'); ?>
+    <?php echo ('Товар'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Цена, грн.'); ?>
+    <?php echo ('Ціна, грн.'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('ед.изм.'); ?>
+    <?php echo ('од виміру'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Остаток'); ?>
+    <?php echo ('Залишок'); ?>
     </td>
     <td align=center bgcolor=#acacff>
     <?php echo ('Action'); ?>
@@ -64,7 +64,7 @@ if ($_SESSION['login']=='admin') {
 
 </tr>
 <?php
-$prod_lst_query=mysqli_query($db, "SELECT * from prod_prod ORDER BY prod_prod.name asc");
+$prod_lst_query=mysqli_query($db, "SELECT * from prod_prod ORDER BY prod_prod.category asc");
 
 $x=1;
 while ($prod_lst = mysqli_fetch_array($prod_lst_query)) {
