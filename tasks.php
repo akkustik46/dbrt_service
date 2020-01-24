@@ -35,7 +35,7 @@ echo ("<div style=\"padding-top: 10px; margin-left: -40px; margin-top: 30px\"><a
 <col class='esg'><col class='esg'><col class='id'><col class='season'><col class='season'><col class='act'><col class='stat'><thead>
 <tr><th axis="str">ID&nbsp;</th><th>Мотоцикл&nbsp;</th><th>Клієнт&nbsp;</th><th axis="str">Створено&nbsp;</th><th>Роботи&nbsp;</th><th>Коментар&nbsp;</th>
 <th>Стан&nbsp;</th><th axis="str">Змінено&nbsp;</th>
-<th axis="str">Завершено&nbsp;</th><th class='disnone'>PDF</th></tr>
+<th axis="str">Завершено&nbsp;</th><th>PDF</th></tr>
 </thead>
 <tbody>
 <?php
