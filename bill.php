@@ -137,11 +137,11 @@ $pdf->Write('1', $bike_info['license_plate']);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
 //$pdf->Write('1', $cl_lst['cl_name']);
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
-$pdf->SetXY (20,72);
+$pdf->SetXY (20,75);
 $pdf->Write('1', 'Виконані роботи: ');
 
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (20,77);
+$pdf->SetXY (20,80);
 
 $html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
 	<tr>
