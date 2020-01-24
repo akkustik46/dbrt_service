@@ -136,13 +136,13 @@ $pdf->Write('1', $bike_info['license_plate']);
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (20,70);
 $pdf->Write('1', 'Прийнятий в роботу: ');
-$pdf->SetXY (63,70);
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->Write('1', date('d-m-Y',strtotime($task_lst['date_create'])));
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (110,70);
 $pdf->Write('1', 'Завершено: ');
+$pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->Write('1', date('d-m-Y',strtotime($task_lst['date_end'])));
 
 //$pdf->SetXY (35,40);
