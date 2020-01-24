@@ -141,9 +141,9 @@ $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->Write('1', date('d-m-Y',strtotime($task_lst['date_create'])));
 
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
-$pdf->SetXY (120,70);
+$pdf->SetXY (110,70);
 $pdf->Write('1', 'Завершено: ');
-
+$pdf->Write('1', date('d-m-Y',strtotime($task_lst['date_end'])));
 
 //$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
