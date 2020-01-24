@@ -136,7 +136,7 @@ $pdf->Write('1', $bike_info['license_plate']);
 $pdf->SetFont('dejavusans', 'B', 10, '', true);
 $pdf->SetXY (20,70);
 $pdf->Write('1', 'Прийнятий в роботу: ');
-$pdf->SetXY (55,70);
+$pdf->SetXY (70,70);
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->Write('1', date('d-m-Y',strtotime($task_lst['date_create'])));
 
@@ -148,7 +148,7 @@ $pdf->SetXY (20,75);
 $pdf->Write('1', 'Виконані роботи: ');
 
 $pdf->SetFont('dejavusans', '', 10, '', true);
-$pdf->SetXY (55,80);
+$pdf->SetXY (20,80);
 
 $html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
 	<tr>
