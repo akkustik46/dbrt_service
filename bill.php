@@ -133,6 +133,9 @@ $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->SetXY (141,65);
 $pdf->Write('1', $bike_info['license_plate']);
 
+$pdf->SetXY (20,70);
+$pdf->Write('1', 'Прийнятий в роботу: ');
+
 //$pdf->SetXY (35,40);
 //$pdf->Cell(35,3,$cl_lst['cl_name'],1,0,'',0);
 //$pdf->Write('1', $cl_lst['cl_name']);
