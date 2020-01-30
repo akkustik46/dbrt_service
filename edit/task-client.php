@@ -1,5 +1,5 @@
 <table border=0>
-<tr><td>Клиент</td><td>
+<tr><td>Клієнт</td><td>
 <?php $cl_lst_query=mysqli_query($db,"SELECT id as cl_id, username as cl_name FROM clients WHERE id='".$task_lst['client']."'");
 $cl_lst=mysqli_fetch_array($cl_lst_query);
 
@@ -31,17 +31,17 @@ while ($payed_lst=mysqli_fetch_array($payed)) {
 ?>
 
 </td>
-<td><b>К оплате:</b></td><td><?php echo $payment['payment']; ?> грн.</td>
+<td><b>До сплати:</b></td><td><?php echo $payment['payment']; ?> грн.</td>
 </tr>
 
-<tr><td>Пробег</td><td colspan="3">
+<tr><td>Пробіг</td><td colspan="3">
 <?php $bike_data_query=mysqli_query($db,"SELECT * FROM bike WHERE id='".$task_lst['bike']."'");
 $bike_data=mysqli_fetch_array($bike_data_query);
 if ($bike_data['mi_km']==0) {$units='km';} else {$units='miles';} 
 echo $payment['mileage']." ".$units ;
 ?>
 </td>
-<td><b>Оплачено:</b></td><td>
+<td><b>Сплачено:</b></td><td>
 <?php 
 while ($payed_lst=mysqli_fetch_array($payed)) {
 			$payed_sum=$payed_sum+$payed_lst['sum'];
@@ -71,9 +71,9 @@ while ($status_lst = mysqli_fetch_array($status_lst_query)) {
 </select>
 
 </td></tr>
-<tr><td colspan="5">Коментарий:</td></tr>
+<tr><td colspan="5">Коментар:</td></tr>
 <tr><td colspan="5"><textarea name="comment" cols="50" rows="5"><?php echo $stat_cur['comment']; ?></textarea></td>
-<td><a href=/add/payment.php?id=<?php echo $_GET['id']; ?> target="_blank" onClick="popupWin = window.open(this.href, 'Добавить платеж', 'location,width=200,height=200,top=200,left=450'); popupWin.focus(); return false;" style="padding-left:10px;"><b>Добавить платеж</b></a></td>
+<td><a href=/add/payment.php?id=<?php echo $_GET['id']; ?> target="_blank" onClick="popupWin = window.open(this.href, 'Додати платіж', 'location,width=200,height=200,top=200,left=450'); popupWin.focus(); return false;" style="padding-left:10px;"><b>Додати платіж</b></a></td>
 </tr>
 </table>
 

@@ -56,7 +56,7 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
     switch($spec['eng_type']) {
     case 'I':
 ?>
-<b>Измеренные зазоры</b>
+<b>Виміряні зазори</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>
@@ -92,7 +92,7 @@ $valve_num=1;
 </tr>
 </table>
 
-<b>Установленные шайбы до регулировки</b>
+<b>Встановлені шайби до регулювання</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>
@@ -128,7 +128,7 @@ $valve_num=1;
 </tr>
 </table>
 
-<b>Нужны шайбы</b>
+<b>Необхідні шайби</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>
@@ -164,7 +164,7 @@ $valve_num=1;
 </tr>
 </table>
 
-<b>Шайбы после регулировки</b>
+<b>Шайби після регулювання</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>
@@ -204,7 +204,7 @@ $valve_num=1;
 	if ($spec['cylinders']<=2) {echo "<table><tr><td>";}
 ?>
 
-<b>Измеренные зазоры</b>
+<b>Виміряні зазори</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>
@@ -271,7 +271,7 @@ $valve_num=1;
 
 </table>
 <?php if ($spec['cylinders']<=2) {echo "</td><td align=center>";}?>
-<b>Установленные шайбы до регулировки</b>
+<b>Встановлені шайби до регулювання</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>
@@ -338,7 +338,7 @@ $valve_num=1;
 
 </table>
 <?php if ($spec['cylinders']<=2) {echo "</td></tr><tr><td>";} ?>
-<b>Нужны шайбы</b>
+<b>Необхідні шайби</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>
@@ -405,7 +405,7 @@ $valve_num=1;
 
 </table>
 <?php if ($spec['cylinders']<=2) {echo "</td><td align=center>";} ?>
-<b>Шайбы после регулировки</b>
+<b>Шайби після регулювання</b>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
 <td bgcolor=white></td>

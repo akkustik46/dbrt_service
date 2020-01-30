@@ -21,9 +21,9 @@ $task_lst=mysqli_fetch_array($task_lst_query);
 
 <div id="pagecontent">
 
-<h2 class="tabset_label">Изменить задачу</h2>
+<h2 class="tabset_label">Редагувати замовлення</h2>
 <ul class="tabset_tabs">
-	<li class="firstchild"><a href="#bike" class="preActive active">Мотоцикл</a></li><li><a class="preActive postActive" href="#works">Работы</a></li><li><a class="preActive" href="#products">Товары</a></li><li><a class="preActive" href="#valvetable">Таблица клапанов</a></li><li><a class="" href="#notes">Notes</a></li>
+	<li class="firstchild"><a href="#bike" class="preActive active">Мотоцикл</a></li><li><a class="preActive postActive" href="#works">Роботи</a></li><li><a class="preActive" href="#products">Матеріали</a></li><li><a class="preActive" href="#valvetable">Таблиця клапанів</a></li><li><a class="" href="#notes">Notes</a></li>
 </ul>
 
 <form action="task-proc.php" method="post">
@@ -35,19 +35,19 @@ $task_lst=mysqli_fetch_array($task_lst_query);
 
 
 <div id="works" class="tabset_content">
-	<h2 class="tabset_label">Работы</h2>
+	<h2 class="tabset_label">Роботи</h2>
 	<p><?php include('task-test.php');
 	    ?></p>
 </div>
 
 <div id="products" class="tabset_content">
-	<h2 class="tabset_label">Товары</h2>
+	<h2 class="tabset_label">Матеріали</h2>
 	<p><?php
 	include('task-prod.php');
 	    ?></p>
 </div>
 <div id="valvetable" class="tabset_content">
-	<h2 class="tabset_label">Таблица клапанов</h2>
+	<h2 class="tabset_label">Таблиця клапанів</h2>
 	<p><?php include('task-valve.php');
 	    ?></p>
 </div>
@@ -60,7 +60,7 @@ $task_lst=mysqli_fetch_array($task_lst_query);
 </div>
 
 
-<center><input type="submit" value="Сохранить"></center>
+<center><input type="submit" value="Зберегти"></center>
 </div>
 </form>
 <p class="byline" id="copyright">&nbsp;</p>

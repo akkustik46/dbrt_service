@@ -36,7 +36,7 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
 ?>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
-<td bgcolor='white'>Работы</td><td bgcolor='white'>Тип</td><td bgcolor='white'>Цена</td><td bgcolor='white'>Выполнено</td>
+<td bgcolor='white'>Роботи</td><td bgcolor='white'>Тип</td><td bgcolor='white'>Ціна</td><td bgcolor='white'>Виконано</td>
 </tr>
 <?php
 $task_wrk_query=mysqli_query($db,"SELECT * from works WHERE task_id='".$_GET['id']."'"); 
@@ -55,7 +55,7 @@ $wrk=mysqli_fetch_array($wrk);
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 }
  ?>
-<tr><td bgcolor='white'><b>Сумма по работам</b></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $wrk_sum; ?></b></td><td bgcolor='white'></td></tr>
+<tr><td bgcolor='white'><b>Разом за роботи</b></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $wrk_sum; ?></b></td><td bgcolor='white'></td></tr>
 <input type=hidden name='wrk_sum' value=<?php echo $wrk_sum; ?>>
 </table>
 <div ID="wrk">
@@ -83,7 +83,7 @@ $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 </select>
 
 <select name="work[1]" id="wrk_gr[1]" disabled="disabled">
-    <option>Выберите тип</option>
+    <option>Оберіть тип</option>
 </select>
 <br>
 <input type="button" value="Добавить поле" onClick="AddItem();" ID="add_wrk">

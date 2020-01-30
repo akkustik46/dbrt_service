@@ -37,7 +37,7 @@ echo "newitem2+=\"<option value='".$prod_lst['id']."'>".$prod_lst['name']."</opt
 
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
-<td bgcolor='white'>Товары</td><td bgcolor='white'>Тип</td><td bgcolor='white'>Цена</td><td bgcolor='white'>Кол-во</td><td bgcolor='white'>Сумма</td>
+<td bgcolor='white'>Матеріали</td><td bgcolor='white'>Тип</td><td bgcolor='white'>Ціна</td><td bgcolor='white'>Кіл-ть</td><td bgcolor='white'>Разом</td>
 </tr>
 <?php
 ////$prod_query=mysql_query("SELECT * from prod_sale WHERE task='".$_GET['id']."'"); 
@@ -60,7 +60,7 @@ while($prod_lst=mysqli_fetch_array($prod_query)) {
 $prod_sum=$prod_sum+($uah*$task_prod['qty']);
 }
  ?>
-<tr><td bgcolor='white'><b>Сумма по товарам</b></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $prod_sum; ?></b></td></tr>
+<tr><td bgcolor='white'><b>Разом за матеріали</b></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $prod_sum; ?></b></td></tr>
 <input type=hidden name='prod_sum' value=<?php echo $prod_sum; ?>>
 </table>
 <div ID="prod">
@@ -88,7 +88,7 @@ $prod_sum=$prod_sum+($uah*$task_prod['qty']);
 </select>
 
 <select name="prod[1]" id="cat[1]" disabled="disabled">
-    <option>Выберите тип</option>
+    <option>Оберіть тип</option>
 </select>
 <input type=text size=5 name="qty[1]">
 <br>
