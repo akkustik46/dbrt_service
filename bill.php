@@ -187,6 +187,50 @@ $i++;
 $html.='<tr><td style="border: 1px solid black;" colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr></table>';
 $html.='<b>  Використані матеріали:</b>';
 
+$html.='<table width="100%" style="border-collapse: collapse; border: 0px solid black;">
+	<tr>
+	    <td style="border: 1px solid black;" width="30"><b>№</b></td>
+	    <td style="border: 1px solid black;" width="500"><b>Найменування</b></td>
+	    <td style="border: 1px solid black;" width="500"><b>К-сть</b></td>
+	    <td style="border: 1px solid black;" width="80"><b>Ціна</b></td>
+	    <td style="border: 1px solid black;" width="80"><b>Сума</b></td>
+	</tr>';
+
+
+$prod_query=mysqli_query($db,"SELECT id,(select name from prod_category where id=(select category from prod_prod where id=prod)) as cat, (select name from prod_prod where id=prod) as name, qty, price, (select value from currency where id=(select currency from prod_prod where id=prod)) as cur  from prod_sale WHERE task='".$_GET['id']."'");
+$prod_sum=0;
+$prod_total=0;
+$i=1;
+while($prod_lst=mysqli_fetch_array($prod_query)) {
+                $task_prod=array('cat'=>$prod_lst['cat'],
+                                'name'=>$prod_lst['name'],
+                                'qty'=>$prod_lst['qty'],
+                                'price'=>$prod_lst['price'],
+                                'cur'=>$prod_lst['cur'],
+                                'id'=>$prod_lst['id']);
+//        $uah=($prod_lst['price']*$prod_lst['cur']);
+//        echo "<tr><td bgcolor='white'>".$prod_lst['name']."</td><td bgcolor='white'>".$prod_lst['cat']."</td><td bgcolor='white'>".$uah."</td><td bgcolor='white' align=center>".$task_prod['qty']."</td><td bgcolor='white' align=center>".($uah*$task_prod['qty'])."</td>";
+//$prod_sum=$prod_sum+($uah*$task_prod['qty']);
+$html.='<tr><td style="border: 1px solid black;" width="30" align="right">';
+$html.=$i;
+$html.='</td><td style="border: 1px solid black;" width="500">';
+$html.=$prod_lst['name'];
+$html.='</td><td style="border: 1px solid black;" width="20" align="right">';
+$html.=$prod_lst['qty'];
+$html.='</td><td style="border: 1px solid black;" width="20" align="right">';
+$html.=$prod_lst['price'];
+$prod_sum=$prod_lst['qty']*$prod_lst['price'];
+$prod_total=$prod_total+$prod_sum;
+$html.='</td><td style="border: 1px solid black;" width="20" align="right">';
+$html.=$prod_sum;
+$html.='</td></tr>';
+$i++;
+}
+
+$html.='<tr><td style="border: 1px solid black;" colspan="4" align="right"><b>Разом</b></td><td align="right">'.$prod_total.'</td></tr></table>'
+
+
+
 
 $pdf->writeHTML($html, true, false, true, false, '');
 
