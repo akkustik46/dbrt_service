@@ -155,7 +155,7 @@ $pdf->Write('1', 'Виконані роботи: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->SetXY (20,82);
 
-$html = '<table cellspacing="1" cellpadding="1" border="1" width="100%">
+$html = '<table cellspacing="1" cellpadding="1" width="100%" style="border: 0px solid black;">
 	<tr>
 	    <td width="30"><b>№</b></td>
 	    <td width="500"><b>Найменування робіт</b></td>
@@ -185,7 +185,7 @@ $i++;
 }
 
 $html.='<tr><td colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr>';
-$html.='<tr><th colspan="3" style="border-bottom:0px">Використані матеріали:</th></tr></table>';
+$html.='<tr><th colspan="3" style="border: 0px solid black;">Використані матеріали:</th></tr></table>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
