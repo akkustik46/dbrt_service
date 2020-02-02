@@ -186,8 +186,9 @@ $i++;
 
 $html.='<tr><td style="border: 1px solid black;" colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr></table>';
 $html.='<b>  Використані матеріали:</b>';
-
-$html.='<div style="margin-left:550px;"><table width="100%" style="border-collapse: collapse; border: 0px solid black;">
+$pdf->writeHTML($html, true, false, true, false, '');
+$pdf->SetX(20);
+$html='<table width="100%" style="border-collapse: collapse; border: 0px solid black;">
 	<tr>
 	    <td style="border: 1px solid black;" width="30"><b>№</b></td>
 	    <td style="border: 1px solid black;" width="350"><b>Найменування</b></td>
@@ -227,7 +228,7 @@ $html.='</td></tr>';
 $i++;
 }
 
-$html.='<tr><td style="border: 1px solid black;" colspan="4" align="right"><b>Разом</b></td><td align="right">'.$prod_total.'</td></tr></table></div>';
+$html.='<tr><td style="border: 1px solid black;" colspan="4" align="right"><b>Разом</b></td><td align="right">'.$prod_total.'</td></tr></table>';
 
 
 
