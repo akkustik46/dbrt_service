@@ -155,7 +155,7 @@ $pdf->Write('1', 'Виконані роботи: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->SetXY (20,82);
 
-$html = '<table cellspacing="1" cellpadding="1" width="100%" style="border: 0px solid black;">
+$html = '<table cellspacing="1" cellpadding="1" width="100%" style="border-collapse: collapse; border: 0px solid black;">
 	<tr>
 	    <td width="30"><b>№</b></td>
 	    <td width="500"><b>Найменування робіт</b></td>
