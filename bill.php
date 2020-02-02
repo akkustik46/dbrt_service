@@ -190,8 +190,8 @@ $html.='<b>  Використані матеріали:</b><br>';
 $html.='<table width="100%" style="border-collapse: collapse; border: 0px solid black;">
 	<tr>
 	    <td style="border: 1px solid black;" width="30"><b>№</b></td>
-	    <td style="border: 1px solid black;" width="500"><b>Найменування</b></td>
-	    <td style="border: 1px solid black;" width="500"><b>К-сть</b></td>
+	    <td style="border: 1px solid black;" width="200"><b>Найменування</b></td>
+	    <td style="border: 1px solid black;" width="30"><b>К-сть</b></td>
 	    <td style="border: 1px solid black;" width="80"><b>Ціна</b></td>
 	    <td style="border: 1px solid black;" width="80"><b>Сума</b></td>
 	</tr>';
@@ -213,15 +213,15 @@ while($prod_lst=mysqli_fetch_array($prod_query)) {
 //$prod_sum=$prod_sum+($uah*$task_prod['qty']);
 $html.='<tr><td style="border: 1px solid black;" width="30" align="right">';
 $html.=$i;
-$html.='</td><td style="border: 1px solid black;" width="500">';
+$html.='</td><td style="border: 1px solid black;" width="200">';
 $html.=$prod_lst['name'];
-$html.='</td><td style="border: 1px solid black;" width="20" align="right">';
+$html.='</td><td style="border: 1px solid black;" width="30" align="right">';
 $html.=$prod_lst['qty'];
-$html.='</td><td style="border: 1px solid black;" width="20" align="right">';
+$html.='</td><td style="border: 1px solid black;" width="80" align="right">';
 $html.=$prod_lst['price'];
 $prod_sum=$prod_lst['qty']*$prod_lst['price'];
 $prod_total=$prod_total+$prod_sum;
-$html.='</td><td style="border: 1px solid black;" width="20" align="right">';
+$html.='</td><td style="border: 1px solid black;" width="80" align="right">';
 $html.=$prod_sum;
 $html.='</td></tr>';
 $i++;
