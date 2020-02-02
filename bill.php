@@ -227,7 +227,7 @@ $html.='</td></tr>';
 $i++;
 }
 
-$html.='<tr><td style="border: 1px solid black;" colspan="4" align="right"><b>Разом</b></td><td align="right">'.$prod_total.'</td></tr></table>'
+$html.='<tr><td style="border: 1px solid black;" colspan="4" align="right"><b>Разом</b></td><td align="right">'.$prod_total.'</td></tr></table>';
 
 
 
