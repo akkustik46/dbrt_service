@@ -191,7 +191,7 @@ $pdf->SetX(20);
 $html='<table width="100%" style="border-collapse: collapse; border: 0px solid black;">
 	<tr>
 	    <td style="border: 1px solid black;" width="30"><b>№</b></td>
-	    <td style="border: 1px solid black;" width="376"><b>Найменування</b></td>
+	    <td style="border: 1px solid black;" width="374"><b>Найменування</b></td>
 	    <td style="border: 1px solid black;" width="50"><b>К-сть</b></td>
 	    <td style="border: 1px solid black;" width="80"><b>Ціна</b></td>
 	    <td style="border: 1px solid black;" width="80"><b>Сума</b></td>
@@ -214,7 +214,7 @@ while($prod_lst=mysqli_fetch_array($prod_query)) {
 //$prod_sum=$prod_sum+($uah*$task_prod['qty']);
 $html.='<tr><td style="border: 1px solid black;" width="30" align="right">';
 $html.=$i;
-$html.='</td><td style="border: 1px solid black;" width="376">';
+$html.='</td><td style="border: 1px solid black;" width="374">';
 $html.=$prod_lst['name'];
 $html.='</td><td style="border: 1px solid black;" width="50" align="right">';
 $html.=$prod_lst['qty'];
