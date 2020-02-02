@@ -184,8 +184,8 @@ $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i++;
 }
 
-$html.='<tr><td style="border: 1px solid black;" colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr>';
-$html.='<tr><td colspan="3" style="border: 0px solid black;"><b>  Використані матеріали:</b></td></tr></table>';
+$html.='<tr><td style="border: 1px solid black;" colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr></table>';
+$html.='<b>  Використані матеріали:</b>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
