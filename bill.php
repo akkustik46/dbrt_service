@@ -187,7 +187,7 @@ $i++;
 $html.='<tr><td style="border: 1px solid black;" colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr></table>';
 $html.='<b>  Використані матеріали:</b><br>';
 
-$html.='<table width="100%" style="margin-left:150px;border-collapse: collapse; border: 0px solid black;">
+$html.='<table width="100%" style="margin-left:350px;border-collapse: collapse; border: 0px solid black;">
 	<tr>
 	    <td style="border: 1px solid black;" width="30"><b>№</b></td>
 	    <td style="border: 1px solid black;" width="350"><b>Найменування</b></td>
