@@ -185,7 +185,7 @@ $i++;
 }
 
 $html.='<tr><td style="border: 1px solid black;" colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr>';
-$html.='<tr><th colspan="3" style="border: 0px solid black;">Використані матеріали:</th></tr></table>';
+$html.='<tr><td colspan="3" style="border: 0px solid black;"><b>  Використані матеріали:</b></td></tr></table>';
 
 
 $pdf->writeHTML($html, true, false, true, false, '');
