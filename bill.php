@@ -155,7 +155,7 @@ $pdf->Write('1', 'Виконані роботи: ');
 $pdf->SetFont('dejavusans', '', 10, '', true);
 $pdf->SetXY (20,82);
 
-$html = '<table cellspacing="1" cellpadding="1" width="100%" style="border-collapse: collapse; border: 0px solid black;">
+$html = '<table width="100%" style="border-collapse: collapse; border: 0px solid black;">
 	<tr>
 	    <td style="border: 1px solid black;" width="30"><b>№</b></td>
 	    <td style="border: 1px solid black;" width="500"><b>Найменування робіт</b></td>
@@ -173,18 +173,18 @@ while($task_wrk_lst=mysqli_fetch_array($task_wrk_query)) {
                                 'status'=>$task_wrk_lst['status']);
 $wrk=mysqli_query($db,"select works_groups.name as wgr_name, works_types.name as wrk_name from works_groups,works_types where works_groups.id=(SELECT  group_id FROM `works_types` WHERE id='".$task_wrk['type_id']."') and works_types.id='".$task_wrk['type_id']."'");
 $wrk=mysqli_fetch_array($wrk);
-$html.='<tr><td width="30" align="right">';
+$html.='<tr><td style="border: 1px solid black;" width="30" align="right">';
 $html.=$i;
-$html.='</td><td width="500">';
+$html.='</td><td style="border: 1px solid black;" width="500">';
 $html.=$wrk['wrk_name'];
-$html.='</td><td width="80" align="right">';
+$html.='</td><td style="border: 1px solid black;" width="80" align="right">';
 $html.=$task_wrk_lst['price'];
 $html.='</td></tr>';
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 $i++;
 }
 
-$html.='<tr><td colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr>';
+$html.='<tr><td style="border: 1px solid black;" colspan="2" align="right"><b>Разом</b></td><td align="right">'.$wrk_sum.'</td></tr>';
 $html.='<tr><th colspan="3" style="border: 0px solid black;">Використані матеріали:</th></tr></table>';
 
 
