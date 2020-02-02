@@ -157,9 +157,9 @@ $pdf->SetXY (20,82);
 
 $html = '<table cellspacing="1" cellpadding="1" width="100%" style="border-collapse: collapse; border: 0px solid black;">
 	<tr>
-	    <td width="30"><b>№</b></td>
-	    <td width="500"><b>Найменування робіт</b></td>
-	    <td width="80"><b>Ціна</b></td>
+	    <td style="border: 1px solid black;" width="30"><b>№</b></td>
+	    <td style="border: 1px solid black;" width="500"><b>Найменування робіт</b></td>
+	    <td style="border: 1px solid black;" width="80"><b>Ціна</b></td>
 	</tr>';
 
 
