@@ -114,7 +114,7 @@ $x++;
     <?php if ($prod_lst['currency']!=1) {
 			$currency=mysqli_query($db, "SELECT name,value FROM currency where id='".$prod_lst['currency']."'");
 			$currency=mysqli_fetch_array($currency);
-			echo ("<p title=".round($prod_lst['price_in']*$currency['value'],2).">".round($prod_lst['price_out']*$currency['value'],-1)."</p>");
+			echo ("<p title=".round($prod_lst['price_in']*$currency['value'],2).">".round($prod_lst['price_out']*$currency['value'],-1,PHP_ROUND_UP)."</p>");
 	    } ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
