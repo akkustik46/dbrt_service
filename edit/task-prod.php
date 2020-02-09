@@ -56,7 +56,7 @@ while($prod_lst=mysqli_fetch_array($prod_query)) {
 //$status=mysql_fetch_array($status,MYSQL_ASSOC);
 //    if ($task_wrk['status']==1) {$wrk_chk='checked';} else {$wrk_chk='';}
 //	$uah=($prod_lst['price']*$prod_lst['cur']);
-	echo "<tr><td bgcolor='white'>".$prod_lst['name']."</td><td bgcolor='white'>".$prod_lst['cat']."</td><td bgcolor='white'>".$prod_lst['price']."</td><td bgcolor='white' align=center>".$task_prod['qty']."</td><td bgcolor='white' align=center>".($uah*$task_prod['qty'])."</td>";
+	echo "<tr><td bgcolor='white'>".$prod_lst['name']."</td><td bgcolor='white'>".$prod_lst['cat']."</td><td bgcolor='white'>".$prod_lst['price']."</td><td bgcolor='white' align=center>".$task_prod['qty']."</td><td bgcolor='white' align=center>".($prod_lst['price']*$task_prod['qty'])."</td>";
 $prod_sum=$prod_sum+($prod_lst['price']*$task_prod['qty']);
 }
  ?>
