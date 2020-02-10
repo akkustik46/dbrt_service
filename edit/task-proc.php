@@ -64,7 +64,7 @@ if (isset($_POST['prod'])) {
 	}
     }
 
-mysqli_query($db,"UPDATE tasks SET payment='".($work_sum+$prod_sum)."' where id='".$_POST['task_id']."'");
+mysqli_query($db,"UPDATE tasks SET payment='".($work_sum+$prod_sum+$_POST['prod_sum'])."' where id='".$_POST['task_id']."'");
 echo "UPDATE works SET ";
 echo "Изменено!";
 mysqli_close($db);
