@@ -51,7 +51,11 @@ mysqli_query($db,"UPDATE tasks SET payment='".($_POST['wrk_sum']+$_POST['prod_su
 
 if (isset($_POST['prod'])) {
 	foreach($_POST['prod'] as $key=>$value){
-	mysqli_query($db,"INSERT INTO prod_sale (task,prod,qty,date_sale) VALUES (".$_POST['task_id'].",".$value.",".$_POST['qty'][$key].",now())");
+	$price=mysqli_query($db,"SELECT price_out, currency  from prod_prod where id='".$value."'");
+	$price=mysqli_fetch_array($price);
+	$cur=mysqli_query($db,"SELECT value from currency where id='".$price['currency']."'");
+	$cur=mysqli_fetch_array($cur);
+	mysqli_query($db,"INSERT INTO prod_sale (task,prod,qty,price,date_sale) VALUES (".$_POST['task_id'].",".$value.",".$_POST['qty'][$key].", ".round($price['price_out']*$cur['value'],-1).",now())");
 	}
     }
 
