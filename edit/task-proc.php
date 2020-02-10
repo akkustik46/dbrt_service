@@ -22,17 +22,21 @@ mysqli_query($db,"UPDATE tasks SET tasks.status='".$_POST['status']."', tasks.da
 if ($_POST['status']=='3') {
 		mysqli_query($db,"UPDATE tasks SET tasks.date_end=now() WHERE tasks.id='".$_POST['task_id']."'");
 	}
+$work_sum=0;
 foreach ($_POST['price'] as $key=>$value) {
     if (isset($_POST['wrk'][$key])) {
 			if ($_POST['wrk'][$key]=='on') {$wrk_stat=1;} else {$wrk_stat=0;}
 			mysqli_query($db,"UPDATE works SET price='".$value."', status='".$wrk_stat."' where task_id='".$_POST['task_id']."' AND id='".$key."'");
+			$work_sum=$work_sum+$value;
 			    } else {
 	mysqli_query($db,"UPDATE works SET price='".$value."', status='0' where task_id='".$_POST['task_id']."' AND id='".$key."'");
+	$work_sum=$work_sum+$value;
 	}
     }
 if (isset($_POST['work'])) {
 		foreach($_POST['work'] as $key=>$value){
 				mysqli_query($db,"INSERT INTO works (type_id,task_id,price,status) VALUES ('".$value."','".$_POST['task_id']."','0','0')");
+				$work_sum=$work_sum+$value;
 			}
 	}
 
@@ -47,8 +51,8 @@ if (!isset($exist['valvecount'])) {
 				mysqli_query($db,"UPDATE valve_clearances SET clearance='".$value."', shim_before='".$_POST['shim_before'][$key]."', shim_need='".$_POST['shim_need'][$key]."', shim_installed='".$_POST['shim_installed'][$key]."' WHERE task_id='".$_POST['task_id']."' AND valvenum='".$key."'");
 				}
     }
-mysqli_query($db,"UPDATE tasks SET payment='".($_POST['wrk_sum']+$_POST['prod_sum'])."' where id='".$_POST['task_id']."'");
-
+//mysqli_query($db,"UPDATE tasks SET payment='".($_POST['wrk_sum']+$_POST['prod_sum'])."' where id='".$_POST['task_id']."'");
+$prod_sum=0;
 if (isset($_POST['prod'])) {
 	foreach($_POST['prod'] as $key=>$value){
 	$price=mysqli_query($db,"SELECT price_out, currency  from prod_prod where id='".$value."'");
@@ -56,9 +60,11 @@ if (isset($_POST['prod'])) {
 	$cur=mysqli_query($db,"SELECT value from currency where id='".$price['currency']."'");
 	$cur=mysqli_fetch_array($cur);
 	mysqli_query($db,"INSERT INTO prod_sale (task,prod,qty,price,date_sale) VALUES (".$_POST['task_id'].",".$value.",".$_POST['qty'][$key].", ".round($price['price_out']*$cur['value'],-1).",now())");
+	$prod_sum=$prod_sum+(round($price['price_out']*$cur['value'],-1));
 	}
     }
 
+mysqli_query($db,"UPDATE tasks SET payment='".($work_sum+$prod_sum)."' where id='".$_POST['task_id']."'");
 echo "UPDATE works SET ";
 echo "Изменено!";
 mysqli_close($db);
