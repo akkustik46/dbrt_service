@@ -1,4 +1,6 @@
 <?php 
+print_r($_SESSION);
+
 if (!isset($_SESSION['login'])) {
 header('Refresh: 0; index.php');
 }
