@@ -63,7 +63,7 @@ header( 'Refresh: 3;' );
 else{//пользователь найден
 $_SESSION['login']=$_POST['login'];//устанавливаем login & pass
 $_SESSION['pass']=$_POST['pass'];
-Header("Location: tasks.php");// еренаправляем на protected.php
+Header("Location: https://service.dbrt.com.ua/tasks.php");// еренаправляем на protected.php
 
 }
 
