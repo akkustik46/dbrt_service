@@ -1,8 +1,8 @@
 <?php 
-session_start();
 if (!isset($_SESSION['login'])) {
 header('Refresh: 0; index.php');
 }
+session_start();
 ?>
 <div style="float:left">
 <ul id="nav">

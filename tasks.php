@@ -1,4 +1,5 @@
 <?php
+print_r($_SESSION);
 if (isset($_SESSION['login'])) {
 header('Refresh: 1; location: index.php');
 exit;
