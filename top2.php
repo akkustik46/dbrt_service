@@ -1,6 +1,7 @@
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
 <title>Double Bubbles RT Garage Management</title>
 	<script type="text/javascript" src="/js/jquery-1.11.0.js"></script>
 	<script type="text/javascript" src="/js/addclasskillclass.js"></script>

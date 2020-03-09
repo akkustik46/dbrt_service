@@ -1,8 +1,5 @@
 <?php
-if (isset($_SESSION['login'])) {
-header('Refresh: 1; location: index.php');
-exit;
-}
+include('test-auth.php');
 include('top3.php');
 include('menu.php');
 //$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);

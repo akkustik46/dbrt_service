@@ -1,9 +1,5 @@
 <?php
-if (isset($_SESSION['login'])) {
-header('Refresh: 1; location: index.php');
-exit;
-}
-
+include('test-auth.php');
 include('top3.php');
 include('menu.php');
 if (!isset($_GET['action'])) {$_GET['action']='all';}

@@ -1,11 +1,3 @@
-<?php 
-print_r($_SESSION);
-
-if (!isset($_SESSION['login'])) {
-header('Refresh: 0; index.php');
-}
-session_start();
-?>
 <div style="float:left">
 <ul id="nav">
 <?php
@@ -16,7 +8,6 @@ session_start();
 include('db_conn.php');
 //$dep_lst_query=mysql_query("SELECT * from departments WHERE departments.parent_id='0' ORDER BY departments.dep_name");
 ?>
-
 <li>
 <a href="tasks.php?action=all" class="button1">Замовлення</a>
     <ul>

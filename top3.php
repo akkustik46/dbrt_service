@@ -1,6 +1,7 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="en">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="uk" lang="uk">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
 <title>Double Bubbles RT Garage Management</title>
  <link rel="stylesheet" type="text/css" href="/menu.css">
 <link rel='stylesheet' href='classes.css' type='text/css'>

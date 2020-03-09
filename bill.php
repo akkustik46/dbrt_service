@@ -1,4 +1,5 @@
 <?php
+include('test-auth.php');
 include('top2.php');
 require('config.php');
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);

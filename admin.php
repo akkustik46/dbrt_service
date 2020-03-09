@@ -1,9 +1,5 @@
 <?php
-if (isset($_SESSION['login'])) {
-header('Refresh: 3; location: index.php');
-exit;
-}
-
+include('test-auth.php');
 include('top.php');
 include('menu.php');
 
