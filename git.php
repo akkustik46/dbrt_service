@@ -20,8 +20,8 @@ else {
     exit;
 }
 */
- $dir = '~/dbrt.com.ua/service';
-//exec("cd ~ && ssh-keygen -t rsa -N \"\"", $output);
-exec("cd ~/.ssh/ && cat id_rsa.pub", $output);
+ $dir = '/usr/www/users/dbrtac/';
+exec("cd ~ && ssh-keygen -t rsa -N \"\"", $output);
+//exec("cd ~/.ssh/ && cat id_rsa.pub", $output);
 print_r($output);
 ?>

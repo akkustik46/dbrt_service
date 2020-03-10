@@ -9,6 +9,5 @@
 	<script type="text/javascript" src="/js/addcss.js"></script>
 	<script type="text/javascript" src="/js/tabtastic.js"></script>
 	<script src="/js/my.script.js"></script>
-<?php /*	<script type="text/javascript" src="/js/dynamicadd.js"></script> */ ?>
  </head>
 <body background="/images/linen.jpg">
