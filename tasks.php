@@ -3,7 +3,6 @@ include('test-auth.php');
 if (!isset($_GET['action'])) { $_GET['action']='all'; }
 include('top3.php');
 include('menu.php');
-//include('db_conn.php');
 switch ($_GET['action']) {
     case 'archive':
     $tasks_query=mysqli_query($db,"SELECT * FROM tasks where status=4");

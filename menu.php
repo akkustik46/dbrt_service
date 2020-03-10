@@ -1,10 +1,6 @@
 <div style="float:left">
 <ul id="nav">
 <?php
- /*
-<li><a href="zayavki.php">Заявки</a></li>
-*/ ?>
-<?php
 include('db_conn.php');
 //$dep_lst_query=mysql_query("SELECT * from departments WHERE departments.parent_id='0' ORDER BY departments.dep_name");
 ?>
