@@ -8,7 +8,7 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <br>
 <br>
 <?php 
-if ($_SESSION['login']=='admin') {
+if ($_SESSION['username']=='admin') {
  echo "<p style=\"margin-left: 50px\">".
 "<a href='add/prod-add-new.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddProd', 'location=no,width=470,height=300,top=200,left=60'); popupWin.focus(); return false;\">Добавить товар</a>".
 "<a href='add/prod-sale.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'SaleProd', 'location=no,width=500,height=400,top=150,left=460'); popupWin.focus(); return false;\" style=padding-left:10px;>Продажа</a>".
@@ -107,11 +107,11 @@ $x++;
     <?php echo ($prod_lst['name']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
-    <?php if ($prod_lst['currency']!=1) {
-			$currency=mysqli_query($db, "SELECT name,value FROM currency where id='".$prod_lst['currency']."'");
-			$currency=mysqli_fetch_array($currency);
-			echo ("<p title=".round($prod_lst['price_in']*$currency['value'],2).">".round($prod_lst['price_out']*$currency['value'],-1)."</p>");
-	    } ?>
+    <?php 
+	$currency=mysqli_query($db, "SELECT name,value FROM currency where id='".$prod_lst['currency']."'");
+	$currency=mysqli_fetch_array($currency);
+	echo ("<p title=".round($prod_lst['price_in']*$currency['value'],2).">".round($prod_lst['price_out']*$currency['value'],-1)."</p>");
+	?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
     <?php echo ($prod_lst['units']); ?>
