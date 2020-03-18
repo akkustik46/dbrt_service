@@ -8,12 +8,12 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <br>
 <br>
 <?php 
-if ($_SESSION['login']=='admin') {
+
  echo "<p style=\"margin-left: 50px\">".
 "<a href='add/w_group.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddWorksGroup', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;\">Добавить группу </a>".
 "<a href='add/works.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddWorks', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;\"> Добавить работы</a>".
 "</p>";
-    }
+
 ?>
 <p>
 
