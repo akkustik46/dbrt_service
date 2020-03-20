@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 include('../top2.php');
-require('../config.php');
-$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysqli_select_db($db,DB_SERVER_DATABASE);
-mysqli_query($db,"SET NAMES 'utf8'");
+require('../db_conn.php');
+//$db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
+//mysqli_select_db($db,DB_SERVER_DATABASE);
+//mysqli_query($db,"SET NAMES 'utf8'");
 
 mysqli_query($db,"INSERT INTO tasks (date_create, comment, client, bike, mileage, status) VALUES (now(),'".$_POST['comment']."','".$_POST['cl_id']."','".$_POST['bike_id']."','".$_POST['mileage']."','".$_POST['status']."')");
 //print_r($result);
