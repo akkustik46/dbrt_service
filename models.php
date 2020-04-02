@@ -8,7 +8,7 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <br>
 <br>
 <?php 
-if ($_SESSION['login']=='admin') {
+if ($_SESSION['username']=='admin') {
  echo "<p style=\"margin-left: 50px\">".
 "<a href='add/model.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddModel', 'width=470,height=380,top=200,left=60'); popupWin.focus(); return false;\"><img src=\"img/add.svg\" width=30px height=30px></a>".
 "</p>";
