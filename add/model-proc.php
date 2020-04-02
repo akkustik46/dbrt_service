@@ -22,7 +22,7 @@ if ($mnf_cnt==0) {
 			$mnf=mysqli_fetch_array($mnf);
 			mysqli_query($db,"INSERT INTO models (models.model, model.modification, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders,
 			models.valves_per_cyl, models.eng_type)
-			VALUES ('".$_POST['model']."', ". $_POST['modification']."', '".$_POST['eng']."', '".$mnf['id']."','".$_POST['year_begin']."',
+			VALUES ('".$_POST['model']."', '". $_POST['modification']."', '".$_POST['eng']."', '".$mnf['id']."','".$_POST['year_begin']."',
 			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['cyl']."', '".$_POST['valve']."', '".$_POST['eng_type']."')");
 
 			//printf(mysqli_error($db));
