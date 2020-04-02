@@ -9,9 +9,9 @@ $mnf_cnt=mysqli_num_rows(mysqli_query($db,"SELECT id FROM mnf WHERE mnf_name='".
 echo $mnf_cnt;
 if ($mnf_cnt==0) {
 			mysqli_query($db,"INSERT INTO mnf (mnf.mnf_name) VALUES ('".$_POST['mnf']."')");
-			mysqli_query($db,"INSERT INTO models (models.model, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders, 
+			mysqli_query($db,"INSERT INTO models (models.model, model.modification, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders, 
 			models.valves_per_cyl, models.eng_type) 
-			VALUES ('".$_POST['model']."', '".$_POST['eng']."', '".mysqli_insert_id($db)."','".$_POST['year_begin']."',
+			VALUES ('".$_POST['model']."', '". $_POST['modification']."', '".$_POST['eng']."', '".mysqli_insert_id($db)."','".$_POST['year_begin']."',
 			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['cyl']."', '".$_POST['valve']."', '".$_POST['eng_type']."')");
 			mysqli_query($db,"INSERT INTO tech_data (tech_data.model_id, tech_data.valve_in, tech_data.valve_ex, tech_data.fork_oil_cap, tech_data.fork_oil_level, tech_data.fork_oil_type) 
 			VALUES (
@@ -20,9 +20,9 @@ if ($mnf_cnt==0) {
 			    } else {
 			$mnf=mysqli_query($db,"SELECT id FROM mnf WHERE mnf_name='".$_POST['mnf']."'");
 			$mnf=mysqli_fetch_array($mnf);
-			mysqli_query($db,"INSERT INTO models (models.model, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders,
+			mysqli_query($db,"INSERT INTO models (models.model, model.modification, models.capacity, models.mnf_id, models.year_begin, models.year_end, models.comment, models.cylinders,
 			models.valves_per_cyl, models.eng_type)
-			VALUES ('".$_POST['model']."', '".$_POST['eng']."', '".$mnf['id']."','".$_POST['year_begin']."',
+			VALUES ('".$_POST['model']."', ". $_POST['modification']."', '".$_POST['eng']."', '".$mnf['id']."','".$_POST['year_begin']."',
 			'".$_POST['year_end']."', '".$_POST['comment']."', '".$_POST['cyl']."', '".$_POST['valve']."', '".$_POST['eng_type']."')");
 
 			//printf(mysqli_error($db));
@@ -31,7 +31,7 @@ if ($mnf_cnt==0) {
 			VALUES ('".$model_id."','".$_POST['valve_in']."', '".$_POST['valve_ex']."', '".$_POST['fork_cap']."', '".$_POST['fork_lev']."', '".$_POST['fork_oil_type']."')");
 			//printf(mysqli_error($db));
 			}
-echo "Добавлен!";
+echo "Додано!";
 mysqli_close($db);
 include('../footer.php');
 
