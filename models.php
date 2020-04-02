@@ -68,12 +68,13 @@ if ($_SESSION['username']=='admin') {
 </tr>
 <?php
 //$models_lst_query=mysqli_query($db, "SELECT * from models ORDER BY models.model asc");
-$models_lst_query=mysqli_query($db, "SELECT m.id, m.model, m.capacity, m.year_begin, m.year_end, m.comment, m.cylinders, m.valves_per_cyl, m.eng_type, mn.mnf_name from models m inner join mnf mn on m.mnf_id=mn.id ORDER by mn.mnf_name ASC");
+$models_lst_query=mysqli_query($db, "SELECT m.id, m.model, m.modification, m.capacity, m.year_begin, m.year_end, m.comment, m.cylinders, m.valves_per_cyl, m.eng_type, mn.mnf_name from models m inner join mnf mn on m.mnf_id=mn.id ORDER by mn.mnf_name ASC");
 	
 $x=1;
 while ($models_lst = mysqli_fetch_array($models_lst_query)) {
       $models_lst_array[] = array('id' => $models_lst['id'],
 				'model' => $models_lst['model'],
+				'modification' => $models_lst['modification'],
 				'capacity' => $models_lst['capacity'],
 				'mnf_name' => $models_lst['mnf_name'],
 				'year_begin' => $models_lst['year_begin'],
@@ -105,7 +106,7 @@ $tech_data=mysqli_fetch_array($tech_data);
     <?php echo ($models_lst['mnf_name']); ?>
     </td>
     <td align=center bgcolor=<?php echo $bg; ?>>
-    <?php echo ($models_lst['model'].' '.$models_lst['capacity']); ?>
+    <?php echo ($models_lst['model'].' '.$models_lst['capacity'].' '.$models_lst['modification']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
     <?php echo ($models_lst['year_begin'].'-'.$models_lst['year_end']); ?>
