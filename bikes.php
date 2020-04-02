@@ -66,14 +66,14 @@ $x++;
     <?php echo ($bike_lst['id']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?>>
-    <?php $model=mysqli_query($db,"SELECT model,mnf_id, capacity from models where models.id='".$bike_lst['model']."'");
+    <?php $model=mysqli_query($db,"SELECT model,modification,mnf_id, capacity from models where models.id='".$bike_lst['model']."'");
 	    $model=mysqli_fetch_array($model);
 	    $mnf=mysqli_query($db,"SELECT mnf_name from mnf where mnf.id='".$model['mnf_id']."'");
 	    $mnf=mysqli_fetch_array($mnf);
 	    echo ($mnf['mnf_name']);?>
     </td>
     <td align=center bgcolor=<?php echo $bg; ?>>
-    <?php echo ($model['model']. ' '.$model['capacity']); ?>
+    <?php echo ($model['model']. ' '.$model['capacity'].' '.$model['modification']); ?>
     </td>
     <td bgcolor=<?php echo $bg; ?> align=right>
     <?php echo ($bike_lst['year']); ?>
