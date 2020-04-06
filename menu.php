@@ -18,7 +18,6 @@ include('db_conn.php');
 	<li><a href="bikes.php" class="button1">Мотоцикли</a></li>
 	<li><a href="models.php" class="button1">Моделі</a></li>
 	<li><a href="works.php" class="button1">Види робіт</a></li>
-	<li><a href="issues.php" class="button1">Відомі проблеми</a></li>
     </ul>
 </li>
 <?php
