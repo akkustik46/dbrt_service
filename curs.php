@@ -2,7 +2,7 @@
 
 require('config.php');
 $db=mysqli_connect(DB_SERVER, DB_SERVER_USERNAME, DB_SERVER_PASSWORD);
-mysqli_select_db($db,'dbrt_shamans');
+mysqli_select_db($db,'shamans');
 mysqli_query($db,"SET NAMES 'utf8'");
 
 $json=file_get_contents('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11');
