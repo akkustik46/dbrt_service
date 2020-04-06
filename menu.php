@@ -1,34 +1,25 @@
-<?php 
-session_start();
-if (!isset($_SESSION['login'])) {
-header('Refresh: 0; index.php');
-}
-?>
 <div style="float:left">
 <ul id="nav">
-<?php /*
-<li><a href="zayavki.php">Заявки</a></li>
-*/ ?>
 <?php
 include('db_conn.php');
 //$dep_lst_query=mysql_query("SELECT * from departments WHERE departments.parent_id='0' ORDER BY departments.dep_name");
-
 ?>
 <li>
-<a href="tasks.php?action=all" class="button1">Заказы</a>
-<ul>
-<li><a href="tasks.php?action=archive" class="button1">Архив</a></li>
-</ul>
+<a href="tasks.php?action=all" class="button1">Замовлення</a>
+    <ul>
+	<li><a href="tasks.php?action=archive" class="button1">Архів</a></li>
+    </ul>
 </li>
 <li>
-<a href="" class="button1">Справочник</a>
-<ul>
-<li><a href="clients.php" class="button1">Клиенты</a></li>
-<li><a href="bikes.php" class="button1">Мотоциклы</a></li>
-<li><a href="models.php" class="button1">Модели</a></li>
-<li><a href="works.php" class="button1">Работы</a></li>
-<?php /*<li><a href="issues.php" class="button1">Извесные проблемы</a></li>*/ ?>
-</ul>
+
+<a href="" class="button1">База</a>
+    <ul>
+	<li><a href="clients.php" class="button1">Клієнти</a></li>
+	<li><a href="bikes.php" class="button1">Мотоцикли</a></li>
+	<li><a href="models.php" class="button1">Моделі</a></li>
+	<li><a href="works.php" class="button1">Види робіт</a></li>
+	<li><a href="issues.php" class="button1">Відомі проблеми</a></li>
+    </ul>
 </li>
 <?php
 /*    $user_query=mysqli_query($db,"select position, restricted_parts from users where users.name='".$_SESSION['login']."'");
@@ -37,16 +28,7 @@ include('db_conn.php');
 		<a href='sb_send.php' class='button1'>Send to Eval</a>
 		<ul>
 		</ul>
-		</li>";}
-
-
-<li>
-<a href="prod.php" class="button1">Склад</a>
-<ul>
-<li><a href="sales.php" class="button1">Продажи за период</a></li>
-</ul>
-</li>
-*/
+		</li>";}*/
 ?>
 
 <li>
