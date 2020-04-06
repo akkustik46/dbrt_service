@@ -71,7 +71,7 @@ $x++;
 ?>
 </table>
 <div>
-<div style="position:fixed;margin-left:220px;margin-top:-155px">
+<div style="position:fixed;margin-left:220px;margin-top:0px">
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
     <tr>
     <td align=center bgcolor=#acacff>
