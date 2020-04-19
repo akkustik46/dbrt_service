@@ -35,6 +35,7 @@ while ($model_lst = mysqli_fetch_array($model_lst_query)) {
       $model_lst_array[] = array('id' => $model_lst['id'],
                                  'model' => $model_lst['model'],
 				 'capacity' => $model_lst['capacity'],
+				 'modification' => $model_lst['modification'],
 				 'year_begin' => $model_lst['year_begin'],
 				 'year_end' => $model_lst['year_end']);
 
