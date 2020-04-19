@@ -40,7 +40,7 @@ while ($model_lst = mysqli_fetch_array($model_lst_query)) {
 				 'year_end' => $model_lst['year_end']);
 
 ?>
-<option value="<?php echo ($model_lst['id']); ?>"> <?php echo ($model_lst['model'].$model_lst['capacity'].$model_lst['modification']' '.$model_lst['year_begin'].'-'.$model_lst['year_end']); ?> </option>
+<option value="<?php echo ($model_lst['id']); ?>"> <?php echo ($model_lst['model'].$model_lst['capacity'].$model_lst['modification'].' '.$model_lst['year_begin'].'-'.$model_lst['year_end']); ?> </option>
 <?php
 }
 ?>
