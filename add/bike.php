@@ -13,7 +13,7 @@ mysqli_query($db,"SET NAMES 'utf8'");
 <tr><td>Марка</td><td>
 <?php $mnf_lst_query=mysqli_query($db,"SELECT * FROM mnf ORDER BY mnf.mnf_name");
 ?>
-<select name="mnf" size=1>
+<select name="mnf" id="mnf" size=1>
 <?php
 while ($mnf_lst = mysqli_fetch_array($mnf_lst_query)) {
       $mnf_lst_array[] = array('id' => $mnf_lst['id'],
@@ -29,7 +29,7 @@ while ($mnf_lst = mysqli_fetch_array($mnf_lst_query)) {
 <tr><td>Модель</td><td>
 <?php $model_lst_query=mysqli_query($db,"SELECT * FROM models ORDER BY models.model");
 ?>
-<select name="model" size=1>
+<select name="model" id="model" size=1>
 <?php
 while ($model_lst = mysqli_fetch_array($model_lst_query)) {
       $model_lst_array[] = array('id' => $model_lst['id'],
@@ -37,10 +37,12 @@ while ($model_lst = mysqli_fetch_array($model_lst_query)) {
 				 'capacity' => $model_lst['capacity'],
 				 'modification' => $model_lst['modification'],
 				 'year_begin' => $model_lst['year_begin'],
-				 'year_end' => $model_lst['year_end']);
+				 'year_end' => $model_lst['year_end'],
+				 'mnf_id' => $model_lst['mnf_id']);
 
 ?>
-<option value="<?php echo ($model_lst['id']); ?>"> <?php echo ($model_lst['model'].$model_lst['capacity'].$model_lst['modification'].' '.$model_lst['year_begin'].'-'.$model_lst['year_end']); ?> </option>
+<option value="<?php echo ($model_lst['id']); ?>" data-chained="<?php echo ($model_lst['mnf_id']); ?>"> <?php echo ($model_lst['model'].$model_lst['capacity'].$model_lst['modification'].' '.$model_lst['year_begin'].'-'.$model_lst['year_end']); ?> </option> 
+
 <?php
 }
 ?>
@@ -70,6 +72,7 @@ while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
 <tr><td colspan="2"><center><input type="submit" value="Добавить"></center></td></tr>
 </table>
 </form>
+
 <?php
 include('../footer.php');
 ?>
