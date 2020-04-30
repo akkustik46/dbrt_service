@@ -42,28 +42,28 @@ if ($_SESSION['username']=='admin') {
     <?php echo ('Модель'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Годы выпуска'); ?>
+    <?php echo ('Роки випуску'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Зазоры клапанов'); ?>
+    <?php echo ('Зазори клапанів'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Количество масла в вилке'); ?>
+    <?php echo ('Об\'єм масла у вилці'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Уровень масла в вилке'); ?>
+    <?php echo ('Рівень масла у вилці'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Тип масла в вилке'); ?>
+    <?php echo ('Тип масла у вилці'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Цилиндров'); ?>
+    <?php echo ('Циліндрів'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Клапанов на цилиндр'); ?>
+    <?php echo ('Клапанів на циліндр'); ?>
     </td>
     <td align=center bgcolor=#acacff>
-    <?php echo ('Коментарий'); ?>
+    <?php echo ('Коментар'); ?>
     </td>
 </tr>
 <?php
