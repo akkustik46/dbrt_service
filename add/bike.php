@@ -8,7 +8,7 @@ mysqli_query($db,"SET NAMES 'utf8'");
 
 ?>
 <form action="bike-proc.php" method="post">
-Добавить мотоцикл<br>
+Додати мотоцикл<br>
 <table border=0>
 <tr><td>Марка</td><td>
 <?php $mnf_lst_query=mysqli_query($db,"SELECT * FROM mnf ORDER BY mnf.mnf_name");
@@ -47,7 +47,7 @@ while ($model_lst = mysqli_fetch_array($model_lst_query)) {
 }
 ?>
 </select></td></tr>
-<tr><td>Владелец</td><td>
+<tr><td>Власник</td><td>
 <?php $owner_lst_query=mysqli_query($db,"SELECT * FROM clients ORDER BY clients.username");
 ?>
 <select name="owner" size=1>
@@ -64,10 +64,11 @@ while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
 </select></td></tr>
 
 
-<tr><td>Год выпуска</td><td><input type="text" name="year" size="5" value=""></td></tr>
-<tr><td>Пробег</td><td><input type="text" name="mileage" size="7" value="">km<input type="radio" name="mikm" value="0">mi<input type="radio" name="mikm" value="1"></td></tr>
+<tr><td>Рік випуску</td><td><input type="text" name="year" size="5" value=""></td></tr>
+<tr><td>Пробіг</td><td><input type="text" name="mileage" size="7" value="">km<input type="radio" name="mikm" value="0">mi<input type="radio" name="mikm" value="1"></td></tr>
 <tr><td>VIN</td><td><input type="text" name="vin" size="19" value=""></td></tr>
-<tr><td colspan="2">Коментарий:</td></tr>
+<tr><td>ДНЗ</td><td><input type="text" name="license_plate" size="8" value=""></td></tr>
+<tr><td colspan="2">Коментар:</td></tr>
 <tr><td colspan="2"><textarea name="comment" cols="50" rows="5"></textarea></td></tr>
 <tr><td colspan="2"><center><input type="submit" value="Добавить"></center></td></tr>
 </table>

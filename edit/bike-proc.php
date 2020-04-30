@@ -14,7 +14,7 @@ foreach ($changes as $key => $value) {
 	mysqli_query($db,"INSERT INTO bike_action (bike, old, new, type, mileage, date_change) VALUES ('".$_POST['id']."', '".$_SESSION['bike'][$key]."', '".$_POST[$key]."', '".$act_id['id']."', '".$_POST['mileage']."', now())");
     }
 
-echo "Изменено!";
+echo "Змінено!";
 mysqli_close($db);
 include('../footer.php');
 ?>

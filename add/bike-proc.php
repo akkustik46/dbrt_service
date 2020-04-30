@@ -6,12 +6,12 @@ require('../db_conn.php');
 ///mysqli_select_db($db,DB_SERVER_DATABASE);
 ///mysqli_query($db,"SET NAMES 'utf8'");
 
-mysqli_query($db,"INSERT INTO bike (model, year, owner, mileage, mi_km, mileage_lastchg, status, vin, comment, created,mileage_last) 
+mysqli_query($db,"INSERT INTO bike (model, year, owner, mileage, mi_km, mileage_lastchg, status, vin, license_plate, comment, created,mileage_last) 
 	    VALUES ('".$_POST['model']."', '".$_POST['year']."', '".$_POST['owner']."', '".$_POST['mileage']."', '".$_POST['mikm']."',
-	    now(), '5', '".$_POST['vin']."', '".$_POST['comment']."', now(), '".$_POST['mileage']."')");
+	    now(), '5', '".$_POST['vin']."', '".$_POST['license_plate']."', '".$_POST['comment']."', now(), '".$_POST['mileage']."')");
 
 
-echo "Добавлен!";
+echo "Додано!";
 mysqli_close($db);
 include('../footer.php');
 

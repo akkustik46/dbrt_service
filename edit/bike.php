@@ -10,7 +10,7 @@ mysqli_query($db,"SET NAMES 'utf8'");
 
 ?>
 <form action="bike-proc.php" method="post">
-Редактировать мотоцикл<br>
+Редагувати мотоцикл<br>
 <input type="hidden" name="id" value="<?php echo($_GET['id']); ?>">
 <table border=0>
 <tr><td>Марка</td><td>
@@ -28,7 +28,7 @@ $model_lst=mysqli_fetch_array($model_lst_query);
 echo $model_lst['model']." ".$model_lst['capacity'];
 ?>
 </td></tr>
-<tr><td>Владелец</td><td>
+<tr><td>Власник</td><td>
 <?php $owner_lst_query=mysqli_query($db,"SELECT * FROM clients ORDER BY clients.username");
 ?>
 <select name="owner" size=1>
@@ -47,8 +47,8 @@ while ($owner_lst = mysqli_fetch_array($owner_lst_query)) {
 </select></td></tr>
 
 
-<tr><td>Год выпуска</td><td><input type="text" name="year" size="5" value="<?php echo $bike['year']; ?>"></td></tr>
-<tr><td>Пробег</td><td><input type="text" name="mileage" size="7" value="<?php echo $bike['mileage_last']; ?>">
+<tr><td>Рік випуску</td><td><input type="text" name="year" size="5" value="<?php echo $bike['year']; ?>"></td></tr>
+<tr><td>Пробіг</td><td><input type="text" name="mileage" size="7" value="<?php echo $bike['mileage_last']; ?>">
 <?php
 if ($bike['mi_km']==0) {
 			echo "km<input type=\"radio\" name=\"mikm\" value=\"0\" checked>mi<input type=\"radio\" name=\"mikm\" value=\"1\">";
@@ -59,7 +59,7 @@ if ($bike['mi_km']==0) {
 </td></tr>
 <tr><td>VIN</td><td><input type="text" name="vin" size="19" value="<?php echo $bike['vin']; ?>"></td></tr>
 <tr><td>ДНЗ</td><td><input type="text" name="license_plate" size="8" value="<?php echo $bike['license_plate']; ?>"></td></tr>
-<tr><td colspan="2">Коментарий:</td></tr>
+<tr><td colspan="2">Коментар:</td></tr>
 <tr><td colspan="2"><textarea name="comment" cols="50" rows="5"><?php echo $bike['comment']; ?></textarea></td></tr>
 <tr><td colspan="2"><center><input type="submit" value="Сохранить"></center></td></tr>
 </table>
