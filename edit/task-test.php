@@ -36,7 +36,8 @@ echo "newitem+=\"<option value='".$wrk_lst['id']."'>".$wrk_lst['name']."</option
 ?>
 <table cellspacing="1" cellpadding="2" border="0" bgcolor="black">
 <tr>
-<td bgcolor='white'>Роботи</td><td bgcolor='white'>Тип</td><td bgcolor='white'>Ціна</td><td bgcolor='white'>Виконано</td>
+<td bgcolor='white'>Роботи</td><td bgcolor='white'>Тип</td><td bgcolor='white'>Ціна</td><td bgcolor='white'>Виконано</td><td bgcolor='white'></td>
+    
 </tr>
 <?php
 $task_wrk_query=mysqli_query($db,"SELECT * from works WHERE task_id='".$_GET['id']."'"); 
@@ -51,11 +52,12 @@ $wrk=mysqli_fetch_array($wrk);
 //$status=mysql_query("SELECT status_name from status WHERE id='".$task_wrk['status']."'");
 //$status=mysql_fetch_array($status,MYSQL_ASSOC);
     if ($task_wrk['status']==1) {$wrk_chk='checked';} else {$wrk_chk='';}
-	echo "<tr><td bgcolor='white'>".$wrk['wrk_name']."</td><td bgcolor='white'>".$wrk['wgr_name']."</td><td bgcolor='white'><input type=text size=4 name=price[".$task_wrk['id']."] value=".$task_wrk['price']."></input></td><td bgcolor='white' align=center><input type='checkbox' ".$wrk_chk." name='wrk[".$task_wrk['id']."]'></input></td>";
+	echo "<tr><td bgcolor='white'>".$wrk['wrk_name']."</td><td bgcolor='white'>".$wrk['wgr_name']."</td><td bgcolor='white'><input type=text size=4 name=price[".$task_wrk['id']."] value=".$task_wrk['price']."></input></td><td bgcolor='white' align=center><input type='checkbox' ".$wrk_chk." name='wrk[".$task_wrk['id']."]'></input></td><td bgcolor='white'><img style=\"cursor:pointer;\" src='/images/delete.png'  onClick=\"popupWin = window.open('task-wrk-del.php?id=".$task_wrk['id']."', '', 'location,width=1,height=1,top=0'); popupWin.focus(); return false;\"></td>";
 $wrk_sum=$wrk_sum+$task_wrk_lst['price'];
 }
  ?>
-<tr><td bgcolor='white'><b>Разом за роботи</b></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $wrk_sum; ?></b></td><td bgcolor='white'></td></tr>
+<tr><td bgcolor='white'><b>Разом за роботи</b></td><td bgcolor='white'></td><td bgcolor='white'><b><?php echo $wrk_sum; ?></b></td><td bgcolor='white'></td>
+    </tr>
 <input type=hidden name='wrk_sum' value=<?php echo $wrk_sum; ?>>
 </table>
 <div ID="wrk">
