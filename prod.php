@@ -10,8 +10,8 @@ if (!isset($_GET['action'])) {$_GET['action']='all';}
 <?php 
 if ($_SESSION['username']=='admin') {
  echo "<p style=\"margin-left: 50px\">".
-"<a href='add/prod-add-new.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddProd', 'location=no,width=470,height=300,top=200,left=60'); popupWin.focus(); return false;\">Добавить товар</a>".
-"<a href='add/prod-sale.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'SaleProd', 'location=no,width=500,height=400,top=150,left=460'); popupWin.focus(); return false;\" style=padding-left:10px;>Продажа</a>".
+"<a href='add/prod-add-new.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'AddProd', 'location=no,width=470,height=300,top=200,left=60'); popupWin.focus(); return false;\">Додати товар</a>".
+"<a href='add/prod-sale.php' target='_blank' onClick=\"popupWin = window.open(this.href, 'SaleProd', 'location=no,width=500,height=400,top=150,left=460'); popupWin.focus(); return false;\" style=padding-left:10px;>Продаж</a>".
 "</p>";
     }
 ?>
